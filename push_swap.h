@@ -6,7 +6,7 @@
 /*   By: adesille <adesille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/17 15:28:12 by isb3              #+#    #+#             */
-/*   Updated: 2024/02/09 13:05:41 by adesille         ###   ########.fr       */
+/*   Updated: 2024/02/09 13:35:22 by adesille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,6 +77,13 @@ char	**ft_split(char *s, char c);
 void	push_swap(t_stack_a *stack_a, t_stack_b *stack_b);
 void    five_sorter_stack_a(t_stack_a *stack_a, t_stack_b *stack_b);
 void    five_sorter_stack_b(t_stack_a *stack_a, t_stack_b *stack_b);
+
+void    scen_minus1toptop(t_stack_a *stack_a, t_stack_b *stack_b);
+void    scen_minus1toptopminus1(t_stack_a *stack_a, t_stack_b *stack_b);
+void    scen_bottbott(t_stack_a *stack_a, t_stack_b *stack_b);
+void    scen_bottplusbottplus(t_stack_a *stack_a, t_stack_b *stack_b);
+
+void    inside_stacks_sorting(t_stack_a *stack_a, t_stack_b *stack_b, int a_pos, int b_pos);
 
 // ////// algo_utils //////
 int 	ruler(t_stack_a *stack_a, t_stack_b *stack_b, int stack);
