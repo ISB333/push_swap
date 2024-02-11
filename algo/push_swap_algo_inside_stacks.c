@@ -6,7 +6,7 @@
 /*   By: isb3 <isb3@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/09 09:21:59 by adesille          #+#    #+#             */
-/*   Updated: 2024/02/11 11:17:39 by isb3             ###   ########.fr       */
+/*   Updated: 2024/02/11 16:11:08 by isb3             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ void    downside_elevator(t_stack_a *stack_a, t_stack_b *stack_b, int a_cost, in
 	rollback_cost = b_cost;
 	if(a_cost > 0 && b_cost > 0)
 	{
+		printf("AAAHHHAAAAAAAAAHAHAHAHHAHAHAHAHA");
 		while (a_cost-- > 0 || b_cost-- > 0)
 			rrr(stack_a, stack_b);
 	}
@@ -39,7 +40,7 @@ void    downside_elevator(t_stack_a *stack_a, t_stack_b *stack_b, int a_cost, in
 	pb(stack_a, stack_b);
 	while (rollback_cost-- > 0)
 		rb(stack_b);
-	// printf("\nDOWNSIDE ELEVATOR\n");
+	printf("\nDOWNSIDE ELEVATOR\n");
 }
 
 void    upside_elevator(t_stack_a *stack_a, t_stack_b *stack_b, int a_cost, int b_cost)
@@ -52,6 +53,9 @@ void    upside_elevator(t_stack_a *stack_a, t_stack_b *stack_b, int a_cost, int 
 		while (a_cost-- > 0 || b_cost-- > 0)
 			rr(stack_a, stack_b);
 	}
+	printf("\n============================================================================\n");
+	printer(stack_a, stack_b);
+	printf("============================================================================\n");
 	while (a_cost-- > 0)
 		ra(stack_a);
 	while (b_cost-- > 0)
@@ -59,7 +63,7 @@ void    upside_elevator(t_stack_a *stack_a, t_stack_b *stack_b, int a_cost, int 
 	pb(stack_a, stack_b);
 	while (rollback_cost-- > 0)
 		rrb(stack_b);
-	// printf("\nUPSIDE ELEVATOR\n");
+	printf("\nUPSIDE ELEVATOR\n");
 }
 
 void    crossed_elevator_ud(t_stack_a *stack_a, t_stack_b *stack_b, int a_cost, int b_cost)
@@ -78,7 +82,7 @@ void    crossed_elevator_ud(t_stack_a *stack_a, t_stack_b *stack_b, int a_cost, 
 	pb(stack_a, stack_b);
 	while (rollback_cost-- > 0)
 		rrb(stack_b);
-	// printf("\nCROSSED ELEVATOR   UD\n");
+	printf("\nCROSSED ELEVATOR   UD\n");
 }
 
 void    crossed_elevator_du(t_stack_a *stack_a, t_stack_b *stack_b, int a_cost, int b_cost)
@@ -93,7 +97,7 @@ void    crossed_elevator_du(t_stack_a *stack_a, t_stack_b *stack_b, int a_cost, 
 	pb(stack_a, stack_b);
 	while (rollback_cost-- > 0)
 		rrb(stack_b);
-	// printf("\nCROSSED ELEVATOR   DU\n");
+	printf("\nCROSSED ELEVATOR   DU\n");
 }
 
 void    inside_stacks_sorting(t_stack_a *stack_a, t_stack_b *stack_b, int a_pos, int b_pos)
