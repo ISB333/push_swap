@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init_list.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: isb3 <isb3@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: adesille <adesille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/09 11:40:28 by adesille          #+#    #+#             */
-/*   Updated: 2024/02/11 15:50:18 by isb3             ###   ########.fr       */
+/*   Updated: 2024/02/12 12:13:19 by adesille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,9 +57,10 @@ void	stack_printer_a(t_stack_a *stack)
 	current = stack->head;
 	while (current)
 	{
-		printf("Val:    %d\nPos: %d\n", current->value, current->position);
-		printf("\033[0;32m");
-		printf("a_cost: %d\n", current->cost);
+		// printf("Val:    %d\nPos: %d\n", current->value, current->position);
+		// printf("\033[0;32m");
+		// printf("a_cost: %d\n", current->cost);
+        printf("%d\n", current->value);
 		current = current->next;
 		printf("\033[0;37m");
 	}

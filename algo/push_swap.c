@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: isb3 <isb3@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: adesille <adesille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/06 09:59:56 by adesille          #+#    #+#             */
-/*   Updated: 2024/02/11 16:14:39 by isb3             ###   ########.fr       */
+/*   Updated: 2024/02/12 12:13:39 by adesille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,9 +51,9 @@ void	sorting_algo(t_stack_a *stack_a, t_stack_b *stack_b, int a_pos, int b_top)
 	while (stack_a_tail->prev && stack_a_tail->position != a_pos)
 		stack_a_tail = stack_a_tail->prev;
 	b_pos = b_pos_finder(stack_a_tail->value, stack_b);
-	printf("\n============================================================================\n");
-	printf("a_pos = %d\nb_pos = %d\n", a_pos, b_pos);
-	printf("============================================================================\n");
+	// printf("\n============================================================================\n");
+	// printf("a_pos = %d\nb_pos = %d\n", a_pos, b_pos);
+	// printf("============================================================================\n");
 	if (a_pos == a_top && b_pos == b_top)
 	{
 		pb(stack_a, stack_b);
@@ -71,7 +71,7 @@ void	sorting_algo(t_stack_a *stack_a, t_stack_b *stack_b, int a_pos, int b_top)
 		scen_bottbott(stack_a, stack_b);
 	else if (a_pos == 2 && b_pos == 2)
 	{
-        printf("a_pos = %d\nb_pos = %d\n", a_pos, b_pos);
+        // printf("a_pos = %d\nb_pos = %d\n", a_pos, b_pos);
 		scen_bottplusbottplus(stack_a, stack_b);
 	}
 	else
@@ -101,32 +101,32 @@ void    push_swap(t_stack_a *stack_a, t_stack_b *stack_b)
         //////////////////////////////////////////////////////////////////////////////////
                                 /// THE SHIT IS INSIDE THIS ///
         //////////////////////////////////////////////////////////////////////////////////
-		while(ruler(stack_a, stack_b, 'A') > 7)
+		while(ruler(stack_a, stack_b, 'A') > 3)
 		{
 			cost_initializer(stack_a, stack_b);
 			a_cheapest_pos = cheapest_pos_finder(stack_a, stack_b);
        		// printf("\n============================================================================\n");
 			// printf("a_cheapest_pos = %d\n", a_cheapest_pos);
 			sorting_algo(stack_a, stack_b, a_cheapest_pos, ruler(stack_a, stack_b, 'B'));
-			printer(stack_a, stack_b);
-        	printf("\n============================================================================\n");
-        	printf("============================================================================\n");
-        	printf("============================================================================\n");
+			// printer(stack_a, stack_b);
+        	// printf("\n============================================================================\n");
+        	// printf("============================================================================\n");
+        	// printf("============================================================================\n");
 		}
         //////////////////////////////////////////////////////////////////////////////////
 
-        // cost_initializer(stack_a, stack_b);
-		// three_sorter_stack_a(stack_a);
-        // // printf("\n============================================================================\n");
-		// while(ruler(stack_a, stack_b, 'A') > 0)
-		// {
-		// 	cost_initializer(stack_a, stack_b);
-		// 	a_cheapest_pos = cheapest_pos_finder(stack_a, stack_b);
-		// 	sorting_algo(stack_a, stack_b, a_cheapest_pos, ruler(stack_a, stack_b, 'B'));
-        // }
-		// while(ruler(stack_a, stack_b, 'B') > 0)
-        //     pa(stack_a, stack_b);
-		// stack_printer_a(stack_a);
+        cost_initializer(stack_a, stack_b);
+		three_sorter_stack_a(stack_a);
+        // printf("\n============================================================================\n");
+		while(ruler(stack_a, stack_b, 'A') > 0)
+		{
+			cost_initializer(stack_a, stack_b);
+			a_cheapest_pos = cheapest_pos_finder(stack_a, stack_b);
+			sorting_algo(stack_a, stack_b, a_cheapest_pos, ruler(stack_a, stack_b, 'B'));
+        }
+		while(ruler(stack_a, stack_b, 'B') > 0)
+            pa(stack_a, stack_b);
 		// printer(stack_a, stack_b);
+        stack_printer_a(stack_a);
 	}
 }

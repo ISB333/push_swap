@@ -3,17 +3,17 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: isb3 <isb3@student.42.fr>                  +#+  +:+       +#+         #
+#    By: adesille <adesille@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/02/08 13:22:58 by adesille          #+#    #+#              #
-#    Updated: 2024/02/11 10:40:10 by isb3             ###   ########.fr        #
+#    Updated: 2024/02/12 11:38:55 by adesille         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 ######################## ARGUMENTS ########################
 
 NAME = push_swap
-CFLAGS += -Wall -Wextra -Werror -Ialgo -Iinit -Iprotect -g3
+CFLAGS += -Wall -Wextra -Werror -Ialgo -Iinit -Iprotect
 CC = cc
 
 ######################## SOURCES ########################
