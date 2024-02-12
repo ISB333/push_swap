@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap_utils.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: isb3 <isb3@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: adesille <adesille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/26 13:10:58 by adesille          #+#    #+#             */
-/*   Updated: 2024/02/11 15:56:27 by isb3             ###   ########.fr       */
+/*   Updated: 2024/02/12 13:43:48 by adesille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,30 +83,4 @@ void	cost_initializer(t_stack_a *stack_a, t_stack_b *stack_b)
 		stack_b_head->cost = ruler(stack_a, stack_b, 'B') - stack_b_head->position;
 		stack_b_head = stack_b_head->next;
 	}
-}
-
-int	cheapest_pos_finder(t_stack_a *stack_a, t_stack_b *stack_b)
-{
-	t_data	*stack_a_tail;
-	int		b_cost;
-	int		cheapest_cost;
-	int		a_cheapest_pos;
-	int		abs_dif;
-	
-	stack_a_tail = stack_a->tail;
-	cheapest_cost = 2147483647;
-	while (stack_a_tail->prev)
-	{
-		b_cost = b_pos_finder(stack_a_tail->value, stack_b);
-		abs_dif = abs_diff(stack_a_tail->cost, b_cost) + b_cost;
-		// printf("abs_diff+b_cost = %d\n", abs_diff(stack_a_tail->cost, b_cost) + b_cost);
-		if (abs_dif < cheapest_cost)
-		{
-			// printf("abs_diff = %d\nabs_diff+b_cost = %d\n", abs_diff(stack_a_tail->cost, b_cost), abs_diff(stack_a_tail->cost, b_cost) + b_cost);
-			cheapest_cost = abs_diff(stack_a_tail->cost, b_cost) + b_cost;
-			a_cheapest_pos = stack_a_tail->position;
-		}
-		stack_a_tail = stack_a_tail->prev;
-	}
-	return (a_cheapest_pos);
 }
