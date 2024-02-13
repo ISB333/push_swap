@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: checkin <checkin@student.42.fr>            +#+  +:+       +#+        */
+/*   By: adesille <adesille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/17 15:28:12 by isb3              #+#    #+#             */
-/*   Updated: 2024/02/13 12:37:06 by checkin          ###   ########.fr       */
+/*   Updated: 2024/02/13 13:59:57 by adesille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,7 +93,7 @@ int		cheapest_pos_finder(t_stack_a *stack_a, t_stack_b *stack_b);
 int		b_pos_finder(int stack_a_value, t_stack_b *stack_b);
 void    printer(t_stack_a *stack_a, t_stack_b *stack_b);
 
-void	*ft_calloc(size_t nmemb, size_t size);
+int	*ft_calloc(size_t size);
 
 void	three_sorter_stack_a(t_stack_a *stack_a);
 void	three_sorter_stack_b(t_stack_b *stack_a);
