@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: checkin <checkin@student.42.fr>            +#+  +:+       +#+         #
+#    By: adesille <adesille@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/02/08 13:22:58 by adesille          #+#    #+#              #
-#    Updated: 2024/02/13 12:56:14 by checkin          ###   ########.fr        #
+#    Updated: 2024/02/14 10:30:30 by adesille         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,7 +19,8 @@ CC = cc
 ######################## SOURCES ########################
 
 SRCS = main.c
-ALGO = ./algo/push_swap.c ./algo/push_swap_utils.c ./algo/push_swap_utils2.c ./algo/three_sorter.c \
+ALGO = ./algo/push_swap.c ./algo/push_swap_utils.c ./algo/push_swap_utils2.c \
+		./algo/push_swap_utils3.c ./algo/three_sorter.c \
 		./algo/sorter_stack_a_five.c ./algo/sorter_stack_b_five.c 
 
 OPE = ./algo/ope/push.c ./algo/ope/reverse_rotate.c \

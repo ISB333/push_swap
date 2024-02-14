@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   reverse_rotate.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: isb3 <isb3@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: adesille <adesille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/17 15:30:34 by isb3              #+#    #+#             */
-/*   Updated: 2024/02/11 11:46:06 by isb3             ###   ########.fr       */
+/*   Updated: 2024/02/14 13:53:29 by adesille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,6 @@ void	do_rra(t_stack_a *stack)
 	penultimate_node = stack->tail->prev;
 	
 	last_node->prev = first_node->prev;
-	penultimate_node->next = last_node->next;
 	last_node->next = first_node;
 	first_node->prev = last_node;
 	
