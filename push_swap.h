@@ -6,7 +6,7 @@
 /*   By: adesille <adesille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/17 15:28:12 by isb3              #+#    #+#             */
-/*   Updated: 2024/02/14 13:47:28 by adesille         ###   ########.fr       */
+/*   Updated: 2024/02/14 14:34:51 by adesille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,31 +79,25 @@ void	push_swap(t_stack_a *stack_a, t_stack_b *stack_b);
 void    five_sorter_stack_a(t_stack_a *stack_a, t_stack_b *stack_b);
 void    five_sorter_stack_b(t_stack_a *stack_a, t_stack_b *stack_b);
 
-void    scen_minus1toptop(t_stack_a *stack_a, t_stack_b *stack_b);
-void    scen_minus1toptopminus1(t_stack_a *stack_a, t_stack_b *stack_b);
-void    scen_bottbott(t_stack_a *stack_a, t_stack_b *stack_b);
-void    scen_bottplusbottplus(t_stack_a *stack_a, t_stack_b *stack_b);
 
-void    inside_stacks_sorting(t_stack_a *stack_a, t_stack_b *stack_b, int a_pos, int b_pos);
 
 // ////// algo_utils //////
 int 	ruler(t_stack_a *stack_a, t_stack_b *stack_b, int stack);
 int		abs_diff(int a, int b);
 void	cost_initializer(t_stack_a *stack_a, t_stack_b *stack_b);
-int		cheapest_pos_finder(t_stack_a *stack_a, t_stack_b *stack_b);
 int		b_pos_finder(int stack_a_value, t_stack_b *stack_b);
 void    printer(t_stack_a *stack_a, t_stack_b *stack_b);
 
 int	    *ft_calloc(size_t size);
 int     *n_smallest_finder(t_stack_a *stack_a, int n);
 
-void    extractor_utils(t_stack_a *stack_a, t_stack_b *stack_b, int n, int *lowest_values, int side);
+void    extractor_utils(t_stack_a *stack_a, t_stack_b *stack_b, int n, int *lowest_values);
 int     n_selector(t_stack_a *stack_a, t_stack_b *stack_b);
 char    side_chooser(int *lowest_values, t_stack_a *stack_a, int mid, int up, int low);
 
 void	three_sorter_stack_a(t_stack_a *stack_a);
 void	three_sorter_stack_b(t_stack_b *stack_a);
-void	thee_sorter_utils_stack_a(t_stack_a	*stack_a, int scenario);
+void	three_sorter_utils_stack_a(t_stack_a	*stack_a, int scenario);
 int		scenario_finder(t_data *stack);
 
 /// operations ///  
