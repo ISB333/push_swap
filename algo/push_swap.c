@@ -6,7 +6,7 @@
 /*   By: adesille <adesille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/06 09:59:56 by adesille          #+#    #+#             */
-/*   Updated: 2024/02/14 13:50:53 by adesille         ###   ########.fr       */
+/*   Updated: 2024/02/14 14:29:17 by adesille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ void	n_smallest_extractor(t_stack_a *stack_a, t_stack_b *stack_b, int n)
 	side = side_chooser(lowest_values, stack_a, ruler(stack_a, stack_b, 'A') / 2, up, low);
 	while (lowest_values[++i])
 		printf("value n%d = %d\n", i, lowest_values[i]);
-	extractor_utils(stack_a, stack_b, n, lowest_values, side);
+	extractor_utils(stack_a, stack_b, n, lowest_values, 'U');
 	printer(stack_a, stack_b);
 }
 

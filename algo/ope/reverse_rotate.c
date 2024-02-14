@@ -6,7 +6,7 @@
 /*   By: adesille <adesille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/17 15:30:34 by isb3              #+#    #+#             */
-/*   Updated: 2024/02/14 13:53:29 by adesille         ###   ########.fr       */
+/*   Updated: 2024/02/14 14:29:51 by adesille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ void	do_rra(t_stack_a *stack)
 	penultimate_node = stack->tail->prev;
 	
 	last_node->prev = first_node->prev;
+	penultimate_node->next = last_node->next;
 	last_node->next = first_node;
 	first_node->prev = last_node;
 	
