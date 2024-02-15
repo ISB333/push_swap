@@ -6,7 +6,7 @@
 /*   By: adesille <adesille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/14 10:29:19 by adesille          #+#    #+#             */
-/*   Updated: 2024/02/14 14:34:38 by adesille         ###   ########.fr       */
+/*   Updated: 2024/02/15 11:26:01 by adesille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,31 +71,3 @@ void    extractor_utils(t_stack_a *stack_a, t_stack_b *stack_b, int n, int *lowe
         ra(stack_a);
     }
 }
-
-// void    extractor_utils_w_side(t_stack_a *stack_a, t_stack_b *stack_b, int n, int *lowest_values, int side)
-// {
-// 	t_data	*stack_a_tmp;
-// 	int i;
-
-// 	i = -1;
-// 	if (side == 'U')
-// 		while (n > 0)
-// 		{
-// 			stack_a_tmp = stack_a->tail;
-// 			i = -1;
-// 			while (lowest_values[++i])
-// 				if (stack_a_tmp->value == lowest_values[i] && n-- > 0)
-// 					pb(stack_a, stack_b);
-// 			ra(stack_a);
-// 		}
-// 	else
-// 		while (n > 0)
-// 		{
-// 			stack_a_tmp = stack_a->tail;
-// 			i = -1;
-// 			while (lowest_values[++i])
-// 				if (stack_a_tmp->value == lowest_values[i] && n-- > 0)
-// 					pb(stack_a, stack_b);
-// 			rra(stack_a);
-// 		}
-// }
