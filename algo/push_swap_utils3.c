@@ -6,7 +6,7 @@
 /*   By: adesille <adesille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/14 10:29:19 by adesille          #+#    #+#             */
-/*   Updated: 2024/02/15 11:26:01 by adesille         ###   ########.fr       */
+/*   Updated: 2024/02/15 13:30:49 by adesille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,13 +18,15 @@ int	n_selector(t_stack_a *stack_a, t_stack_b *stack_b)
 
 	a_size = ruler(stack_a, stack_b, 'A');
 	if (a_size <= 20)
-		return (a_size / 2);
+		return (4);
 	else if (a_size <= 60)
-		return (a_size / 4);
+		return (10);
 	else if (a_size <= 100)
-		return (a_size / 5);
+		return (20);
+	else if (a_size <= 250)
+		return (40);
 	else if (a_size <= 500)
-		return (a_size / 10);
+		return (50);
 	return (0);
 }
 
