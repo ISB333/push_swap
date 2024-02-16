@@ -6,14 +6,14 @@
 #    By: adesille <adesille@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/02/08 13:22:58 by adesille          #+#    #+#              #
-#    Updated: 2024/02/15 13:23:29 by adesille         ###   ########.fr        #
+#    Updated: 2024/02/16 10:36:29 by adesille         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 ######################## ARGUMENTS ########################
 
 NAME = push_swap
-CFLAGS += -Wall -Wextra -Werror -Ialgo -Iinit -Iprotect -g3
+CFLAGS += -Wall -Wextra -Werror -Ialgo -Iinit -Iprotect -g3 
 CC = cc
 
 ######################## SOURCES ########################

@@ -6,7 +6,7 @@
 /*   By: adesille <adesille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/26 13:10:58 by adesille          #+#    #+#             */
-/*   Updated: 2024/02/12 13:43:48 by adesille         ###   ########.fr       */
+/*   Updated: 2024/02/16 09:28:04 by adesille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,31 +56,31 @@ void    printer(t_stack_a *stack_a, t_stack_b *stack_b)
 		stack_printer_b(stack_b);
 }
 
-void	cost_initializer(t_stack_a *stack_a, t_stack_b *stack_b)
-{
-	t_data *stack_a_head;
-	t_data *stack_b_head;
+// void	cost_initializer(t_stack_a *stack_a, t_stack_b *stack_b)
+// {
+// 	t_data *stack_a_head;
+// 	t_data *stack_b_head;
 
-	stack_a_head = stack_a->head;
-	stack_b_head = stack_b->head;
-	while (stack_a_head->position <= (ruler(stack_a, stack_b, 'A') / 2))
-	{
-		stack_a_head->cost = stack_a_head->position;
-		stack_a_head = stack_a_head->next;
-	}
-	while (stack_a_head && stack_a_head->position <= ruler(stack_a, stack_b, 'A'))
-	{
-		stack_a_head->cost = ruler(stack_a, stack_b, 'A') - stack_a_head->position;
-		stack_a_head = stack_a_head->next;
-	}
-	while (stack_b_head->position <= (ruler(stack_a, stack_b, 'B') / 2))
-	{
-		stack_b_head->cost = stack_b_head->position;
-		stack_b_head = stack_b_head->next;
-	}
-	while (stack_b_head && stack_b_head->position <= ruler(stack_a, stack_b, 'B'))
-	{
-		stack_b_head->cost = ruler(stack_a, stack_b, 'B') - stack_b_head->position;
-		stack_b_head = stack_b_head->next;
-	}
-}
+// 	stack_a_head = stack_a->head;
+// 	stack_b_head = stack_b->head;
+// 	while (stack_a_head->position <= (ruler(stack_a, stack_b, 'A') / 2))
+// 	{
+// 		stack_a_head->cost = stack_a_head->position;
+// 		stack_a_head = stack_a_head->next;
+// 	}
+// 	while (stack_a_head && stack_a_head->position <= ruler(stack_a, stack_b, 'A'))
+// 	{
+// 		stack_a_head->cost = ruler(stack_a, stack_b, 'A') - stack_a_head->position;
+// 		stack_a_head = stack_a_head->next;
+// 	}
+// 	while (stack_b_head->position <= (ruler(stack_a, stack_b, 'B') / 2))
+// 	{
+// 		stack_b_head->cost = stack_b_head->position;
+// 		stack_b_head = stack_b_head->next;
+// 	}
+// 	while (stack_b_head && stack_b_head->position <= ruler(stack_a, stack_b, 'B'))
+// 	{
+// 		stack_b_head->cost = ruler(stack_a, stack_b, 'B') - stack_b_head->position;
+// 		stack_b_head = stack_b_head->next;
+// 	}
+// }

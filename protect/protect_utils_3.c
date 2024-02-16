@@ -6,7 +6,7 @@
 /*   By: adesille <adesille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/25 16:13:15 by adesille          #+#    #+#             */
-/*   Updated: 2024/02/09 11:45:13 by adesille         ###   ########.fr       */
+/*   Updated: 2024/02/16 09:54:01 by adesille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ char	**ft_cut(char **array, char *s, char c, size_t i)
 			array[j] = ft_substr(s, k, i - k);
 			if (!array[j])
 			{
-				freememory(array, j);
+				freememory(array);
 				return (NULL);
 			}
 			j++;

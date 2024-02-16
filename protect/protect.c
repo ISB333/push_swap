@@ -6,7 +6,7 @@
 /*   By: adesille <adesille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/17 11:54:15 by adesille          #+#    #+#             */
-/*   Updated: 2024/02/09 13:06:08 by adesille         ###   ########.fr       */
+/*   Updated: 2024/02/16 11:19:15 by adesille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,14 @@ int	overflow_checker(char **after_itoa, char **initial_array)
 	{
 		sec = ft_strcmp(initial_array[i], after_itoa[i]);
 		if (sec != 0)
+        {
+            freememory(after_itoa);
+            freememory(initial_array);
 			return (-1);
+        }
 	}
+    // freememory(after_itoa);
+    // freememory(initial_array);
 	return (0);
 }
 

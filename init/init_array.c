@@ -6,7 +6,7 @@
 /*   By: adesille <adesille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/09 11:36:46 by adesille          #+#    #+#             */
-/*   Updated: 2024/02/09 11:39:41 by adesille         ###   ########.fr       */
+/*   Updated: 2024/02/16 11:53:58 by adesille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,9 @@ char	*argv_join(char *str1, char *str2)
 	k = 0;
 	str = malloc(ft_strlen(str1) + ft_strlen(str2) + 1);
 	if (!str)
+    {
 		return (NULL);
+    }
 	if (str1 != NULL)
 	{
 		while (str1[i])

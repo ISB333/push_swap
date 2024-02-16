@@ -6,7 +6,7 @@
 /*   By: adesille <adesille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/09 11:40:28 by adesille          #+#    #+#             */
-/*   Updated: 2024/02/12 13:34:10 by adesille         ###   ########.fr       */
+/*   Updated: 2024/02/16 11:28:13 by adesille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ void	initialize_stacks(int *array, t_stack_a *stack_a, t_stack_b *stack_b)
 	i = 0;
 	while (array[i])
 		add_node (stack_a, array[i++]);
+    free(array);
 }
 
 void	add_node(t_stack_a *stack, int value)
@@ -57,9 +58,9 @@ void	stack_printer_a(t_stack_a *stack)
 	current = stack->head;
 	while (current)
 	{
-		printf("Val:    %d\nPos: %d\n", current->value, current->position);
+		printf("Val:    %d\n", current->value);
 		printf("\033[0;32m");
-		printf("a_cost: %d\n", current->cost);
+		printf("Pos: %d\n", current->position);
 		current = current->next;
 		printf("\033[0;37m");
 	}
@@ -72,9 +73,9 @@ void	stack_printer_b(t_stack_b *stack)
 	current = stack->head;
 	while (current)
 	{
-		printf("Val:    %d\nPos: %d\n", current->value, current->position);
+		printf("Val:    %d\n", current->value);
 		printf("\033[0;32m");
-		printf("b_cost: %d\n", current->cost);
+		printf("Pos: %d\n", current->position);
 		current = current->next;
 		printf("\033[0;37m");
 	}

@@ -6,7 +6,7 @@
 /*   By: adesille <adesille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/17 15:28:12 by isb3              #+#    #+#             */
-/*   Updated: 2024/02/15 10:06:59 by adesille         ###   ########.fr       */
+/*   Updated: 2024/02/16 11:26:14 by adesille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,6 @@ typedef struct s_data
 {
 	int				value;
 	int				position;
-	int				cost;
 	struct s_data	*prev;
 	struct s_data	*next;
 }				t_data;
@@ -66,7 +65,9 @@ int		digit_counter(int n);
 char	*ft_itoa(int n);
 
 char	*ft_substr(char *s, unsigned int start, size_t len);
-void	freememory(char **array, size_t j);
+void	freememory(char **array);
+void    free_intmemory(int *array);
+void    lst_freememory(t_stack_a *stack_a, t_stack_b *stack_b);
 char	*ft_strdup(char *s);
 size_t	ft_strlcpy(char *dst, char *src, size_t size);
 

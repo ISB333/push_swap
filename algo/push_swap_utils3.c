@@ -6,7 +6,7 @@
 /*   By: adesille <adesille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/14 10:29:19 by adesille          #+#    #+#             */
-/*   Updated: 2024/02/15 13:30:49 by adesille         ###   ########.fr       */
+/*   Updated: 2024/02/16 11:56:40 by adesille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@ int	n_selector(t_stack_a *stack_a, t_stack_b *stack_b)
 	a_size = ruler(stack_a, stack_b, 'A');
 	if (a_size <= 20)
 		return (4);
+	else if (a_size <= 40)
+		return (6);
 	else if (a_size <= 60)
 		return (10);
 	else if (a_size <= 100)
@@ -60,16 +62,23 @@ char    side_chooser(int *lowest_values, t_stack_a *stack_a, int mid, int up, in
 void    extractor_utils(t_stack_a *stack_a, t_stack_b *stack_b, int n, int *lowest_values)
 {
 	t_data	*stack_a_tmp;
+	t_data	*stack_b_tmp;
 	int i;
 
 	i = -1;
-    while (n > 0)
-    {
-        stack_a_tmp = stack_a->tail;
-        i = -1;
-        while (lowest_values[++i])
-            if (stack_a_tmp->value == lowest_values[i] && n-- > 0)
-                pb(stack_a, stack_b);
-        ra(stack_a);
-    }
+	while(lowest_values[++i])
+		printf("%d\n", lowest_values[i]);
+	printf("------------------------------\n");
+	stack_b_tmp = stack_b->tail;
+	while (n > 0)
+	{
+		stack_a_tmp = stack_a->tail;
+		i = -1;
+		while (lowest_values[++i])
+			if (stack_a_tmp->value == lowest_values[i] && n-- > 0)
+            {
+				pb(stack_a, stack_b);
+            }
+		ra(stack_a);
+	}
 }

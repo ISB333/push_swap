@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: checkin <checkin@student.42.fr>            +#+  +:+       +#+        */
+/*   By: adesille <adesille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/08 17:29:02 by adesille          #+#    #+#             */
-/*   Updated: 2024/02/13 12:52:05 by checkin          ###   ########.fr       */
+/*   Updated: 2024/02/16 11:54:18 by adesille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,10 +28,7 @@ int	main(int argc, char *argv[])
 		if (array == 0)
 			return (printf("error"), 0);
 		initialize_stacks(array, &stack_a, &stack_b); 
-		// ptr_check(&stack_a, &stack_b);
-		// ope_check(&stack_a, &stack_b);
-
-		// printf("AAAAAAAAAAAAAAAAAAAAAA");
+        // lst_freememory(&stack_a, &stack_b);
 		/// ALGO ///
 		push_swap(&stack_a, &stack_b);
 	}
