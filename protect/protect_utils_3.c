@@ -6,7 +6,7 @@
 /*   By: adesille <adesille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/25 16:13:15 by adesille          #+#    #+#             */
-/*   Updated: 2024/02/16 09:54:01 by adesille         ###   ########.fr       */
+/*   Updated: 2024/02/16 15:21:56 by adesille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,14 +16,17 @@ int	ft_strcmp(char *str1, char *str2)
 {
 	size_t	i;
 
-	i = 0;
+    i = 0;
 	if (!str1 || !str2)
 		return (0);
 	while (str1[i])
 	{
 		if (str1[i] != str2[i])
+        {
+            printf("%s\n%s\n", str1, str2);
 			return ((unsigned char)str1[i] - (unsigned char)str2[i]);
-		i++;
+        }
+        i++;
 	}
 	return (0);
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   protect_utils_1.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: isb3 <isb3@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: adesille <adesille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/25 16:08:46 by adesille          #+#    #+#             */
-/*   Updated: 2024/02/02 06:22:37 by isb3             ###   ########.fr       */
+/*   Updated: 2024/02/16 15:36:03 by adesille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ int	digit_counter(int n)
 	if (temp_n < 0)
 	{
 		temp_n *= -1;
-		count ++;
+		count++;
 	}
 	while (temp_n > 0)
 	{

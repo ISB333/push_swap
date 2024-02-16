@@ -6,7 +6,7 @@
 /*   By: adesille <adesille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/09 11:36:46 by adesille          #+#    #+#             */
-/*   Updated: 2024/02/16 11:53:58 by adesille         ###   ########.fr       */
+/*   Updated: 2024/02/16 15:35:12 by adesille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -117,6 +117,10 @@ int	*initializer(char *argv[])
 		str = argv_join(str, argv[i++]);
 	i = 0;
 	array = int_array_init(str);
+    // while(array[i])
+    // {
+    //     printf("%d\n", array[i++]);
+    // }
 	i = overflow_protector(array, argv);
 	if (i != 0)
 		return ((int *)0);

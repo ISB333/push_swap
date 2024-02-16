@@ -6,7 +6,7 @@
 /*   By: adesille <adesille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/17 11:54:15 by adesille          #+#    #+#             */
-/*   Updated: 2024/02/16 11:19:15 by adesille         ###   ########.fr       */
+/*   Updated: 2024/02/16 15:40:19 by adesille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,9 @@ int	overflow_checker(char **after_itoa, char **initial_array)
 		sec = ft_strcmp(initial_array[i], after_itoa[i]);
 		if (sec != 0)
         {
-            freememory(after_itoa);
-            freememory(initial_array);
+            // freememory(after_itoa);
+            // freememory(initial_array);
+            printf("AAAAAAAAAAAAAAAAAAAAa\n");
 			return (-1);
         }
 	}
@@ -36,16 +37,17 @@ int	overflow_checker(char **after_itoa, char **initial_array)
 int	overflow_protector(int *int_array, char *argv[])
 {
 	char	**after_itoa;
-	char	**initial_array;
+	// char	**initial_array;
 	int		i;
 	int		k;
-	int		secu;
+	// int		secu;
 
 	i = 0;
 	k = 0;
 	while (int_array[i])
 		i++;
-	after_itoa = malloc(i * sizeof(char *));
+    argv[5] ="51352";
+	after_itoa = malloc(i + 1 * sizeof(char *));
 	if (!after_itoa)
 		return (0);
 	while (i-- > 0)
@@ -54,10 +56,16 @@ int	overflow_protector(int *int_array, char *argv[])
 		k++;
 	}
 	after_itoa[k] = NULL;
-	initial_array = argv_init(argv);
-	secu = overflow_checker(after_itoa, initial_array);
-	if (secu != 0)
-		return (-1);
+	// initial_array = argv_init(argv);
+    k = 0;
+    // while(after_itoa[k])
+    // {
+    //     printf("%s\n%s\n", after_itoa[k], initial_array[k]);
+    //     k++;
+    // }
+	// secu = overflow_checker(after_itoa, initial_array);
+	// if (secu != 0)
+		// return (-1);
 	return (0);
 }
 
