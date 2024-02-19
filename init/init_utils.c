@@ -6,7 +6,7 @@
 /*   By: adesille <adesille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/25 16:24:08 by adesille          #+#    #+#             */
-/*   Updated: 2024/02/09 11:44:28 by adesille         ###   ########.fr       */
+/*   Updated: 2024/02/19 14:30:50 by adesille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,5 +48,5 @@ int	ft_strlen(char *str)
 		return (0);
 	while (str[len])
 		len++;
-	return (++len);
+	return (len);
 }

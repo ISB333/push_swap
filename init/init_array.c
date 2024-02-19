@@ -6,7 +6,7 @@
 /*   By: adesille <adesille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/09 11:36:46 by adesille          #+#    #+#             */
-/*   Updated: 2024/02/16 15:35:12 by adesille         ###   ########.fr       */
+/*   Updated: 2024/02/19 14:58:38 by adesille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ int	ft_count_words(char	*str, char c)
 		while (str[i] && str[i] != c)
 			i++;
 	}
+    // printf("str = %s\nrows = %d\n", str, rows);
 	return (rows);
 }
 
@@ -47,18 +48,28 @@ int	*ft_atoi_n_split(int *array, char *str)
 		while (((str[i] >= '0' && str[i] <= '9')
 				|| str[i] == '-') && str[i] != ' ')
 		{
-			if (str[i] == '-')
-			{
+			if (str[i] == '-' && i++ > 0)
 				sign = -1;
-				i++;
-			}
 			while (str[i] >= '0' && str[i] <= '9')
 				n = (n * 10) + (str[i++] - '0');
 			array[++rows] = n * sign;
 		}
 		i++;
 	}
-	return (free(str), array);
+    array[++rows] = 0;
+	return (array);
+}
+
+int	*int_array_init(char *str)
+{
+	int	*array;
+	int	rows;
+
+	rows = ft_count_words(str, ' ');
+	array = (int *)malloc((rows + 1) * sizeof(int));
+	if (!array)
+		return (NULL);
+	return (ft_atoi_n_split(array, str));
 }
 
 char	*argv_join(char *str1, char *str2)
@@ -69,11 +80,10 @@ char	*argv_join(char *str1, char *str2)
 
 	i = 0;
 	k = 0;
-	str = malloc(ft_strlen(str1) + ft_strlen(str2) + 1);
+	str = malloc(ft_strlen(str1) + ft_strlen(str2) + 2);
+	// printf("len1 = %d\nlen2 = %d\n", ft_strlen(str1), ft_strlen(str2));
 	if (!str)
-    {
 		return (NULL);
-    }
 	if (str1 != NULL)
 	{
 		while (str1[i])
@@ -86,26 +96,14 @@ char	*argv_join(char *str1, char *str2)
 		str[i++] = str2[k++];
 	str[i] = ' ';
 	str[++i] = '\0';
-	return (str);
-}
-
-int	*int_array_init(char *str)
-{
-	int	*array;
-	int	rows;
-
-	rows = ft_count_words(str, ' ') + 1;
-	array = malloc(rows * sizeof(int));
-	if (!array)
-		return (NULL);
-	return (ft_atoi_n_split(array, str));
+	return (free(str1), str);
 }
 
 int	*initializer(char *argv[])
 {
 	char	*str;
 	int		*array;
-	int		sec;
+	int		sec = 0;
 	int		i;
 
 	sec = security_check(argv);
@@ -114,14 +112,10 @@ int	*initializer(char *argv[])
 	str = NULL;
 	i = 1;
 	while (argv[i])
-		str = argv_join(str, argv[i++]);
-	i = 0;
+        str = argv_join(str, argv[i++]);
 	array = int_array_init(str);
-    // while(array[i])
-    // {
-    //     printf("%d\n", array[i++]);
-    // }
-	i = overflow_protector(array, argv);
+	// i = overflow_protector(array, argv, i); //////// SHIT IS HERE
+    free(str);
 	if (i != 0)
 		return ((int *)0);
 	else

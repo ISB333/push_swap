@@ -6,7 +6,7 @@
 /*   By: adesille <adesille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/17 11:54:15 by adesille          #+#    #+#             */
-/*   Updated: 2024/02/16 15:40:19 by adesille         ###   ########.fr       */
+/*   Updated: 2024/02/19 14:58:57 by adesille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,51 +34,49 @@ int	overflow_checker(char **after_itoa, char **initial_array)
 	return (0);
 }
 
-int	overflow_protector(int *int_array, char *argv[])
+char	**argv_init(char *argv[])
+{
+	char	*str;
+	int		i;
+
+	i = 0;
+	str = NULL;
+	while (argv[++i])
+		str = argv_join(str, argv[i]);
+	return (ft_split(str, ' '));
+}
+
+int	overflow_protector(int *int_array, char *argv[], int len)
 {
 	char	**after_itoa;
 	// char	**initial_array;
-	int		i;
 	int		k;
 	// int		secu;
 
-	i = 0;
 	k = 0;
-	while (int_array[i])
-		i++;
-    argv[5] ="51352";
-	after_itoa = malloc(i + 1 * sizeof(char *));
+    argv[0] = "6512";
+	after_itoa = (char **)malloc(len + 1 * sizeof(char *));
 	if (!after_itoa)
 		return (0);
-	while (i-- > 0)
+	while (len-- > 0)
 	{
 		after_itoa[k] = ft_itoa(int_array[k]);
 		k++;
 	}
 	after_itoa[k] = NULL;
 	// initial_array = argv_init(argv);
-    k = 0;
-    // while(after_itoa[k])
-    // {
+    // k = 0;
+    while(after_itoa[k])
+    {
     //     printf("%s\n%s\n", after_itoa[k], initial_array[k]);
-    //     k++;
-    // }
+        free(after_itoa[k]);
+    //     free(initial_array[k]);
+        k++;
+    }
 	// secu = overflow_checker(after_itoa, initial_array);
 	// if (secu != 0)
-		// return (-1);
-	return (0);
-}
-
-char	**argv_init(char *argv[])
-{
-	char	*str;
-	int		i;
-
-	i = 1;
-	str = NULL;
-	while (argv[i])
-		str = argv_join(str, argv[i++]);
-	return (ft_split(str, ' '));
+	// 	return (-1);
+	return (free(after_itoa), 0);
 }
 
 void	ptr_check(t_stack_a *stack_a, t_stack_b *stack_b)
