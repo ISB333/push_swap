@@ -6,7 +6,7 @@
 /*   By: adesille <adesille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/09 11:40:28 by adesille          #+#    #+#             */
-/*   Updated: 2024/02/16 11:28:13 by adesille         ###   ########.fr       */
+/*   Updated: 2024/02/20 13:27:49 by adesille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void	initialize_stacks(int *array, t_stack_a *stack_a, t_stack_b *stack_b)
 	i = 0;
 	while (array[i])
 		add_node (stack_a, array[i++]);
-    free(array);
+	free(array);
 }
 
 void	add_node(t_stack_a *stack, int value)

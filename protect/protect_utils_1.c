@@ -6,69 +6,84 @@
 /*   By: adesille <adesille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/25 16:08:46 by adesille          #+#    #+#             */
-/*   Updated: 2024/02/19 13:03:38 by adesille         ###   ########.fr       */
+/*   Updated: 2024/02/20 13:22:51 by adesille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-char	*ft_putnbr(int n, int digit_nbr)
+static size_t	digitcount(int n)
 {
-	char	*str_nbr;
-	int		len;
-	int		token;
+	size_t	digitlen;
+	int		temp;
 
-	token = 0;
-	len = digit_nbr;
-	str_nbr = malloc(digit_nbr + 1);
-	if (!str_nbr)
-		return (NULL);
-	if (n < 0)
+	temp = n;
+	digitlen = 1;
+	if (temp < 0)
+		temp = -temp;
+	while (temp >= 10)
 	{
-		n *= -1;
-		token = 1;
+		temp /= 10;
+		digitlen++;
 	}
-	while (digit_nbr > 0)
-	{
-		str_nbr[--digit_nbr] = n % 10 + '0';
-		n /= 10;
-	}
-	if (token == 1)
-		str_nbr[0] = '-';
-	str_nbr[len] = '\0';
-	return (str_nbr);
+	return (digitlen);
 }
 
-int	digit_counter(int n)
+static char	*ft_putnbr_pos(int n, int digitlen)
 {
-	int	count;
-	int	temp_n;
+	int		end;
+	int		trueend;
+	char	*numbers;
 
-	temp_n = n;
-	count = 0;
-	if (temp_n < 0)
+	numbers = malloc(digitlen + 1);
+	if (numbers == NULL)
+		return (NULL);
+	end = digitlen - 1;
+	trueend = digitlen;
+	while (end >= 0)
 	{
-		temp_n *= -1;
-		count++;
+		numbers[end] = n % 10 + '0';
+		n /= 10;
+		end--;
 	}
-	while (temp_n > 0)
+	numbers[trueend] = '\0';
+	return (numbers);
+}
+
+static char	*ft_putnbr_neg(int n, int digitlen)
+{
+	int		end;
+	int		trueend;
+	char	*numbers;
+
+	numbers = malloc(digitlen + 1);
+	if (numbers == NULL)
+		return (NULL);
+	end = digitlen - 1;
+	trueend = digitlen;
+	numbers[0] = '-';
+	n = -n;
+	while (end > 0)
 	{
-		temp_n /= 10;
-		count++;
+		numbers[end] = n % 10 + '0';
+		n /= 10;
+		end--;
 	}
-	return (count);
+	numbers[trueend] = '\0';
+	return (numbers);
 }
 
 char	*ft_itoa(int n)
 {
 	char	*result;
-	int		digit_nbr;
+	size_t	digitlen;
 
-	if (n == 0)
-		return (NULL);
 	if (n == -2147483648)
-		return ("-2147483648");
-	digit_nbr = digit_counter(n);
-	result = ft_putnbr(n, digit_nbr);
+		return (ft_strdup("-2147483648"));
+	digitlen = digitcount(n);
+	if (n < 0)
+		result = ft_putnbr_neg(n, digitlen + 1);
+	else
+		result = ft_putnbr_pos(n, digitlen);
 	return (result);
 }

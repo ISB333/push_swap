@@ -6,7 +6,7 @@
 /*   By: adesille <adesille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/13 12:13:40 by checkin           #+#    #+#             */
-/*   Updated: 2024/02/15 11:26:15 by adesille         ###   ########.fr       */
+/*   Updated: 2024/02/20 14:53:05 by adesille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ int	*ft_calloc(size_t size, int value)
 
 	if (!size)
 		return (malloc(0));
-	arr = malloc(size * sizeof(int));
+	arr = malloc((size + 1) * sizeof(int));
 	if (!arr)
 		return (NULL);
 	ft_memset(arr, value, size);

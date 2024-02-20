@@ -6,7 +6,7 @@
 /*   By: adesille <adesille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/09 11:36:46 by adesille          #+#    #+#             */
-/*   Updated: 2024/02/19 14:58:38 by adesille         ###   ########.fr       */
+/*   Updated: 2024/02/20 13:26:43 by adesille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,6 @@ int	ft_count_words(char	*str, char c)
 		while (str[i] && str[i] != c)
 			i++;
 	}
-    // printf("str = %s\nrows = %d\n", str, rows);
 	return (rows);
 }
 
@@ -56,7 +55,7 @@ int	*ft_atoi_n_split(int *array, char *str)
 		}
 		i++;
 	}
-    array[++rows] = 0;
+	array[++rows] = 0;
 	return (array);
 }
 
@@ -81,7 +80,6 @@ char	*argv_join(char *str1, char *str2)
 	i = 0;
 	k = 0;
 	str = malloc(ft_strlen(str1) + ft_strlen(str2) + 2);
-	// printf("len1 = %d\nlen2 = %d\n", ft_strlen(str1), ft_strlen(str2));
 	if (!str)
 		return (NULL);
 	if (str1 != NULL)
@@ -96,14 +94,14 @@ char	*argv_join(char *str1, char *str2)
 		str[i++] = str2[k++];
 	str[i] = ' ';
 	str[++i] = '\0';
-	return (free(str1), str);
+	return (str);
 }
 
 int	*initializer(char *argv[])
 {
 	char	*str;
 	int		*array;
-	int		sec = 0;
+	int		sec;
 	int		i;
 
 	sec = security_check(argv);
@@ -112,11 +110,14 @@ int	*initializer(char *argv[])
 	str = NULL;
 	i = 1;
 	while (argv[i])
-        str = argv_join(str, argv[i++]);
+		str = argv_join(str, argv[i++]);
 	array = int_array_init(str);
-	// i = overflow_protector(array, argv, i); //////// SHIT IS HERE
-    free(str);
-	if (i != 0)
+	i = 0;
+	while (array[i])
+		i++;
+	sec = overflow_protector(array, argv, i);
+	free(str);
+	if (sec != 0)
 		return ((int *)0);
 	else
 		return (array);

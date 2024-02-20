@@ -6,7 +6,7 @@
 /*   By: adesille <adesille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/14 10:29:19 by adesille          #+#    #+#             */
-/*   Updated: 2024/02/16 13:06:55 by adesille         ###   ########.fr       */
+/*   Updated: 2024/02/20 14:55:27 by adesille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,13 +73,18 @@ void    extractor_utils(t_stack_a *stack_a, t_stack_b *stack_b, int n, int *lowe
 	while (n > 0)
 	{
 		stack_a_tmp = stack_a->tail;
-		i = -1;
-		while (lowest_values[++i])
-			if (stack_a_tmp->value == lowest_values[i] && n-- > 0)
+		printf("a_tail = %d\n", stack_a->tail->value);
+		i = 0;
+		while (lowest_values[i])
+		{
+			if (stack_a_tmp && stack_a_tmp->value == lowest_values[i])
             {
-                // printf("AAAAAAAAAAA\n");
-				pb(stack_a, stack_b);
+				printf("a_value = %d\nlowest_values = %d\n", stack_a_tmp->value, lowest_values[i]);
+				pb(stack_a, stack_b); /// PB = Memory Problems
+				n--;
             }
+			i++;
+		}
 		ra(stack_a);
 	}
 }
