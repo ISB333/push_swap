@@ -6,7 +6,7 @@
 /*   By: adesille <adesille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/17 15:30:24 by isb3              #+#    #+#             */
-/*   Updated: 2024/02/20 15:32:25 by adesille         ###   ########.fr       */
+/*   Updated: 2024/02/21 08:45:16 by adesille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,12 +79,11 @@ void	pb(t_stack_a *stack_a, t_stack_b *stack_b)
 	new_node->next = NULL;
 	stack_b->tail = new_node;
 	stack_a_tail = stack_a->tail;
-	free(stack_a_tail);
+	// free(stack_a_tail);
 	stack_a->tail = penultimate_node;
 	if (penultimate_node)
 	{
 		penultimate_node->next = NULL;
-
 	}
 	else
 		stack_a->head = NULL;

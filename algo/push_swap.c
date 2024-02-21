@@ -6,7 +6,7 @@
 /*   By: adesille <adesille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/06 09:59:56 by adesille          #+#    #+#             */
-/*   Updated: 2024/02/20 14:53:44 by adesille         ###   ########.fr       */
+/*   Updated: 2024/02/21 09:34:25 by adesille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,6 @@ void	n_smallest_extractor(t_stack_a *stack_a, t_stack_b *stack_b, int n)
 	if (ruler(stack_a, stack_b, 'A') < 10)
 		n = ruler(stack_a, stack_b, 'A') - n; 
 	lowest_values = n_smallest_finder(stack_a, n);
-	while (lowest_values[++i])
-		printf("l_values_init = %d\n", lowest_values[i]);
 	extractor_utils(stack_a, stack_b, n, lowest_values);
 	free(lowest_values);
 }
@@ -42,13 +40,14 @@ void    push_swap(t_stack_a *stack_a, t_stack_b *stack_b)
 		five_sorter_stack_a(stack_a, stack_b);
 	else
 	{
+		printer(stack_a, stack_b);
 		n = n_selector(stack_a, stack_b);
-		// while (ruler(stack_a, stack_b, 'A') > 5)
+		while (ruler(stack_a, stack_b, 'A') > n)
 			n_smallest_extractor(stack_a, stack_b, n);
-		// five_sorter_stack_a(stack_a, stack_b);
-		// while(ruler(stack_a, stack_b, 'A') > 0)
-		// 	pb(stack_a, stack_b);
-		// pushing_back_to_a(stack_a, stack_b);
+		n = n_selector(stack_a, stack_b);
+		while (ruler(stack_a, stack_b, 'A') > 5)
+			n_smallest_extractor(stack_a, stack_b, n);
+		pushing_back_to_a(stack_a, stack_b);
 		printer(stack_a, stack_b);
 	}
 }

@@ -6,7 +6,7 @@
 /*   By: adesille <adesille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/25 10:03:19 by adesille          #+#    #+#             */
-/*   Updated: 2024/02/20 15:17:01 by adesille         ###   ########.fr       */
+/*   Updated: 2024/02/21 08:45:45 by adesille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,6 @@ void	lst_freememory(t_stack_a *stack_a, t_stack_b *stack_b)
 	current = stack_b->head;
 	while (current)
 	{
-		printf("%d\n", current->value);
 		next = current->next;
 		free(current);
 		current = next;
