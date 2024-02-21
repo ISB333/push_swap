@@ -6,7 +6,7 @@
 /*   By: adesille <adesille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/17 15:30:39 by isb3              #+#    #+#             */
-/*   Updated: 2024/02/20 13:37:54 by adesille         ###   ########.fr       */
+/*   Updated: 2024/02/21 12:59:29 by adesille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,17 +60,17 @@ void	ss(t_stack_a *stack_a, t_stack_b *stack_b)
 {
 	do_sa(stack_a);
 	do_sb(stack_b);
-	printf("ss\n");
+	// printf("ss\n");
 }
 
 void	sa(t_stack_a *stack_a)
 {
 	do_sa(stack_a);
-	printf("sa\n");
+	// printf("sa\n");
 }
 
 void	sb(t_stack_b *stack_b)
 {
 	do_sb(stack_b);
-	printf("sb\n");
+	// printf("sb\n");
 }

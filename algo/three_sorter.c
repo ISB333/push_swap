@@ -6,7 +6,7 @@
 /*   By: adesille <adesille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/27 13:36:48 by adesille          #+#    #+#             */
-/*   Updated: 2024/02/09 13:07:21 by adesille         ###   ########.fr       */
+/*   Updated: 2024/02/21 12:51:10 by adesille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,17 +37,17 @@ void	three_sorter_utils_stack_a(t_stack_a	*stack_a, int scenario)
 {
 	if (scenario == 3)
 	{
-		ra(stack_a);
+		rra(stack_a);
 		sa(stack_a);
 	}
 	else if (scenario == 4)
-		rra(stack_a);
-	else if (scenario == 5)
 		ra(stack_a);
+	else if (scenario == 5)
+		rra(stack_a);
 	else if (scenario == 6)
 	{
 		sa(stack_a);
-		ra(stack_a);
+		rra(stack_a);
 	}
 }
 

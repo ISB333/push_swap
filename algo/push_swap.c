@@ -6,11 +6,47 @@
 /*   By: adesille <adesille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/06 09:59:56 by adesille          #+#    #+#             */
-/*   Updated: 2024/02/21 09:34:25 by adesille         ###   ########.fr       */
+/*   Updated: 2024/02/21 14:12:26 by adesille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
+
+void    pushing_back_to_a(t_stack_a *stack_a, t_stack_b *stack_b)
+{
+	t_data 	*stack_b_tail;
+	int		*larg_and_penult;
+
+	if (ruler(stack_a, stack_b, 'A') == 5)
+	{
+		five_sorter_stack_a(stack_a, stack_b);
+	}
+	else if (ruler(stack_a, stack_b, 'A') == 4)
+	{
+		pb(stack_a, stack_b);
+		three_sorter_stack_a(stack_a);
+	}
+	stack_b_tail = stack_b->tail;
+	printf("atail_pos = %d\n", stack_a->tail->position);
+	printer(stack_a, stack_b);
+	while (ruler(stack_a, stack_b, 'B') > 10)
+	{
+		printf("b_tail->value = %d\n", stack_b_tail->value);
+		larg_and_penult = largest_finder(stack_b);
+		if (stack_b_tail->value == larg_and_penult[0] && stack_b_tail->value > stack_a->head->value)
+		{
+			pa(stack_a, stack_b);
+			rra(stack_a);
+		}
+		else if (stack_b_tail->value == larg_and_penult[1])
+			penult_swapper(stack_a, stack_b, larg_and_penult[0]);
+		else if (stack_b_tail->value == larg_and_penult[0])
+			pa(stack_a, stack_b);
+		rb(stack_b);
+		stack_b_tail = stack_b->tail;
+	}
+	last_push(stack_a, stack_b);
+}
 
 void	n_smallest_extractor(t_stack_a *stack_a, t_stack_b *stack_b, int n)
 {
@@ -22,8 +58,8 @@ void	n_smallest_extractor(t_stack_a *stack_a, t_stack_b *stack_b, int n)
 	up = 0;
 	low = 0;
 	i = -1;
-	if (ruler(stack_a, stack_b, 'A') < 10)
-		n = ruler(stack_a, stack_b, 'A') - n; 
+	// if (ruler(stack_a, stack_b, 'A') < 10)
+	// 	n = ruler(stack_a, stack_b, 'A') - n; 
 	lowest_values = n_smallest_finder(stack_a, n);
 	extractor_utils(stack_a, stack_b, n, lowest_values);
 	free(lowest_values);
@@ -51,22 +87,3 @@ void    push_swap(t_stack_a *stack_a, t_stack_b *stack_b)
 		printer(stack_a, stack_b);
 	}
 }
-
-// void    pushing_back_to_a(t_stack_a *stack_a, t_stack_b *stack_b)
-// {
-// 	t_data 	*stack_b_tail;
-// 	int		*larg_and_penult;
-
-// 	stack_b_tail = stack_b->tail;
-// 	while (ruler(stack_a, stack_b, 'B') > 3)
-// 	{
-// 		larg_and_penult = largest_finder(stack_b);
-// 		if (stack_b_tail->value == larg_and_penult[1])
-// 			penult_swapper(stack_a, stack_b, larg_and_penult[0]);
-// 		else if (stack_b_tail->value == larg_and_penult[0])
-// 			pa(stack_a, stack_b);
-// 		rb(stack_b);
-// 		stack_b_tail = stack_b->tail;
-// 	}
-// 	last_push(stack_a, stack_b);
-// }

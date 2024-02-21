@@ -6,7 +6,7 @@
 /*   By: adesille <adesille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/17 15:30:24 by isb3              #+#    #+#             */
-/*   Updated: 2024/02/21 08:45:16 by adesille         ###   ########.fr       */
+/*   Updated: 2024/02/21 14:10:57 by adesille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ void	pa(t_stack_a *stack_a, t_stack_b *stack_b)
 		penultimate_node->next = NULL;
 	else
 		stack_b->head = NULL;
-	printf("pa\n");
+	// printf("pa\n");
 }
 
 void	pb(t_stack_a *stack_a, t_stack_b *stack_b)
@@ -87,7 +87,7 @@ void	pb(t_stack_a *stack_a, t_stack_b *stack_b)
 	}
 	else
 		stack_a->head = NULL;
-	printf("pb\n");
+	// printf("pb\n");
 }
 
 // void    pb(t_stack_a *stack_a, t_stack_b *stack_b)

@@ -6,7 +6,7 @@
 /*   By: adesille <adesille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/17 15:28:12 by isb3              #+#    #+#             */
-/*   Updated: 2024/02/20 15:17:08 by adesille         ###   ########.fr       */
+/*   Updated: 2024/02/21 10:05:11 by adesille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,7 +79,9 @@ char	**ft_split(char *s, char c);
 void	push_swap(t_stack_a *stack_a, t_stack_b *stack_b);
 void    five_sorter_stack_a(t_stack_a *stack_a, t_stack_b *stack_b);
 void    five_sorter_stack_b(t_stack_a *stack_a, t_stack_b *stack_b);
-
+int		*largest_finder(t_stack_b *stack_b);
+void	penult_swapper(t_stack_a *stack_a, t_stack_b *stack_b, int value);
+void	last_push(t_stack_a *stack_a, t_stack_b *stack_b);
 
 
 // ////// algo_utils //////
