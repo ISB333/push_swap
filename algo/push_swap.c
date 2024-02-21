@@ -6,7 +6,7 @@
 /*   By: adesille <adesille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/06 09:59:56 by adesille          #+#    #+#             */
-/*   Updated: 2024/02/21 14:12:26 by adesille         ###   ########.fr       */
+/*   Updated: 2024/02/21 14:18:57 by adesille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ void    pushing_back_to_a(t_stack_a *stack_a, t_stack_b *stack_b)
 	stack_b_tail = stack_b->tail;
 	printf("atail_pos = %d\n", stack_a->tail->position);
 	printer(stack_a, stack_b);
-	while (ruler(stack_a, stack_b, 'B') > 10)
+	while (ruler(stack_a, stack_b, 'B') > 3)
 	{
 		printf("b_tail->value = %d\n", stack_b_tail->value);
 		larg_and_penult = largest_finder(stack_b);
@@ -46,6 +46,7 @@ void    pushing_back_to_a(t_stack_a *stack_a, t_stack_b *stack_b)
 		stack_b_tail = stack_b->tail;
 	}
 	last_push(stack_a, stack_b);
+	sorting_checker(stack_a);
 }
 
 void	n_smallest_extractor(t_stack_a *stack_a, t_stack_b *stack_b, int n)
