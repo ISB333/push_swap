@@ -6,7 +6,7 @@
 /*   By: adesille <adesille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/15 13:21:37 by adesille          #+#    #+#             */
-/*   Updated: 2024/02/21 14:20:26 by adesille         ###   ########.fr       */
+/*   Updated: 2024/02/21 14:39:41 by adesille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,6 @@ void	penult_swapper(t_stack_a *stack_a, t_stack_b *stack_b, int value)
 	count = 0;
 	stack_b_tail = stack_b->tail;
 	pa(stack_a, stack_b);
-	printf("value = %d\nb_tail->value = %d\n", value, stack_b_tail->value);
 	while (stack_b_tail->value != value)
 	{
 		rb(stack_b);
@@ -84,7 +83,6 @@ void	last_push(t_stack_a *stack_a, t_stack_b *stack_b)
 			pa(stack_a, stack_b);
 		}
 	}
-	printer(stack_a, stack_b);
 }
 
 void	sorting_checker(t_stack_a *stack_a)
@@ -96,7 +94,7 @@ void	sorting_checker(t_stack_a *stack_a)
 	{
 		if (stack_a_tmp->value < stack_a_tmp->next->value)
 		{
-			printf("NOT SORTED MUDAFUKA SHGIEHBKGHBADGKHBEGLKJ!@!##$#@$^$@$^@#!^^$@$TYWQHYNG$VTTRH");
+			printf("NOT SORTED MUDAFUKA SHGIEHBKGHBADGKHBEGLKJ!@!##$#@$^$@$^@#!^^$@$TYWQHYNG$VTTRH\n");
 			return ;
 		}
 		stack_a_tmp = stack_a_tmp->next;

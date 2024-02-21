@@ -6,32 +6,45 @@
 /*   By: adesille <adesille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/06 09:59:56 by adesille          #+#    #+#             */
-/*   Updated: 2024/02/21 14:18:57 by adesille         ###   ########.fr       */
+/*   Updated: 2024/02/21 15:34:05 by adesille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
+
+void	pre_sorting_a(t_stack_a *stack_a, t_stack_b *stack_b)
+{
+	int a_size;
+
+	a_size = ruler(stack_a, stack_b, 'A');
+	if (a_size == 5)
+	{
+		five_sorter_stack_a(stack_a, stack_b);
+	}
+	else if (a_size == 4)
+	{
+		pb(stack_a, stack_b);
+		three_sorter_stack_a(stack_a);
+	}
+	else if (a_size == 3)
+		three_sorter_stack_a(stack_a);
+	else if (a_size == 2)
+	{
+		if (stack_a->head->value < stack_a->tail->value)
+			sa(stack_a);
+	}
+}
+
 
 void    pushing_back_to_a(t_stack_a *stack_a, t_stack_b *stack_b)
 {
 	t_data 	*stack_b_tail;
 	int		*larg_and_penult;
 
-	if (ruler(stack_a, stack_b, 'A') == 5)
-	{
-		five_sorter_stack_a(stack_a, stack_b);
-	}
-	else if (ruler(stack_a, stack_b, 'A') == 4)
-	{
-		pb(stack_a, stack_b);
-		three_sorter_stack_a(stack_a);
-	}
+	pre_sorting_a(stack_a, stack_b);
 	stack_b_tail = stack_b->tail;
-	printf("atail_pos = %d\n", stack_a->tail->position);
-	printer(stack_a, stack_b);
 	while (ruler(stack_a, stack_b, 'B') > 3)
 	{
-		printf("b_tail->value = %d\n", stack_b_tail->value);
 		larg_and_penult = largest_finder(stack_b);
 		if (stack_b_tail->value == larg_and_penult[0] && stack_b_tail->value > stack_a->head->value)
 		{
@@ -45,6 +58,7 @@ void    pushing_back_to_a(t_stack_a *stack_a, t_stack_b *stack_b)
 		rb(stack_b);
 		stack_b_tail = stack_b->tail;
 	}
+	printer(stack_a, stack_b);
 	last_push(stack_a, stack_b);
 	sorting_checker(stack_a);
 }
@@ -77,7 +91,6 @@ void    push_swap(t_stack_a *stack_a, t_stack_b *stack_b)
 		five_sorter_stack_a(stack_a, stack_b);
 	else
 	{
-		printer(stack_a, stack_b);
 		n = n_selector(stack_a, stack_b);
 		while (ruler(stack_a, stack_b, 'A') > n)
 			n_smallest_extractor(stack_a, stack_b, n);
