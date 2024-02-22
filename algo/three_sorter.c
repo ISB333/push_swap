@@ -6,7 +6,7 @@
 /*   By: adesille <adesille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/27 13:36:48 by adesille          #+#    #+#             */
-/*   Updated: 2024/02/22 10:46:46 by adesille         ###   ########.fr       */
+/*   Updated: 2024/02/22 12:58:56 by adesille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,8 +64,8 @@ void	three_sorter_stack_a(t_stack_a *stack_a)
 	t_data	*stack;
 	int 	scenario;
     
-	printf("----------------------------------------------\n");
-	stack_printer_a(stack_a);
+	// printf("----------------------------------------------\n");
+	// stack_printer_a(stack_a);
     stack = stack_a->head;
 	scenario = scenario_finder(stack);
 	if (scenario == 1)
@@ -74,8 +74,8 @@ void	three_sorter_stack_a(t_stack_a *stack_a)
 		sa(stack_a);
 	else if (scenario >= 3)
 		three_sorter_utils_stack_a(stack_a, scenario);
-	printf("----------------------------------------------\n");
-	stack_printer_a(stack_a);
+	// printf("----------------------------------------------\n");
+	// stack_printer_a(stack_a);
 }
 
 

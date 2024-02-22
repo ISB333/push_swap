@@ -6,7 +6,7 @@
 /*   By: adesille <adesille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/06 09:59:56 by adesille          #+#    #+#             */
-/*   Updated: 2024/02/22 10:56:03 by adesille         ###   ########.fr       */
+/*   Updated: 2024/02/22 13:07:34 by adesille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,17 +25,12 @@ void	pre_sorting_a(t_stack_a *stack_a, t_stack_b *stack_b)
 	else if (a_size == 4)
 	{
 		printf("size 4\n");
-		pb(stack_a, stack_b);
-		three_sorter_stack_a(stack_a);
-		if (stack_b->tail->value > stack_a->tail->value)
-		{
-			pa(stack_a, stack_b);
-			sa(stack_a);
-		}
+		pa(stack_a, stack_b);
+		five_sorter_stack_a(stack_a, stack_b);
 	}
 	else if (a_size == 3)
 	{
-		printf("size 2\n");
+		printf("size 3\n");
 		three_sorter_stack_a(stack_a);
 	}
 	else if (a_size == 2)
@@ -111,6 +106,6 @@ void    push_swap(t_stack_a *stack_a, t_stack_b *stack_b)
 			n_smallest_extractor(stack_a, stack_b, n);
 		// printer(stack_a, stack_b);
 		pushing_back_to_a(stack_a, stack_b);
-		printer(stack_a, stack_b);
+		// printer(stack_a, stack_b);
 	}
 }

@@ -6,7 +6,7 @@ EXECUTABLE="./push_swap"
 generate_random_series() {
   series=()
   while (( ${#series[@]} < 100 )); do
-    new_num=$((RANDOM % 100 + 1))
+    new_num=$((RANDOM % 1000 + 1))
     if [[ ! " ${series[@]} " =~ " $new_num " ]]; then
       series+=( "$new_num" )
     fi
@@ -15,7 +15,7 @@ generate_random_series() {
 }
 
 # Execute the executable with different series
-for ((i = 1; i <= 10; i++)); do
+for ((i = 1; i <= 30; i++)); do
   SERIES=$(generate_random_series)
   echo "Executing run $i with series: $SERIES"
   $EXECUTABLE "$SERIES" | tee >(wc -l)
