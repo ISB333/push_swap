@@ -6,7 +6,7 @@
 /*   By: adesille <adesille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/06 09:59:56 by adesille          #+#    #+#             */
-/*   Updated: 2024/02/21 15:34:05 by adesille         ###   ########.fr       */
+/*   Updated: 2024/02/22 10:56:03 by adesille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,17 +19,28 @@ void	pre_sorting_a(t_stack_a *stack_a, t_stack_b *stack_b)
 	a_size = ruler(stack_a, stack_b, 'A');
 	if (a_size == 5)
 	{
+		printf("size 5\n");
 		five_sorter_stack_a(stack_a, stack_b);
 	}
 	else if (a_size == 4)
 	{
+		printf("size 4\n");
 		pb(stack_a, stack_b);
 		three_sorter_stack_a(stack_a);
+		if (stack_b->tail->value > stack_a->tail->value)
+		{
+			pa(stack_a, stack_b);
+			sa(stack_a);
+		}
 	}
 	else if (a_size == 3)
+	{
+		printf("size 2\n");
 		three_sorter_stack_a(stack_a);
+	}
 	else if (a_size == 2)
 	{
+		printf("size 2\n");
 		if (stack_a->head->value < stack_a->tail->value)
 			sa(stack_a);
 	}
@@ -55,10 +66,11 @@ void    pushing_back_to_a(t_stack_a *stack_a, t_stack_b *stack_b)
 			penult_swapper(stack_a, stack_b, larg_and_penult[0]);
 		else if (stack_b_tail->value == larg_and_penult[0])
 			pa(stack_a, stack_b);
+		// stack_printer_a(stack_a);
 		rb(stack_b);
 		stack_b_tail = stack_b->tail;
 	}
-	printer(stack_a, stack_b);
+	// printer(stack_a, stack_b);
 	last_push(stack_a, stack_b);
 	sorting_checker(stack_a);
 }
@@ -97,6 +109,7 @@ void    push_swap(t_stack_a *stack_a, t_stack_b *stack_b)
 		n = n_selector(stack_a, stack_b);
 		while (ruler(stack_a, stack_b, 'A') > 5)
 			n_smallest_extractor(stack_a, stack_b, n);
+		// printer(stack_a, stack_b);
 		pushing_back_to_a(stack_a, stack_b);
 		printer(stack_a, stack_b);
 	}

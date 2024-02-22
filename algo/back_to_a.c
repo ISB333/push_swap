@@ -6,7 +6,7 @@
 /*   By: adesille <adesille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/15 13:21:37 by adesille          #+#    #+#             */
-/*   Updated: 2024/02/21 14:39:41 by adesille         ###   ########.fr       */
+/*   Updated: 2024/02/22 10:01:39 by adesille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,6 +83,8 @@ void	last_push(t_stack_a *stack_a, t_stack_b *stack_b)
 			pa(stack_a, stack_b);
 		}
 	}
+	if (stack_a->tail->value > stack_a->tail->prev->value)
+		sa(stack_a);
 }
 
 void	sorting_checker(t_stack_a *stack_a)
