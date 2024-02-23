@@ -6,49 +6,56 @@
 /*   By: adesille <adesille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/15 13:21:37 by adesille          #+#    #+#             */
-/*   Updated: 2024/02/22 13:55:08 by adesille         ###   ########.fr       */
+/*   Updated: 2024/02/23 10:16:21 by adesille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-int	*largest_finder(t_stack_b *stack_b)
+int	*smallest_finder(t_stack_b *stack_b)
 {
-	t_data	*stack_b_head;
-	int 	*larg_and_penult;
+	t_data	*b_head;
+	int 	*lowest;
 	int 	i;
 
 	i = 0;
-	larg_and_penult = ft_calloc(2, 1);
-	stack_b_head = stack_b->head;
-	while (stack_b_head)
+	lowest = ft_calloc(2, 2147483647);
+	b_head = stack_b->head;
+	while (b_head)
 	{
-		if (stack_b_head->value > larg_and_penult[0])
-			larg_and_penult[0] = stack_b_head->value;
-		stack_b_head = stack_b_head->next;
+		if (b_head->value < lowest[0])
+			lowest[0] = b_head->value;
+		b_head = b_head->next;
 	}
-	stack_b_head = stack_b->head;
-	while (stack_b_head)
+	b_head = stack_b->head;
+	while (b_head)
 	{
-		if (stack_b_head->value < larg_and_penult[0] && stack_b_head->value > larg_and_penult[1])
-			larg_and_penult[1] = stack_b_head->value;
-		stack_b_head = stack_b_head->next;
+		if (b_head->value > lowest[0] && b_head->value < lowest[1])
+			lowest[1] = b_head->value;
+		b_head = b_head->next;
 	}
-	return (larg_and_penult);
+	b_head = stack_b->head;
+	while (b_head)
+	{
+		if (b_head->value > lowest[0] && b_head->value < lowest[1])
+			lowest[1] = b_head->value;
+		b_head = b_head->next;
+	}
+	return (lowest);
 }
 
 void	penult_swapper(t_stack_a *stack_a, t_stack_b *stack_b, int value)
 {
 	t_data *stack_b_tail;
-	int		count;
+	// int		count;
 
-	count = 0;
+	// count = 0;
 	stack_b_tail = stack_b->tail;
 	pa(stack_a, stack_b);
 	while (stack_b_tail->value != value)
 	{
-		rb(stack_b);
-		count++;
+		rrb(stack_b);
+		// count++;
 		stack_b_tail = stack_b->tail;
 	}
 	if (stack_b_tail->value == value)
@@ -56,8 +63,8 @@ void	penult_swapper(t_stack_a *stack_a, t_stack_b *stack_b, int value)
 		pa(stack_a, stack_b);
 		sa(stack_a);
 	}
-	while (count-- > 0)
-		rrb(stack_b);
+	// while (count-- > 0)
+	// 	rb(stack_b);
 }
 
 void	last_push(t_stack_a *stack_a, t_stack_b *stack_b)
@@ -71,9 +78,9 @@ void	last_push(t_stack_a *stack_a, t_stack_b *stack_b)
 	}
 	else
 	{
-		if (stack_b->head->value > stack_b->head->next->value)
+		if (stack_b->head->value < stack_b->head->next->value)
 		{
-			rb(stack_b);
+			rrb(stack_b);
 			pa(stack_a, stack_b);
 			pa(stack_a, stack_b);
 		}
@@ -83,7 +90,7 @@ void	last_push(t_stack_a *stack_a, t_stack_b *stack_b)
 			pa(stack_a, stack_b);
 		}
 	}
-	if (stack_a->tail->value > stack_a->tail->prev->value)
+	if (stack_a->tail->value < stack_a->tail->prev->value)
 		sa(stack_a);
 }
 
@@ -94,7 +101,7 @@ void	sorting_checker(t_stack_a *stack_a)
 	stack_a_tmp = stack_a->head;
 	while (stack_a_tmp->next)
 	{
-		if (stack_a_tmp->value < stack_a_tmp->next->value)
+		if (stack_a_tmp->value > stack_a_tmp->next->value)
 		{
 			printf("NOT SORTED MUDAFUKA SHGIEHBKGHBADGKHBEGLKJ!@!##$#@$^$@$^@#!^^$@$TYWQHYNG$VTTRH\n");
 			return ;

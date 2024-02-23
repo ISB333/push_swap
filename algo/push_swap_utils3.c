@@ -6,7 +6,7 @@
 /*   By: adesille <adesille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/14 10:29:19 by adesille          #+#    #+#             */
-/*   Updated: 2024/02/22 13:55:46 by adesille         ###   ########.fr       */
+/*   Updated: 2024/02/23 09:15:16 by adesille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,19 +32,19 @@ int	n_selector(t_stack_a *stack_a, t_stack_b *stack_b)
 	return (0);
 }
 
-int		mid_calculator(int *lowest_values)
+int		mid_calculator(int *largest_values)
 {
 	int	i;
 	int	mid;
 
 	i = 0;
-	while (lowest_values[i])
+	while (largest_values[i])
 		i++;
 	mid = i / 2;
-	return (lowest_values[mid]);
+	return (largest_values[mid]);
 }
 
-char    side_chooser(int *lowest_values, t_stack_a *stack_a, int mid, int up, int low)
+char    side_chooser(int *largest_values, t_stack_a *stack_a, int mid, int up, int low)
 {
 	t_data  *stack_a_head;
 	int     i;
@@ -53,16 +53,16 @@ char    side_chooser(int *lowest_values, t_stack_a *stack_a, int mid, int up, in
 	while (stack_a_head->position < mid)
 	{
 		i = -1;
-		while (lowest_values[++i])
-			if (stack_a_head->value == lowest_values[i])
+		while (largest_values[++i])
+			if (stack_a_head->value == largest_values[i])
 				up++;
 		stack_a_head = stack_a_head->next;
 	}
 	while (stack_a_head)
 	{
 		i = -1;
-		while (lowest_values[++i])
-			if (stack_a_head->value == lowest_values[i])
+		while (largest_values[++i])
+			if (stack_a_head->value == largest_values[i])
 				low++;
 		stack_a_head = stack_a_head->next;
 	}
@@ -87,7 +87,7 @@ void	pusher(t_stack_a *stack_a, t_stack_b *stack_b, int mid_value)
 	}
 }
 
-void    extractor_utils(t_stack_a *stack_a, t_stack_b *stack_b, int n, int *lowest_values)
+void    extractor_utils(t_stack_a *stack_a, t_stack_b *stack_b, int n, int *largest_values)
 {
 	t_data	*s_a_tmp;
 	int i;
@@ -97,13 +97,14 @@ void    extractor_utils(t_stack_a *stack_a, t_stack_b *stack_b, int n, int *lowe
 	while (n > 0)
 	{
 		mid = stack_a->tail->position / 2;
-		side = side_chooser(lowest_values, stack_a, mid, 0, 0);
+		side = side_chooser(largest_values, stack_a, mid, 0, 0);
 		s_a_tmp = stack_a->tail;
 		i = -1;
-		while (lowest_values[++i])
-			if (s_a_tmp && s_a_tmp->value == lowest_values[i])
+		while (largest_values[++i])
+			if (s_a_tmp && s_a_tmp->value == largest_values[i])
             {
-				pusher(stack_a, stack_b, mid_calculator(lowest_values));
+				// pusher(stack_a, stack_b, mid_calculator(largest_values));
+				pb(stack_a, stack_b);
 				n--;
             }
 		if (side == 'U')

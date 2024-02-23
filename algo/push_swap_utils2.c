@@ -6,7 +6,7 @@
 /*   By: adesille <adesille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/13 12:13:40 by checkin           #+#    #+#             */
-/*   Updated: 2024/02/22 13:55:34 by adesille         ###   ########.fr       */
+/*   Updated: 2024/02/23 09:14:01 by adesille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,28 +43,28 @@ t_data *stack_mover(t_data *stack, int pos)
 	return (stack); 
 }
 
-int	*n_smallest_finder(t_stack_a *stack_a, int n)
+int	*n_largest_finder(t_stack_a *stack_a, int n)
 {
 	t_data	*stack_a_head;
-	int *lowest_values;
+	int *largest_values;
 	int i = 0;
 	int j = 0;
 
-	lowest_values = ft_calloc(n, 2147483647);
+	largest_values = ft_calloc(n, 1);
 	stack_a_head = stack_a->head;
 	while (stack_a_head)
 	{
 		i = -1;
 		while (++i < n)
-			if (stack_a_head->value < lowest_values[i])
+			if (stack_a_head->value > largest_values[i])
 			{
 				j = n;
 				while(--j > i)
-					lowest_values[j] = lowest_values[j - 1];
-				lowest_values[i] = stack_a_head->value;
+					largest_values[j] = largest_values[j - 1];
+				largest_values[i] = stack_a_head->value;
 				break;
 			}
 		stack_a_head = stack_a_head->next;
 	}
-	return (lowest_values);
+	return (largest_values);
 }

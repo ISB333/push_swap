@@ -6,7 +6,7 @@
 /*   By: adesille <adesille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/27 13:36:48 by adesille          #+#    #+#             */
-/*   Updated: 2024/02/22 13:56:26 by adesille         ###   ########.fr       */
+/*   Updated: 2024/02/23 09:18:56 by adesille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,17 +18,17 @@ int	scenario_finder(t_data *stack)
 
 	first_value = stack->value;
 	stack = stack->next;
-	if (first_value > stack->value && stack->value > stack->next->value)
+	if (first_value < stack->value && stack->value < stack->next->value)
 		return (1);
-	else if (stack->value < stack->next->value && stack->next->value < first_value)
-		return (2);
-	else if (stack->value > first_value && first_value > stack->next->value)
-		return (3);
-	else if (stack->value < first_value && first_value < stack->next->value)
-		return (4);
 	else if (stack->value > stack->next->value && stack->next->value > first_value)
+		return (2);
+	else if (stack->value < first_value && first_value < stack->next->value)
+		return (3);
+	else if (stack->value > first_value && first_value > stack->next->value)
+		return (4);
+	else if (stack->value < stack->next->value && stack->next->value < first_value)
 		return (5);
-	else if (first_value < stack->value && stack->value < stack->next->value)
+	else if (first_value > stack->value && stack->value > stack->next->value)
 		return (6);
 	return (0);
 }
@@ -38,24 +38,24 @@ void	three_sorter_utils_stack_a(t_stack_a	*stack_a, int scenario)
 	if (scenario == 3)
 	{
 		// printf("scen3\n");
-		ra(stack_a);
+		rra(stack_a);
 		sa(stack_a);
 	}
 	else if (scenario == 4)
 	{
 		// printf("scen4\n");
-		rra(stack_a);
+		ra(stack_a);
 	}
 	else if (scenario == 5)
 	{
 		// printf("scen5\n");
-		ra(stack_a);
+		rra(stack_a);
 	}
 	else if (scenario == 6)
 	{
 		// printf("scen6\n");
 		sa(stack_a);
-		ra(stack_a);
+		rra(stack_a);
 	}
 }
 
@@ -84,18 +84,18 @@ void	three_sorter_utils_stack_b(t_stack_b *stack_b, int scenario)
 	if (scenario == 3)
 	{
 		// printf("scen3\n");
-		rrb(stack_b);
+		rb(stack_b);
 	}
 	else if (scenario == 4)
 	{
 		// printf("scen4\n");
-		rb(stack_b);
+		rrb(stack_b);
 		sb(stack_b);
 	}
 	else if (scenario == 5)
 	{
 		// printf("scen5\n");
-		rrb(stack_b);
+		rb(stack_b);
 	}
 	else if (scenario == 6)
 	{
@@ -119,12 +119,12 @@ void	three_sorter_stack_b(t_stack_b *stack_b)
 	if (scenario == 1)
 	{
 		sb(stack_b);
-		rb(stack_b);
+		rrb(stack_b);
 	}
 	else if (scenario == 2)
 	{
 		// printf("scen2\n");
-		rb(stack_b);
+		rrb(stack_b);
 	}
 	else if (scenario >= 3)
 		three_sorter_utils_stack_b(stack_b, scenario);
