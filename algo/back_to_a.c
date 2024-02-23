@@ -6,7 +6,7 @@
 /*   By: adesille <adesille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/15 13:21:37 by adesille          #+#    #+#             */
-/*   Updated: 2024/02/23 10:20:47 by adesille         ###   ########.fr       */
+/*   Updated: 2024/02/23 15:03:54 by adesille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,18 +44,48 @@ int	*smallest_finder(t_stack_b *stack_b)
 	return (lowest);
 }
 
-void	penult_swapper(t_stack_a *stack_a, t_stack_b *stack_b, int value)
+void	third_low_swapper(t_stack_a *stack_a, t_stack_b *stack_b, int *lowest)
+{
+	t_data	*b_tail;
+	int		count;
+
+	count = 0;
+	pa(stack_a, stack_b);
+	ra(stack_a);
+	b_tail = stack_b->tail;
+	while (b_tail->value != lowest[0] || b_tail->value != lowest[1])
+	{
+		rb(stack_b);
+		count++;
+		b_tail = stack_b->tail;
+	}
+	if (b_tail->value == lowest[1])
+	{
+		pa(stack_a, stack_b);
+		pa(stack_a, stack_b);
+		rra(stack_a);
+	}
+	else
+	{
+		pa(stack_a, stack_b);
+		pa(stack_a, stack_b);
+		sa(stack_a);
+		rra(stack_a);
+	}
+	while (count-- > 0)
+		rb(stack_b);
+}
+
+void	two_low_swapper(t_stack_a *stack_a, t_stack_b *stack_b, int value)
 {
 	t_data *stack_b_tail;
-	// int		count;
 
-	// count = 0;
 	stack_b_tail = stack_b->tail;
 	pa(stack_a, stack_b);
+	checker(stack_a);
 	while (stack_b_tail->value != value)
 	{
 		rrb(stack_b);
-		// count++;
 		stack_b_tail = stack_b->tail;
 	}
 	if (stack_b_tail->value == value)
@@ -63,8 +93,6 @@ void	penult_swapper(t_stack_a *stack_a, t_stack_b *stack_b, int value)
 		pa(stack_a, stack_b);
 		sa(stack_a);
 	}
-	// while (count-- > 0)
-	// 	rb(stack_b);
 }
 
 void	last_push(t_stack_a *stack_a, t_stack_b *stack_b)
@@ -92,6 +120,26 @@ void	last_push(t_stack_a *stack_a, t_stack_b *stack_b)
 	}
 	if (stack_a->tail->value < stack_a->tail->prev->value)
 		sa(stack_a);
+}
+
+void	checker(t_stack_a *stack_a)
+{
+	static int i = 1;
+	if (i > 0)
+	{
+		// printf("a_tail = %d\na_tail_prev = %d\n", stack_a->tail->value, stack_a->tail->prev->value);
+		i--;
+	}
+	if (stack_a->tail->value < stack_a->tail->prev->value)
+	{
+		sa(stack_a);
+	}
+	else if(stack_a->tail->prev->value < stack_a->tail->prev->prev->value)
+	{
+		rra(stack_a);
+		sa(stack_a);
+		ra(stack_a);
+	}
 }
 
 void	sorting_checker(t_stack_a *stack_a)

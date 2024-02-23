@@ -6,7 +6,7 @@
 /*   By: adesille <adesille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/17 15:28:12 by isb3              #+#    #+#             */
-/*   Updated: 2024/02/23 09:50:02 by adesille         ###   ########.fr       */
+/*   Updated: 2024/02/23 12:59:16 by adesille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,10 +79,13 @@ char	**ft_split(char *s, char c);
 void	push_swap(t_stack_a *stack_a, t_stack_b *stack_b);
 void    five_sorter_stack_a(t_stack_a *stack_a, t_stack_b *stack_b);
 void    five_sorter_stack_b(t_stack_a *stack_a, t_stack_b *stack_b);
+void    a_four_sorter(t_stack_a *stack_a, t_stack_b *stack_b);
 int		*smallest_finder(t_stack_b *stack_b);
-void	penult_swapper(t_stack_a *stack_a, t_stack_b *stack_b, int value);
+void	two_low_swapper(t_stack_a *stack_a, t_stack_b *stack_b, int value);
+void	third_low_swapper(t_stack_a *stack_a, t_stack_b *stack_b, int *lowest);
 void	last_push(t_stack_a *stack_a, t_stack_b *stack_b);
 void	sorting_checker(t_stack_a *stack_a);
+void	checker(t_stack_a *stack_a);
 
 // ////// algo_utils //////
 int 	ruler(t_stack_a *stack_a, t_stack_b *stack_b, int stack);

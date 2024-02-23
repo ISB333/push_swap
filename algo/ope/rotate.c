@@ -6,7 +6,7 @@
 /*   By: adesille <adesille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/17 15:30:34 by isb3              #+#    #+#             */
-/*   Updated: 2024/02/23 10:18:39 by adesille         ###   ########.fr       */
+/*   Updated: 2024/02/23 15:14:28 by adesille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -135,17 +135,17 @@ void	rr(t_stack_a *stack_a, t_stack_b *stack_b)
 {
 	do_ra(stack_a);
 	do_rb(stack_b);
-	// printf("rr\n");
+	printf("rrr\n");
 }
 
 void	ra(t_stack_a *stack_a)
 {
 	do_ra(stack_a);
-	// printf("ra\n");
+	printf("rra\n");
 }
 
 void	rb(t_stack_b *stack_b)
 {
 	do_rb(stack_b);
-	// printf("rb\n");
+	printf("rrb\n");
 }
