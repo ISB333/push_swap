@@ -6,7 +6,7 @@
 /*   By: adesille <adesille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/25 10:03:19 by adesille          #+#    #+#             */
-/*   Updated: 2024/02/21 08:45:45 by adesille         ###   ########.fr       */
+/*   Updated: 2024/02/24 13:59:17 by adesille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,24 +31,27 @@ void	freememory(char **array)
 	free(array);
 }
 
-void	lst_freememory(t_stack_a *stack_a, t_stack_b *stack_b)
+void	lst_freememory(t_stack *stack_a, t_stack *stack_b)
 {
-	t_data	*current;
-	t_data	*next;
+	t_stack	*current;
+	t_stack	*next;
 
-	current = stack_a->head;
+	current = stack_a;
 	while (current)
 	{
 		next = current->next;
 		free(current);
 		current = next;
 	}
-	current = stack_b->head;
-	while (current)
+	if (stack_b)
 	{
-		next = current->next;
-		free(current);
-		current = next;
+		current = stack_b;
+		while (current)
+		{
+			next = current->next;
+			free(current);
+			current = next;
+		}
 	}
 }
 

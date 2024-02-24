@@ -6,7 +6,7 @@
 /*   By: adesille <adesille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/26 13:10:58 by adesille          #+#    #+#             */
-/*   Updated: 2024/02/22 13:55:18 by adesille         ###   ########.fr       */
+/*   Updated: 2024/02/24 16:20:30 by adesille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,15 +45,6 @@ int	b_pos_finder(int stack_a_value, t_stack_b *stack_b)
         return(stack_b_head->position);
 	else
 		return (0);
-}
-
-void    printer(t_stack_a *stack_a, t_stack_b *stack_b)
-{
-		////////////   	PRINTER   ////////////
-		printf("-----------------------------------STACK_A-----------------------------------\n");
-		stack_printer_a(stack_a);
-		printf("------------------STACK_B---------------------\n");
-		stack_printer_b(stack_b);
 }
 
 // void	cost_initializer(t_stack_a *stack_a, t_stack_b *stack_b)
