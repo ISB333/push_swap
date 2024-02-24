@@ -6,13 +6,13 @@
 /*   By: adesille <adesille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/27 13:36:48 by adesille          #+#    #+#             */
-/*   Updated: 2024/02/23 15:04:48 by adesille         ###   ########.fr       */
+/*   Updated: 2024/02/24 17:09:14 by adesille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-int	scenario_finder(t_data *stack)
+int	scenario_finder(t_stack *stack)
 {
 	int		first_value;
 
@@ -33,7 +33,7 @@ int	scenario_finder(t_data *stack)
 	return (0);
 }
 
-void	three_sorter_utils_stack_a(t_stack_a	*stack_a, int scenario)
+void	three_sorter_utils_stack_a(t_stack	*stack_a, int scenario)
 {
 	if (scenario == 3)
 	{
@@ -61,9 +61,9 @@ void	three_sorter_utils_stack_a(t_stack_a	*stack_a, int scenario)
 	}
 }
 
-void	three_sorter_stack_a(t_stack_a *stack_a)
+void	three_sorter_stack_a(t_stack *stack_a)
 {
-	t_data	*stack;
+	t_stack	*stack;
 	int 	scenario;
     
 	// printf("----------------------------------------------\n");
@@ -82,7 +82,7 @@ void	three_sorter_stack_a(t_stack_a *stack_a)
 }
 
 
-void	three_sorter_utils_stack_b(t_stack_b *stack_b, int scenario)
+void	three_sorter_utils_stack_b(t_stack *stack_b, int scenario)
 {
 	if (scenario == 3)
 	{
@@ -110,9 +110,9 @@ void	three_sorter_utils_stack_b(t_stack_b *stack_b, int scenario)
 	// stack_printer_b(stack_b);
 }
 
-void	three_sorter_stack_b(t_stack_b *stack_b)
+void	three_sorter_stack_b(t_stack *stack_b)
 {
-	t_data	*stack;
+	t_stack	*stack;
 	int 	scenario;
     
 	// stack_printer_b(stack_b);

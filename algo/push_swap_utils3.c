@@ -6,13 +6,13 @@
 /*   By: adesille <adesille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/14 10:29:19 by adesille          #+#    #+#             */
-/*   Updated: 2024/02/23 09:15:16 by adesille         ###   ########.fr       */
+/*   Updated: 2024/02/24 17:08:43 by adesille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-int	n_selector(t_stack_a *stack_a, t_stack_b *stack_b)
+int	n_selector(t_stack *stack_a, t_stack *stack_b)
 {
 	int	a_size;
 
@@ -44,9 +44,9 @@ int		mid_calculator(int *largest_values)
 	return (largest_values[mid]);
 }
 
-char    side_chooser(int *largest_values, t_stack_a *stack_a, int mid, int up, int low)
+char    side_chooser(int *largest_values, t_stack *stack_a, int mid, int up, int low)
 {
-	t_data  *stack_a_head;
+	t_stack  *stack_a_head;
 	int     i;
 
 	stack_a_head = stack_a->head;
@@ -71,7 +71,7 @@ char    side_chooser(int *largest_values, t_stack_a *stack_a, int mid, int up, i
 	return ('U');
 }
 
-void	pusher(t_stack_a *stack_a, t_stack_b *stack_b, int mid_value)
+void	pusher(t_stack *stack_a, t_stack *stack_b, int mid_value)
 {
 	if (!stack_b->head || stack_b->head == stack_b->tail)
 	{
@@ -87,9 +87,9 @@ void	pusher(t_stack_a *stack_a, t_stack_b *stack_b, int mid_value)
 	}
 }
 
-void    extractor_utils(t_stack_a *stack_a, t_stack_b *stack_b, int n, int *largest_values)
+void    extractor_utils(t_stack *stack_a, t_stack *stack_b, int n, int *largest_values)
 {
-	t_data	*s_a_tmp;
+	t_stack	*s_a_tmp;
 	int i;
 	int mid;
 	int side;

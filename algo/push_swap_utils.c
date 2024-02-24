@@ -6,13 +6,13 @@
 /*   By: adesille <adesille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/26 13:10:58 by adesille          #+#    #+#             */
-/*   Updated: 2024/02/24 16:20:30 by adesille         ###   ########.fr       */
+/*   Updated: 2024/02/24 17:08:53 by adesille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-int ruler(t_stack_a *stack_a, t_stack_b *stack_b, int stack)
+int ruler(t_stack *stack_a, t_stack *stack_b, int stack)
 {
 	if (stack == 'A' && stack_a->tail)
     {
@@ -34,9 +34,9 @@ int	abs_diff(int a, int b)
 	return (0);
 }
 
-int	b_pos_finder(int stack_a_value, t_stack_b *stack_b)
+int	b_pos_finder(int stack_a_value, t_stack *stack_b)
 {
-	t_data	*stack_b_head;
+	t_stack	*stack_b_head;
 
 	stack_b_head = stack_b->head;
 	while (stack_b_head && stack_a_value < stack_b_head->value)
@@ -47,10 +47,10 @@ int	b_pos_finder(int stack_a_value, t_stack_b *stack_b)
 		return (0);
 }
 
-// void	cost_initializer(t_stack_a *stack_a, t_stack_b *stack_b)
+// void	cost_initializer(t_stack *stack_a, t_stack *stack_b)
 // {
-// 	t_data *stack_a_head;
-// 	t_data *stack_b_head;
+// 	t_stack *stack_a_head;
+// 	t_stack *stack_b_head;
 
 // 	stack_a_head = stack_a->head;
 // 	stack_b_head = stack_b->head;

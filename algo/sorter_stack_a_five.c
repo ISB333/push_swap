@@ -6,17 +6,17 @@
 /*   By: adesille <adesille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/07 10:09:49 by adesille          #+#    #+#             */
-/*   Updated: 2024/02/23 15:02:59 by adesille         ###   ########.fr       */
+/*   Updated: 2024/02/24 17:08:36 by adesille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-void    a_four_sorter(t_stack_a *stack_a, t_stack_b *stack_b)
+void    a_four_sorter(t_stack *stack_a, t_stack *stack_b)
 {
-	t_data  *stack_a_head;
-	t_data  *stack_a_tail;
-	t_data  *stack_b_tail;
+	t_stack  *stack_a_head;
+	t_stack  *stack_a_tail;
+	t_stack  *stack_b_tail;
 
 	stack_a_head = stack_a->head;
 	stack_a_tail = stack_a->tail;
@@ -48,7 +48,7 @@ void    a_four_sorter(t_stack_a *stack_a, t_stack_b *stack_b)
 	}
 }
 
-void	a_last_sorter(t_stack_a *stack_a, t_stack_b *stack_b)
+void	a_last_sorter(t_stack *stack_a, t_stack *stack_b)
 {
 	if (stack_b->head->value > stack_a->tail->value)
 	{
@@ -82,7 +82,7 @@ void	a_last_sorter(t_stack_a *stack_a, t_stack_b *stack_b)
 	}
 }
 
-void    five_sorter_stack_a(t_stack_a *stack_a, t_stack_b *stack_b)
+void    five_sorter_stack_a(t_stack *stack_a, t_stack *stack_b)
 {
 	int *lowest;
 

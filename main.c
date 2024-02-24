@@ -6,7 +6,7 @@
 /*   By: adesille <adesille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/08 17:29:02 by adesille          #+#    #+#             */
-/*   Updated: 2024/02/24 17:03:19 by adesille         ###   ########.fr       */
+/*   Updated: 2024/02/24 17:09:34 by adesille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,18 +45,7 @@ int	main(int argc, char *argv[])
 		initialize_stacks(array, &stack_a); 
 		// free(array);
 		/// ALGO ///
-		// push_swap(&stack_a, &stack_b);
-		pb(&stack_a, &stack_b);
-		pb(&stack_a, &stack_b);
-		pb(&stack_a, &stack_b);
-		stack_printer(stack_a, 'A');
-		stack_printer(stack_b, 'B');
-		rr(&stack_a, &stack_b);
-		stack_printer(stack_a, 'A');
-		stack_printer(stack_b, 'B');
-		rrr(&stack_a, &stack_b);
-		stack_printer(stack_a, 'A');
-		stack_printer(stack_b, 'B');
+		// push_swap(&stack_a, &stack_b);	
 		lst_freememory(stack_a, stack_b);
 	}
 }

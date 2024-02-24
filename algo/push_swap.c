@@ -6,13 +6,13 @@
 /*   By: adesille <adesille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/06 09:59:56 by adesille          #+#    #+#             */
-/*   Updated: 2024/02/23 15:04:57 by adesille         ###   ########.fr       */
+/*   Updated: 2024/02/24 17:08:59 by adesille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-void	pre_sorting_a(t_stack_a *stack_a, t_stack_b *stack_b)
+void	pre_sorting_a(t_stack *stack_a, t_stack *stack_b)
 {
 	int a_size;
 
@@ -43,9 +43,9 @@ void	pre_sorting_a(t_stack_a *stack_a, t_stack_b *stack_b)
 	}
 }
 
-void    pushing_back_to_a(t_stack_a *stack_a, t_stack_b *stack_b)
+void    pushing_back_to_a(t_stack *stack_a, t_stack *stack_b)
 {
-	t_data 	*stack_b_tail;
+	t_stack 	*stack_b_tail;
 	int		*three_lowest;
 
 	// int i = 1;
@@ -71,7 +71,7 @@ void    pushing_back_to_a(t_stack_a *stack_a, t_stack_b *stack_b)
 	// sorting_checker(stack_a);
 }
 
-void	n_smallest_extractor(t_stack_a *stack_a, t_stack_b *stack_b, int n)
+void	n_smallest_extractor(t_stack *stack_a, t_stack *stack_b, int n)
 {
 	int		*lowest_values;
 	int 	i;
@@ -82,7 +82,7 @@ void	n_smallest_extractor(t_stack_a *stack_a, t_stack_b *stack_b, int n)
 	free(lowest_values);
 }
 
-void    push_swap(t_stack_a *stack_a, t_stack_b *stack_b)
+void    push_swap(t_stack *stack_a, t_stack *stack_b)
 {
 	int	n;
 

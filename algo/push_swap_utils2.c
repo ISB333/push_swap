@@ -6,7 +6,7 @@
 /*   By: adesille <adesille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/13 12:13:40 by checkin           #+#    #+#             */
-/*   Updated: 2024/02/23 09:14:01 by adesille         ###   ########.fr       */
+/*   Updated: 2024/02/24 17:08:48 by adesille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,16 +36,16 @@ int	*ft_calloc(size_t size, int value)
 	return (arr);
 }
 
-t_data *stack_mover(t_data *stack, int pos)
+t_stack *stack_mover(t_data *stack, int pos)
 {
 	while (pos-- > 0 && stack)
 		stack = stack->next;
 	return (stack); 
 }
 
-int	*n_largest_finder(t_stack_a *stack_a, int n)
+int	*n_largest_finder(t_stack *stack_a, int n)
 {
-	t_data	*stack_a_head;
+	t_stack	*stack_a_head;
 	int *largest_values;
 	int i = 0;
 	int j = 0;
