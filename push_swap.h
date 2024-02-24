@@ -6,7 +6,7 @@
 /*   By: adesille <adesille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/17 15:28:12 by isb3              #+#    #+#             */
-/*   Updated: 2024/02/24 16:15:18 by adesille         ###   ########.fr       */
+/*   Updated: 2024/02/24 16:57:45 by adesille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,12 +97,12 @@ char	**ft_split(char *s, char c);
 void	sa(t_stack **stack);
 void	sb(t_stack **stack);
 void	ss(t_stack **stack_a, t_stack **stack_b);
-// void	ra(t_stack *stack);
-// void	rb(t_stack_b *stack);
-// void	rr(t_stack_a *stack_a, t_stack_b *stack_b);
-// void	rra(t_stack_a *stack);
-// void	rrb(t_stack_b *stack);
-// void	rrr(t_stack_a *stack_a, t_stack_b *stack_b);
+void	ra(t_stack **stack);
+void	rb(t_stack **stack);
+void	rr(t_stack **stack_a, t_stack **stack_b);
+void	rra(t_stack **stack);
+void	rrb(t_stack **stack);
+void	rrr(t_stack **stack_a, t_stack **stack_b);
 void	pa(t_stack **stack_a, t_stack **stack_b);
 void	pb(t_stack **stack_a, t_stack **stack_b);
 
