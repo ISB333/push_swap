@@ -3,20 +3,20 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap_utils3.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: adesille <adesille@student.42.fr>          +#+  +:+       +#+        */
+/*   By: isb3 <isb3@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/14 10:29:19 by adesille          #+#    #+#             */
-/*   Updated: 2024/02/24 17:08:43 by adesille         ###   ########.fr       */
+/*   Updated: 2024/02/25 09:47:24 by isb3             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-int	n_selector(t_stack *stack_a, t_stack *stack_b)
+int	n_selector(t_stack *stack_a)
 {
 	int	a_size;
 
-	a_size = ruler(stack_a, stack_b, 'A');
+	a_size = stack_a->position;
 	if (a_size <= 20)
 		return (4);
 	else if (a_size <= 40)
@@ -49,7 +49,7 @@ char    side_chooser(int *largest_values, t_stack *stack_a, int mid, int up, int
 	t_stack  *stack_a_head;
 	int     i;
 
-	stack_a_head = stack_a->head;
+	stack_a_head = stack_a;
 	while (stack_a_head->position < mid)
 	{
 		i = -1;
@@ -73,43 +73,52 @@ char    side_chooser(int *largest_values, t_stack *stack_a, int mid, int up, int
 
 void	pusher(t_stack *stack_a, t_stack *stack_b, int mid_value)
 {
-	if (!stack_b->head || stack_b->head == stack_b->tail)
+	t_stack	*stack_b_head;
+	t_stack	*stack_b_tail;
+	t_stack	*stack_a_tail;
+
+	stack_b_head = stack_b;
+	stack_b_tail = stack_b;
+	stack_a_tail = stack_a;
+	if (!stack_b_head || stack_b_head == stack_b_tail)
 	{
-		pb(stack_a, stack_b);
+		pb(&stack_a, &stack_b);
 		return ;
 	}
-	if (stack_a->tail->value > mid_value)
-		pb(stack_a, stack_b);
+	if (stack_a_tail->value > mid_value)
+		pb(&stack_a, &stack_b);
 	else
 	{
-		pb(stack_a, stack_b);
-		rrb(stack_b); // rotating into low
+		pb(&stack_a, &stack_b);
+		rrb(&stack_b); // rotating into low
 	}
 }
 
 void    extractor_utils(t_stack *stack_a, t_stack *stack_b, int n, int *largest_values)
 {
 	t_stack	*s_a_tmp;
+	t_stack	*stack_a_tail;
 	int i;
 	int mid;
 	int side;
 
+	stack_a_tail = stack_a;
 	while (n > 0)
 	{
-		mid = stack_a->tail->position / 2;
+		mid = stack_a_tail->position / 2;
 		side = side_chooser(largest_values, stack_a, mid, 0, 0);
-		s_a_tmp = stack_a->tail;
+		s_a_tmp = stack_a_tail;
 		i = -1;
 		while (largest_values[++i])
 			if (s_a_tmp && s_a_tmp->value == largest_values[i])
             {
 				// pusher(stack_a, stack_b, mid_calculator(largest_values));
-				pb(stack_a, stack_b);
+				pb(&stack_a, &stack_b);
 				n--;
             }
 		if (side == 'U')
-			rra(stack_a);
+			rra(&stack_a);
 		else if (side == 'L')
-			ra(stack_a);
+			ra(&stack_a);
 	}
 }

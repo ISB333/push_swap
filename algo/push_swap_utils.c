@@ -3,25 +3,21 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap_utils.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: adesille <adesille@student.42.fr>          +#+  +:+       +#+        */
+/*   By: isb3 <isb3@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/26 13:10:58 by adesille          #+#    #+#             */
-/*   Updated: 2024/02/24 17:08:53 by adesille         ###   ########.fr       */
+/*   Updated: 2024/02/25 09:42:35 by isb3             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-int ruler(t_stack *stack_a, t_stack *stack_b, int stack)
+int ruler(t_stack **stack_a, t_stack **stack_b, int stack)
 {
-	if (stack == 'A' && stack_a->tail)
-    {
-		return (stack_a->tail->position);
-    }
-	else if (stack == 'B' && stack_b->tail)
-    {
-		return (stack_b->tail->position);
-    }
+	if (stack == 'A' && stack_a)
+		return ((*stack_a)->position);
+	else if (stack == 'B' && stack_b)
+		return ((*stack_b)->position);
     return (0);
 }
 
@@ -38,7 +34,7 @@ int	b_pos_finder(int stack_a_value, t_stack *stack_b)
 {
 	t_stack	*stack_b_head;
 
-	stack_b_head = stack_b->head;
+	stack_b_head = stack_b;
 	while (stack_b_head && stack_a_value < stack_b_head->value)
 		stack_b_head = stack_b_head->next;	
     if(stack_b_head)

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap_utils2.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: adesille <adesille@student.42.fr>          +#+  +:+       +#+        */
+/*   By: isb3 <isb3@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/13 12:13:40 by checkin           #+#    #+#             */
-/*   Updated: 2024/02/24 17:08:48 by adesille         ###   ########.fr       */
+/*   Updated: 2024/02/25 09:42:46 by isb3             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ int	*ft_calloc(size_t size, int value)
 	return (arr);
 }
 
-t_stack *stack_mover(t_data *stack, int pos)
+t_stack *stack_mover(t_stack *stack, int pos)
 {
 	while (pos-- > 0 && stack)
 		stack = stack->next;
@@ -51,7 +51,7 @@ int	*n_largest_finder(t_stack *stack_a, int n)
 	int j = 0;
 
 	largest_values = ft_calloc(n, 1);
-	stack_a_head = stack_a->head;
+	stack_a_head = stack_a;
 	while (stack_a_head)
 	{
 		i = -1;

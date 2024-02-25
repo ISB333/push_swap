@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: adesille <adesille@student.42.fr>          +#+  +:+       +#+        */
+/*   By: isb3 <isb3@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/17 15:28:12 by isb3              #+#    #+#             */
-/*   Updated: 2024/02/24 16:57:45 by adesille         ###   ########.fr       */
+/*   Updated: 2024/02/25 09:38:58 by isb3             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ typedef struct s_stack
 }				t_stack;
 
 int		*initializer(char *argv[]);
+void	printer(t_stack *stack_a, t_stack *stack_b, int c);
 
 /// initialization ///
 int		ft_count_words(char	*str, char c);
@@ -44,8 +45,8 @@ int		ft_strlen(char *str);
 /// protections ///
 int		overflow_protector(int *int_array, char *argv[], int len);
 char	**argv_init(char *argv[]);
-// void	ptr_check(t_stack_a *stack_a, t_stack_b *stack_b);
-// void    ope_check(t_stack_a *stack_a, t_stack_b *stack_b);
+// void	ptr_check(t_stack *stack_a, t_stack *stack_b);
+// void    ope_check(t_stack *stack_a, t_stack *stack_b);
 
 char	*ft_putnbr(int n, int digit_nbr);
 int		digit_counter(int n);
@@ -63,35 +64,34 @@ char	**ft_cut(char **array, char *s, char c, size_t i);
 char	**ft_split(char *s, char c);
 
 ////// algo //////
-// void	push_swap(t_stack_a *stack_a, t_stack_b *stack_b);
-// void    five_sorter_stack_a(t_stack_a *stack_a, t_stack_b *stack_b);
-// void    five_sorter_stack_b(t_stack_a *stack_a, t_stack_b *stack_b);
-// void    a_four_sorter(t_stack_a *stack_a, t_stack_b *stack_b);
-// int		*smallest_finder(t_stack_b *stack_b);
-// void	two_low_swapper(t_stack_a *stack_a, t_stack_b *stack_b, int value);
-// void	third_low_swapper(t_stack_a *stack_a, t_stack_b *stack_b, int *lowest);
-// void	last_push(t_stack_a *stack_a, t_stack_b *stack_b);
-// void	sorting_checker(t_stack_a *stack_a);
-// void	checker(t_stack_a *stack_a);
+void	push_swap(t_stack **stack_a, t_stack **stack_b);
+void    five_sorter_stack_a(t_stack *stack_a, t_stack *stack_b);
+void    five_sorter_stack_b(t_stack *stack_a, t_stack *stack_b);
+void    a_four_sorter(t_stack *stack_a, t_stack *stack_b);
+int		*smallest_finder(t_stack *stack_b);
+void	two_low_swapper(t_stack *stack_a, t_stack *stack_b, int value);
+void	third_low_swapper(t_stack *stack_a, t_stack *stack_b, int *lowest);
+void	last_push(t_stack *stack_a, t_stack *stack_b);
+void	sorting_checker(t_stack *stack_a);
+void	checker(t_stack *stack_a);
 
 // ////// algo_utils //////
-// int 	ruler(t_stack_a *stack_a, t_stack_b *stack_b, int stack);
-// int		abs_diff(int a, int b);
-// void	cost_initializer(t_stack_a *stack_a, t_stack_b *stack_b);
-// int		b_pos_finder(int stack_a_value, t_stack_b *stack_b);
-// void    printer(t_stack_a *stack_a, t_stack_b *stack_b);
+int 	ruler(t_stack **stack_a, t_stack **stack_b, int stack);
+int		abs_diff(int a, int b);
+void	cost_initializer(t_stack *stack_a, t_stack *stack_b);
+int		b_pos_finder(int stack_a_value, t_stack *stack_b);
 
-// int	    *ft_calloc(size_t size, int value);
-// int     *n_largest_finder(t_stack_a *stack_a, int n);
+int	    *ft_calloc(size_t size, int value);
+int     *n_largest_finder(t_stack *stack_a, int n);
 
-// void    extractor_utils(t_stack_a *stack_a, t_stack_b *stack_b, int n, int *lowest_values);
-// int     n_selector(t_stack_a *stack_a, t_stack_b *stack_b);
-// char    side_chooser(int *lowest_values, t_stack_a *stack_a, int mid, int up, int low);
+void    extractor_utils(t_stack *stack_a, t_stack *stack_b, int n, int *lowest_values);
+int     n_selector(t_stack *stack_a);
+char    side_chooser(int *lowest_values, t_stack *stack_a, int mid, int up, int low);
 
-// void	three_sorter_stack_a(t_stack_a *stack_a);
-// void	three_sorter_stack_b(t_stack_b *stack_a);
-// void	three_sorter_utils_stack_a(t_stack_a	*stack_a, int scenario);
-// int		scenario_finder(t_data *stack);
+void	three_sorter_stack_a(t_stack *stack_a);
+void	three_sorter_stack_b(t_stack *stack_a);
+void	three_sorter_utils_stack_a(t_stack	*stack_a, int scenario);
+int		scenario_finder(t_stack *stack);
 
 /// operations ///  
 void	sa(t_stack **stack);

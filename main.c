@@ -3,26 +3,42 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: adesille <adesille@student.42.fr>          +#+  +:+       +#+        */
+/*   By: isb3 <isb3@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/08 17:29:02 by adesille          #+#    #+#             */
-/*   Updated: 2024/02/24 17:09:34 by adesille         ###   ########.fr       */
+/*   Updated: 2024/02/25 09:58:40 by isb3             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	stack_printer(t_stack *stack, char c)
+void	printer(t_stack *stack_a, t_stack *stack_b, int c)
 {
-	printf("-------------------------------------STACK %c-------------------------------------\n", c);
-	while (stack)
+	if (c == 0 || c == 2)
 	{
-		printf("Val:    %d\n", stack->value);
-		printf("\033[0;32m");
-		printf("Pos: %d\n", stack->position);
-		stack = stack->next;
-		printf("\033[0;37m");
+		printf("------------------------------------- STACK A -------------------------------------\n");
+		while (stack_a)
+		{
+			printf("Val:    %d\n", stack_a->value);
+			printf("\033[0;32m");
+			printf("Pos: %d\n", stack_a->position);
+			stack_a = stack_a->next;
+			printf("\033[0;37m");
+		}
 	}
+	if (c == 1 || c == 2)
+	{
+		printf("------------------------------------- STACK B -------------------------------------\n");
+		while (stack_b)
+		{
+			printf("Val:    %d\n", stack_b->value);
+			printf("\033[0;32m");
+			printf("Pos: %d\n", stack_b->position);
+			stack_b = stack_b->next;
+			printf("\033[0;37m");
+		}
+	}
+	printf("===================================================================================\n");
 }
 
 int	main(int argc, char *argv[])
@@ -30,11 +46,11 @@ int	main(int argc, char *argv[])
 	t_stack		*stack_a;
 	t_stack		*stack_b;
 	int			*array;
-	int         i;
+	// int         i;
 	
 	stack_a = NULL;
 	stack_b = NULL;
-	i = 0;
+	// i = 0;
 	if (argc <= 1)
 		return (printf("u're dumb or what !? I need arguments, blyat !"));
 	else
@@ -45,7 +61,8 @@ int	main(int argc, char *argv[])
 		initialize_stacks(array, &stack_a); 
 		// free(array);
 		/// ALGO ///
-		// push_swap(&stack_a, &stack_b);	
+		push_swap(&stack_a, &stack_b);	
+		printer(stack_a, stack_b, 2);
 		lst_freememory(stack_a, stack_b);
 	}
 }
