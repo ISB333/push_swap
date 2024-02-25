@@ -6,7 +6,7 @@
 /*   By: isb3 <isb3@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/06 09:59:56 by adesille          #+#    #+#             */
-/*   Updated: 2024/02/25 09:42:02 by isb3             ###   ########.fr       */
+/*   Updated: 2024/02/25 10:32:04y isb3             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,9 +101,9 @@ void    push_swap(t_stack **stack_a, t_stack **stack_b)
 	else
 	{
 		n = n_selector((*stack_a));
-		while (ruler(stack_a, stack_b, 'A') > n)
+		while (ruler(stack_a, stack_b, 'A') >= n)
 			pb(stack_a, stack_b);
-			// n_smallest_extractor(stack_a, stack_b, n);
+			// n_smallest_extractor((*stack_a), (*stack_b), n);
 		// n = n_selector(stack_a, stack_b);
 		// while (ruler(stack_a, stack_b, 'A') > 5)
 		// 	n_smallest_extractor(stack_a, stack_b, n);
