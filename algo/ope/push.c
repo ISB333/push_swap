@@ -6,7 +6,7 @@
 /*   By: adesille <adesille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/17 15:30:24 by isb3              #+#    #+#             */
-/*   Updated: 2024/02/24 16:56:19 by adesille         ###   ########.fr       */
+/*   Updated: 2024/02/26 14:41:29 by adesille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,10 +38,22 @@ void	pb(t_stack **stack_a, t_stack **stack_b)
 		(*stack_b)->prev = new_node;
 		new_node->position = (*stack_b)->position + 1;
 	}
+	if (!(*stack_a)->next)
+	{
+		free(*stack_a);
+		*stack_a = NULL;
+	}
+	else
+	{
+		*stack_a = (*stack_a)->next;
+		free((*stack_a)->prev);
+		(*stack_a)->prev = NULL;
+	}
 	*stack_b = new_node;
-	*stack_a = (*stack_a)->next;
-	free((*stack_a)->prev);
-	printf("pa\n");
+	// *stack_b = new_node;
+	// *stack_a = (*stack_a)->next;
+	// free((*stack_a)->prev);
+	printf("pb\n");
 }
 
 void	pa(t_stack **stack_a, t_stack **stack_b)
@@ -75,6 +87,7 @@ void	pa(t_stack **stack_a, t_stack **stack_b)
 	{
 		*stack_b = (*stack_b)->next;
 		free((*stack_b)->prev);
+		(*stack_b)->prev = NULL;
 	}
 	*stack_a = new_node;
 	printf("pa\n");

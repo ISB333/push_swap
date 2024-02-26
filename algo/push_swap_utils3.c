@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap_utils3.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: isb3 <isb3@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: adesille <adesille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/14 10:29:19 by adesille          #+#    #+#             */
-/*   Updated: 2024/02/25 09:47:24 by isb3             ###   ########.fr       */
+/*   Updated: 2024/02/26 15:47:24 by adesille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,26 @@ int	n_selector(t_stack *stack_a)
 	return (0);
 }
 
+t_stack	*a_tail_return(t_stack *stack)
+{
+	t_stack	*a_tail;
+
+	a_tail = stack;
+	while (a_tail)
+		a_tail = a_tail->next;
+	return (a_tail);
+}
+
+t_stack	*b_tail_return(t_stack *stack)
+{
+	t_stack	*b_tail;
+
+	b_tail = stack;
+	while (b_tail)
+		b_tail = b_tail->next;
+	return (b_tail);
+}
+
 int		mid_calculator(int *largest_values)
 {
 	int	i;
@@ -46,79 +66,103 @@ int		mid_calculator(int *largest_values)
 
 char    side_chooser(int *largest_values, t_stack *stack_a, int mid, int up, int low)
 {
-	t_stack  *stack_a_head;
+	t_stack  *a_head;
 	int     i;
 
-	stack_a_head = stack_a;
-	while (stack_a_head->position < mid)
+	a_head = stack_a;
+	while (a_head->position < mid)
 	{
 		i = -1;
 		while (largest_values[++i])
-			if (stack_a_head->value == largest_values[i])
+			if (a_head->value == largest_values[i])
 				up++;
-		stack_a_head = stack_a_head->next;
+		a_head = a_head->next;
 	}
-	while (stack_a_head)
+	while (a_head)
 	{
 		i = -1;
 		while (largest_values[++i])
-			if (stack_a_head->value == largest_values[i])
+			if (a_head->value == largest_values[i])
 				low++;
-		stack_a_head = stack_a_head->next;
+		a_head = a_head->next;
 	}
 	if (up >= low)
 		return ('L');
 	return ('U');
 }
 
-void	pusher(t_stack *stack_a, t_stack *stack_b, int mid_value)
+void	pusher(t_stack **stack_a, t_stack **stack_b, int mid_value)
 {
-	t_stack	*stack_b_head;
-	t_stack	*stack_b_tail;
-	t_stack	*stack_a_tail;
+	t_stack	*b_head;
+	t_stack	*b_tail;
+	t_stack	*a_tail;
 
-	stack_b_head = stack_b;
-	stack_b_tail = stack_b;
-	stack_a_tail = stack_a;
-	if (!stack_b_head || stack_b_head == stack_b_tail)
+	b_head = *stack_b;
+	b_tail = b_tail_return(*stack_b);
+	a_tail = a_tail_return(*stack_a);
+	if (!b_head || b_head == b_tail)
 	{
-		pb(&stack_a, &stack_b);
+		pb(stack_a, stack_b);
 		return ;
 	}
-	if (stack_a_tail->value > mid_value)
-		pb(&stack_a, &stack_b);
+	if (a_tail->value > mid_value)
+		pb(stack_a, stack_b);
 	else
 	{
-		pb(&stack_a, &stack_b);
-		rrb(&stack_b); // rotating into low
+		pb(stack_a, stack_b);
+		rrb(stack_b); // rotating into low
 	}
 }
 
-void    extractor_utils(t_stack *stack_a, t_stack *stack_b, int n, int *largest_values)
+// void    extractor_utils(t_stack **stack_a, t_stack **stack_b, int n, int *largest)
+// {
+// 	t_stack	*a_head;
+// 	int mid;
+// 	int i;
+// 	int side;
+
+// 	side = 'U';
+// 	n = 214578623;
+// 	mid = (*stack_a)->position / 2;
+// 	a_head = (*stack_a); 
+// 	i = -1;
+// 	while (largest[++i])
+// 	{
+// 		if (a_head && a_head->value == largest[i])
+// 		{
+// 			// pusher(stack_a, stack_b, mid_calculator(largest_values));
+// 			pb(stack_a, stack_b);
+// 			a_head = (*stack_a); 
+// 			// n--;
+// 		}
+// 	}
+// }
+
+void    extractor_utils(t_stack **stack_a, t_stack **stack_b, int n, int *largest)
 {
-	t_stack	*s_a_tmp;
-	t_stack	*stack_a_tail;
-	int i;
+	t_stack	*a_head;
 	int mid;
+	int i;
 	int side;
 
-	stack_a_tail = stack_a;
+	side = 'U';
+	mid = (*stack_a)->position / 2;
+	a_head = (*stack_a); 
 	while (n > 0)
 	{
-		mid = stack_a_tail->position / 2;
-		side = side_chooser(largest_values, stack_a, mid, 0, 0);
-		s_a_tmp = stack_a_tail;
+		side = side_chooser(largest, (*stack_a), mid, (*stack_a)->position, 0);
 		i = -1;
-		while (largest_values[++i])
-			if (s_a_tmp && s_a_tmp->value == largest_values[i])
+		while (largest[++i])
+			if (a_head && a_head->value == largest[i])
             {
 				// pusher(stack_a, stack_b, mid_calculator(largest_values));
-				pb(&stack_a, &stack_b);
+				pb(stack_a, stack_b);
+				a_head = (*stack_a); 
 				n--;
             }
 		if (side == 'U')
-			rra(&stack_a);
+			ra(stack_a);
 		else if (side == 'L')
-			ra(&stack_a);
+			rra(stack_a);
 	}
 }
