@@ -6,7 +6,7 @@
 /*   By: adesille <adesille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/17 15:28:12 by isb3              #+#    #+#             */
-/*   Updated: 2024/02/27 12:24:56 by adesille         ###   ########.fr       */
+/*   Updated: 2024/02/27 12:53:36 by adesille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ typedef struct s_stack
 
 int		*initializer(char *argv[]);
 void	printer(t_stack *stack_a, t_stack *stack_b, int c);
+void	printer_a(t_stack *stack_a);
 
 /// initialization ///
 int		ft_count_words(char	*str, char c);
@@ -37,7 +38,6 @@ int		*initializer(char *argv[]);
 
 void	initialize_stacks(int *array, t_stack **stack_a);
 void	add_node(t_stack **stack, int value);
-void	stack_printer(t_stack *stack, char c);
 
 int		security_check(char *argv[]);
 int		ft_strlen(char *str);
