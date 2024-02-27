@@ -6,7 +6,7 @@
 /*   By: adesille <adesille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/17 15:30:34 by isb3              #+#    #+#             */
-/*   Updated: 2024/02/24 17:03:30 by adesille         ###   ########.fr       */
+/*   Updated: 2024/02/27 11:21:22 by adesille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,13 @@ void	do_rra(t_stack **stack)
 	last = (*stack)->prev;
 	(*stack)->prev = NULL;
 	last->next = NULL;
+	last->position = 1;
+	while (last)
+	{
+		last = last->prev;
+		if (last)
+			last->position = last->next->position + 1;
+	}
 }
 
 void	do_rrb(t_stack **stack)
@@ -40,6 +47,13 @@ void	do_rrb(t_stack **stack)
 	last = (*stack)->prev;
 	(*stack)->prev = NULL;
 	last->next = NULL;
+	last->position = 1;
+	while (last)
+	{
+		last = last->prev;
+		if (last)
+			last->position = last->next->position + 1;
+	}
 }
 
 void	rrr(t_stack **stack_a, t_stack **stack_b)
@@ -52,11 +66,11 @@ void	rrr(t_stack **stack_a, t_stack **stack_b)
 void	rra(t_stack **stack_a)
 {
 	do_rra(stack_a);
-	printf("ra\n");
+	printf("rra\n");
 }
 
 void	rrb(t_stack **stack_b)
 {
 	do_rrb(stack_b);
-	printf("rb\n");
+	printf("rrb\n");
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: isb3 <isb3@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: adesille <adesille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/08 17:29:02 by adesille          #+#    #+#             */
-/*   Updated: 2024/02/25 10:37:40 by isb3             ###   ########.fr       */
+/*   Updated: 2024/02/27 09:50:04 by adesille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,8 @@ void	printer(t_stack *stack_a, t_stack *stack_b, int c)
 			printf("Val:    %d\n", stack_a->value);
 			printf("\033[0;32m");
 			printf("Pos: %d\n", stack_a->position);
-			stack_a = stack_a->next;
 			printf("\033[0;37m");
+			stack_a = stack_a->next;
 		}
 	}
 	if (c == 1 || c == 2)

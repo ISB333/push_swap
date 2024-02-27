@@ -6,7 +6,7 @@
 /*   By: adesille <adesille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/17 15:28:12 by isb3              #+#    #+#             */
-/*   Updated: 2024/02/26 15:57:00 by adesille         ###   ########.fr       */
+/*   Updated: 2024/02/27 12:24:56 by adesille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,8 +80,7 @@ int 	ruler(t_stack **stack_a, t_stack **stack_b, int stack);
 int		abs_diff(int a, int b);
 void	cost_initializer(t_stack *stack_a, t_stack *stack_b);
 int		b_pos_finder(int stack_a_value, t_stack *stack_b);
-t_stack	*a_tail_return(t_stack *stack);
-t_stack	*b_tail_return(t_stack *stack);
+t_stack	**return_tail(t_stack **stack);
 
 int	    *ft_calloc(size_t size, int value);
 int     *n_largest_finder(t_stack *stack_a, int n);

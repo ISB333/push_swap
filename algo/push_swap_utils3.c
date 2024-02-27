@@ -6,7 +6,7 @@
 /*   By: adesille <adesille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/14 10:29:19 by adesille          #+#    #+#             */
-/*   Updated: 2024/02/26 15:47:24 by adesille         ###   ########.fr       */
+/*   Updated: 2024/02/27 12:41:26 by adesille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,24 +32,13 @@ int	n_selector(t_stack *stack_a)
 	return (0);
 }
 
-t_stack	*a_tail_return(t_stack *stack)
-{
-	t_stack	*a_tail;
-
-	a_tail = stack;
-	while (a_tail)
-		a_tail = a_tail->next;
-	return (a_tail);
-}
-
-t_stack	*b_tail_return(t_stack *stack)
-{
-	t_stack	*b_tail;
-
-	b_tail = stack;
-	while (b_tail)
-		b_tail = b_tail->next;
-	return (b_tail);
+t_stack	**return_tail(t_stack **stack)
+{    
+	if (stack == NULL || *stack == NULL) 
+        return NULL;
+	while ((*stack)->next)
+		stack = &((*stack)->next);
+	return (stack);
 }
 
 int		mid_calculator(int *largest_values)
@@ -94,18 +83,18 @@ char    side_chooser(int *largest_values, t_stack *stack_a, int mid, int up, int
 void	pusher(t_stack **stack_a, t_stack **stack_b, int mid_value)
 {
 	t_stack	*b_head;
-	t_stack	*b_tail;
-	t_stack	*a_tail;
+	t_stack	**b_tail;
+	t_stack	**a_tail;
 
 	b_head = *stack_b;
-	b_tail = b_tail_return(*stack_b);
-	a_tail = a_tail_return(*stack_a);
-	if (!b_head || b_head == b_tail)
+	b_tail = return_tail(stack_b);
+	a_tail = return_tail(stack_a);
+	if (!b_head || b_head == (*b_tail))
 	{
 		pb(stack_a, stack_b);
 		return ;
 	}
-	if (a_tail->value > mid_value)
+	if ((*a_tail)->value > mid_value)
 		pb(stack_a, stack_b);
 	else
 	{
@@ -141,16 +130,16 @@ void	pusher(t_stack **stack_a, t_stack **stack_b, int mid_value)
 void    extractor_utils(t_stack **stack_a, t_stack **stack_b, int n, int *largest)
 {
 	t_stack	*a_head;
-	int mid;
-	int i;
-	int side;
+	int 	mid;
+	int 	i;
+	int 	side;
 
 	side = 'U';
 	mid = (*stack_a)->position / 2;
-	a_head = (*stack_a); 
 	while (n > 0)
 	{
 		side = side_chooser(largest, (*stack_a), mid, (*stack_a)->position, 0);
+		a_head = (*stack_a); 
 		i = -1;
 		while (largest[++i])
 			if (a_head && a_head->value == largest[i])

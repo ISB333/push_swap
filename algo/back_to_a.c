@@ -6,7 +6,7 @@
 /*   By: adesille <adesille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/15 13:21:37 by adesille          #+#    #+#             */
-/*   Updated: 2024/02/26 15:57:18 by adesille         ###   ########.fr       */
+/*   Updated: 2024/02/27 12:35:43 by adesille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,20 +46,20 @@ int	*smallest_finder(t_stack *stack_b)
 
 void	third_low_swapper(t_stack **stack_a, t_stack **stack_b, int *lowest)
 {
-	t_stack	*b_tail;
+	t_stack	**b_tail;
 	int		count;
 
 	count = 0;
 	pa(stack_a, stack_b);
 	ra(stack_a);
-	b_tail = b_tail_return(*stack_b);
-	while (b_tail->value != lowest[0] || b_tail->value != lowest[1])
+	b_tail = return_tail(stack_b);
+	while ((*b_tail)->value != lowest[0] || (*b_tail)->value != lowest[1])
 	{
 		rb(stack_b);
 		count++;
-		b_tail = b_tail_return(*stack_b);
+		b_tail = return_tail(stack_b);
 	}
-	if (b_tail->value == lowest[1])
+	if ((*b_tail)->value == lowest[1])
 	{
 		pa(stack_a, stack_b);
 		pa(stack_a, stack_b);
@@ -78,17 +78,17 @@ void	third_low_swapper(t_stack **stack_a, t_stack **stack_b, int *lowest)
 
 void	two_low_swapper(t_stack **stack_a, t_stack **stack_b, int value)
 {
-	t_stack *b_tail;
+	t_stack **b_tail;
 
-	b_tail = b_tail_return(*stack_b);
+	b_tail = return_tail(stack_b);
 	pa(stack_a, stack_b);
 	checker(stack_a);
-	while (b_tail->value != value)
+	while ((*b_tail)->value != value)
 	{
 		rrb(stack_b);
-		b_tail = b_tail_return(*stack_b);
+		b_tail = return_tail(stack_b);
 	}
-	if (b_tail->value == value)
+	if ((*b_tail)->value == value)
 	{
 		pa(stack_a, stack_b);
 		sa(stack_a);
@@ -98,10 +98,10 @@ void	two_low_swapper(t_stack **stack_a, t_stack **stack_b, int value)
 void	last_push(t_stack **stack_a, t_stack **stack_b)
 {
 	t_stack	*b_head;
-	t_stack	*a_tail;
+	t_stack	**a_tail;
 
 	b_head = *stack_b;
-	a_tail = a_tail_return(*stack_a);
+	a_tail = return_tail(stack_a);
 	if (ruler(stack_a, stack_b, 'B') == 3)
 	{
 		three_sorter_stack_b(stack_b);
@@ -123,26 +123,26 @@ void	last_push(t_stack **stack_a, t_stack **stack_b)
 			pa(stack_a, stack_b);
 		}
 	}
-	if (a_tail->value < a_tail->prev->value)
+	if ((*a_tail)->value < (*a_tail)->prev->value)
 		sa(stack_a);
 }
 
 void	checker(t_stack **stack_a)
 {
-	t_stack	*a_tail;
+	t_stack	**a_tail;
 
-	a_tail = a_tail_return(*stack_a);
+	a_tail = return_tail(stack_a);
 	static int i = 1;
 	if (i > 0)
 	{
 		// printf("a_tail = %d\na_tail_prev = %d\n", stack_a->tail->value, stack_a->tail->prev->value);
 		i--;
 	}
-	if (a_tail->value < a_tail->prev->value)
+	if ((*a_tail)->value < (*a_tail)->prev->value)
 	{
 		sa(stack_a);
 	}
-	else if(a_tail->prev->value < a_tail->prev->prev->value)
+	else if((*a_tail)->prev->value < (*a_tail)->prev->prev->value)
 	{
 		rra(stack_a);
 		sa(stack_a);

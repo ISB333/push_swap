@@ -6,7 +6,7 @@
 /*   By: adesille <adesille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/07 10:09:49 by adesille          #+#    #+#             */
-/*   Updated: 2024/02/26 15:59:04 by adesille         ###   ########.fr       */
+/*   Updated: 2024/02/27 12:51:19 by adesille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,15 +15,15 @@
 void    a_four_sorter(t_stack **stack_a, t_stack **stack_b)
 {
 	t_stack  *a_head;
-	t_stack  *a_tail;
-	t_stack  *b_tail;
+	t_stack  **a_tail;
+	t_stack  **b_tail;
 
 	a_head = *stack_a;
-	a_tail = a_tail_return((*stack_a));
-	b_tail = b_tail_return((*stack_b));
-	if (b_tail->value > a_tail->value)
+	a_tail = return_tail(stack_a);
+	b_tail = return_tail(stack_b);
+	if ((*b_tail)->value > (*a_tail)->value)
 		pa(stack_a, stack_b);
-	else if (b_tail->value < a_tail->value && b_tail->value > a_tail->prev->value)
+	else if ((*b_tail)->value < (*a_tail)->value && (*b_tail)->value > (*a_tail)->prev->value)
 	{
 		// printf("------------------------BEFORE 4sort_scen2------------------------\n");
 		// stack_printer_a(stack_a);
@@ -32,7 +32,7 @@ void    a_four_sorter(t_stack **stack_a, t_stack **stack_b)
 		pa(stack_a, stack_b);
 		ra(stack_a);
 	}
-	else if (b_tail->value > a_head->value && b_tail->value < a_head->next->value)
+	else if ((*b_tail)->value > a_head->value && (*b_tail)->value < a_head->next->value)
 	{
 		// printf("4sort_scen3\n");
 		ra(stack_a);
@@ -51,17 +51,17 @@ void    a_four_sorter(t_stack **stack_a, t_stack **stack_b)
 void	a_last_sorter(t_stack **stack_a, t_stack **stack_b)
 {
 	t_stack	*a_head;
-	t_stack	*a_tail;
+	t_stack	**a_tail;
 	t_stack	*b_head;
 
 	a_head = *stack_a;
-	a_tail = a_tail_return((*stack_a));
+	a_tail = return_tail(stack_a);
 	b_head = *stack_a;
-	if (b_head->value > a_tail->value)
+	if (b_head->value > (*a_tail)->value)
 	{
 		pa(stack_a, stack_b);
 	}
-	else if(b_head->value > a_tail->prev->value)
+	else if(b_head->value > (*a_tail)->prev->value)
 	{
 		ra(stack_a);
 		pa(stack_a, stack_b);
@@ -92,11 +92,9 @@ void	a_last_sorter(t_stack **stack_a, t_stack **stack_b)
 void    five_sorter_stack_a(t_stack **stack_a, t_stack **stack_b)
 {
 	t_stack	*b_head;
-	t_stack	*b_tail;
+	t_stack	**b_tail;
 	// int *lowest;
 
-	b_head = *stack_b;
-	b_tail = b_tail_return(*stack_b);
 	// lowest = smallest_finder(stack_b);
 	pb(stack_a, stack_b);
 	pb(stack_a, stack_b);
@@ -105,7 +103,9 @@ void    five_sorter_stack_a(t_stack **stack_a, t_stack **stack_b)
 	three_sorter_stack_a(stack_a);
 	// printf("-----------------AFTER 3 SORTER----------------\n");
 	// stack_printer_a(stack_a);
-	if (b_tail->value > b_head->value)
+	b_head = *stack_b;
+	b_tail = return_tail(stack_b);
+	if ((*b_tail)->value > b_head->value)
 		rb(stack_b);
 	a_four_sorter(stack_a, stack_b);
 	// printf("-----------------AFTER 4 SORTER----------------\n");
