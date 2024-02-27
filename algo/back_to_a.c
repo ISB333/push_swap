@@ -6,7 +6,7 @@
 /*   By: adesille <adesille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/15 13:21:37 by adesille          #+#    #+#             */
-/*   Updated: 2024/02/27 15:24:53 by adesille         ###   ########.fr       */
+/*   Updated: 2024/02/27 15:38:22 by adesille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,15 +98,31 @@ void	last_push(t_stack **stack_a, t_stack **stack_b)
 {
 	t_stack	*b_head;
 	t_stack	**a_tail;
+	int		i;
 
 	b_head = *stack_b;
 	a_tail = return_tail(stack_a);
-	if (ruler(stack_a, stack_b, 'B') == 3)
+	if (ruler(stack_a, stack_b, 'B') == 5)
 	{
+		i = 5;
+		five_sorter_stack_b(stack_a, stack_b);
+		while (i-- > 0)
+			pa(stack_a, stack_b);
+	}
+	else if (ruler(stack_a, stack_b, 'B') == 4)
+	{
+		i = 3;
+		pa(stack_a, stack_b);
 		three_sorter_stack_b(stack_b);
-		pa(stack_a, stack_b);
-		pa(stack_a, stack_b);
-		pa(stack_a, stack_b);
+		while (i-- > 0)
+			pa(stack_a, stack_b);
+	}
+	else if (ruler(stack_a, stack_b, 'B') == 3)
+	{
+		i = 3;
+		three_sorter_stack_b(stack_b);
+		while (i-- > 0)
+			pa(stack_a, stack_b);
 	}
 	else
 	{
@@ -122,8 +138,6 @@ void	last_push(t_stack **stack_a, t_stack **stack_b)
 			pa(stack_a, stack_b);
 		}
 	}
-	if ((*a_tail)->value < (*a_tail)->prev->value)
-		sa(stack_a);
 }
 
 void	checker(t_stack **stack_a)

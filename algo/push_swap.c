@@ -53,7 +53,7 @@ void    pushing_back_to_a(t_stack **stack_a, t_stack **stack_b)
 
 	pre_sorting_a(stack_a, stack_b);
 	b_head = stack_b;
-	while (ruler(stack_a, stack_b, 'B') > 3)
+	while (ruler(stack_a, stack_b, 'B') > 5)
 	{
 		///////////////// NEED TO ADD AN OPTION TO SEND THE LOWEST FIND ON THE ROAD AND PUT HEM AT THE LOW OF THE STACK //////////////////////////////
 		largest = largest_finder(*stack_b);
@@ -73,7 +73,7 @@ void    pushing_back_to_a(t_stack **stack_a, t_stack **stack_b)
 	}
 	// printer(stack_a, stack_b);
 	last_push(stack_a, stack_b);
-	sorting_checker(*stack_a);
+	// sorting_checker(*stack_a);
 }
 
 void	n_smallest_extractor(t_stack **stack_a, t_stack **stack_b, int n)

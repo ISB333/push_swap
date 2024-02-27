@@ -6,7 +6,7 @@
 /*   By: adesille <adesille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/14 10:29:19 by adesille          #+#    #+#             */
-/*   Updated: 2024/02/27 14:55:09 by adesille         ###   ########.fr       */
+/*   Updated: 2024/02/27 15:29:17 by adesille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,8 +60,10 @@ char    side_chooser(int *largest_values, t_stack *stack_a, int mid, int up, int
 	t_stack  *a_head;
 	int     i;
 
+	if ((!stack_a || !stack_a->next))
+		return (0);
 	a_head = stack_a;
-	while (a_head->position < mid)
+	while (a_head->position > mid)
 	{
 		i = -1;
 		while (largest_values[++i])
