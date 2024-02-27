@@ -6,7 +6,7 @@
 /*   By: adesille <adesille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/15 13:21:37 by adesille          #+#    #+#             */
-/*   Updated: 2024/02/27 15:12:16 by adesille         ###   ########.fr       */
+/*   Updated: 2024/02/27 15:24:53 by adesille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -112,7 +112,7 @@ void	last_push(t_stack **stack_a, t_stack **stack_b)
 	{
 		if (b_head->value < b_head->next->value)
 		{
-			rrb(stack_b);
+			sb(stack_b);
 			pa(stack_a, stack_b);
 			pa(stack_a, stack_b);
 		}
@@ -158,10 +158,18 @@ void	sorting_checker(t_stack *stack_a)
 	{
 		if (a_tmp->value > a_tmp->next->value)
 		{
+			printf("\033[0;31m");
+			printf("==============================================================================\n");
 			printf("NOT SORTED MUDAFUKA SHGIEHBKGHBADGKHBEGLKJ!@!##$#@$^$@$^@#!^^$@$TYWQHYNG$VTTRH\n");
+			printf("==============================================================================\n");
+			printf("\033[0;37m");
 			return ;
 		}
 		a_tmp = a_tmp->next;
 	}
-	printf("SORTING OK BROoOoOooOOoOOoO!\n");
+	printf("\033[0;34m");
+	printf("----------------------------------------------------------------------------------\n");
+	printf("                         SORTING OK BROoOoOooOOoOOoO!\n");
+	printf("----------------------------------------------------------------------------------\n");
+	printf("\033[0;37m");
 }
