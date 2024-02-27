@@ -6,7 +6,7 @@
 /*   By: adesille <adesille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/17 15:30:34 by isb3              #+#    #+#             */
-/*   Updated: 2024/02/27 11:21:22 by adesille         ###   ########.fr       */
+/*   Updated: 2024/02/27 14:50:28 by adesille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@ void	do_rra(t_stack **stack)
 {
 	t_stack	*last;
 
+	if (!stack || !*stack || !(*stack)->next)
+		return ;
 	last = *stack;
 	while (last->next)
 		last = last->next;
@@ -38,6 +40,8 @@ void	do_rrb(t_stack **stack)
 {
 	t_stack	*last;
 
+	if (!stack || !*stack || !(*stack)->next)
+		return ;
 	last = *stack;
 	while (last->next)
 		last = last->next;

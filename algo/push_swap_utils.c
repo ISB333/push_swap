@@ -6,7 +6,7 @@
 /*   By: adesille <adesille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/26 13:10:58 by adesille          #+#    #+#             */
-/*   Updated: 2024/02/27 09:00:48 by adesille         ###   ########.fr       */
+/*   Updated: 2024/02/27 14:54:06 by adesille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,13 @@
 
 int ruler(t_stack **stack_a, t_stack **stack_b, int stack)
 {
-	if (stack == 'A' && stack_a)
+	if ((!stack_a || !*stack_a || !(*stack_a)->next) && stack == 'A')
+		return (0);
+	else if ((!stack_b || !*stack_b || !(*stack_b)->next) && stack == 'B')
+		return (0);
+	if (stack == 'A')
 		return ((*stack_a)->position);
-	else if (stack == 'B' && stack_b)
+	else if (stack == 'B')
 		return ((*stack_b)->position);
     return (0);
 }

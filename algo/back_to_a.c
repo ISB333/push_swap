@@ -6,45 +6,45 @@
 /*   By: adesille <adesille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/15 13:21:37 by adesille          #+#    #+#             */
-/*   Updated: 2024/02/27 12:35:43 by adesille         ###   ########.fr       */
+/*   Updated: 2024/02/27 15:12:16 by adesille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-int	*smallest_finder(t_stack *stack_b)
+int	*largest_finder(t_stack *stack_b)
 {
 	t_stack	*b_head;
 	int 	*lowest;
 	// int 	i;
 
 	// i = 0;
-	lowest = ft_calloc(2, 2147483647);
+	lowest = ft_calloc(2, 1);
 	b_head = stack_b;
 	while (b_head)
 	{
-		if (b_head->value < lowest[0])
+		if (b_head->value > lowest[0])
 			lowest[0] = b_head->value;
 		b_head = b_head->next;
 	}
 	b_head = stack_b;
 	while (b_head)
 	{
-		if (b_head->value > lowest[0] && b_head->value < lowest[1])
+		if (b_head->value < lowest[0] && b_head->value > lowest[1])
 			lowest[1] = b_head->value;
 		b_head = b_head->next;
 	}
 	b_head = stack_b;
-	while (b_head)
-	{
-		if (b_head->value > lowest[0] && b_head->value < lowest[1])
-			lowest[1] = b_head->value;
-		b_head = b_head->next;
-	}
+	// while (b_head)
+	// {
+	// 	if (b_head->value < lowest[0] && b_head->value > lowest[1])
+	// 		lowest[1] = b_head->value;
+	// 	b_head = b_head->next;
+	// }
 	return (lowest);
 }
 
-void	third_low_swapper(t_stack **stack_a, t_stack **stack_b, int *lowest)
+void	three_swapper(t_stack **stack_a, t_stack **stack_b, int *lowest)
 {
 	t_stack	**b_tail;
 	int		count;
@@ -76,19 +76,18 @@ void	third_low_swapper(t_stack **stack_a, t_stack **stack_b, int *lowest)
 		rb(stack_b);
 }
 
-void	two_low_swapper(t_stack **stack_a, t_stack **stack_b, int value)
+void	two_swapper(t_stack **stack_a, t_stack **stack_b, int value)
 {
-	t_stack **b_tail;
+	t_stack **b_head;
 
-	b_tail = return_tail(stack_b);
+	b_head = stack_b;
 	pa(stack_a, stack_b);
-	checker(stack_a);
-	while ((*b_tail)->value != value)
+	while ((*b_head)->value != value)
 	{
-		rrb(stack_b);
-		b_tail = return_tail(stack_b);
+		rb(stack_b);
+		b_head = stack_b;
 	}
-	if ((*b_tail)->value == value)
+	if ((*b_head)->value == value)
 	{
 		pa(stack_a, stack_b);
 		sa(stack_a);

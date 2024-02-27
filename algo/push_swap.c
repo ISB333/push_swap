@@ -48,25 +48,29 @@ void	pre_sorting_a(t_stack **stack_a, t_stack **stack_b)
 
 void    pushing_back_to_a(t_stack **stack_a, t_stack **stack_b)
 {
-	t_stack 	*b_tail;
-	// int		*three_lowest;
+	t_stack	**b_head;
+	int		*largest;
 
 	pre_sorting_a(stack_a, stack_b);
-	b_tail = *stack_b;
-	// while (ruler(stack_a, stack_b, 'B') > 3)
-	// {
-	// 	three_lowest = smallest_finder(stack_b);
-	// 	if (stack_b_tail->value == three_lowest[0])
-	// 		pa(stack_a, stack_b);
-	// 	else if (stack_b_tail->value == three_lowest[2])
-	// 		third_low_swapper(stack_a, stack_b, three_lowest);
-	// 	else if (stack_b_tail->value == three_lowest[1])
-	// 		two_low_swapper(stack_a, stack_b, three_lowest[0]);
-	// 	else 
-	// 		rb(stack_b);
-	// 	checker(stack_a);
-	// 	stack_b_tail = stack_b;
-	// }
+	b_head = stack_b;
+	while (ruler(stack_a, stack_b, 'B') > 3)
+	{
+		///////////////// NEED TO ADD AN OPTION TO SEND THE LOWEST FIND ON THE ROAD AND PUT HEM AT THE LOW OF THE STACK //////////////////////////////
+		largest = largest_finder(*stack_b);
+		// int i = 0;
+		// while(largest[i])
+		// 	printf("largest = %d\n", largest[i++]);
+		if ((*b_head)->value == largest[0])
+			pa(stack_a, stack_b);
+		else if ((*b_head)->value == largest[1])
+			two_swapper(stack_a, stack_b, largest[0]);
+		else if ((*b_head)->value == largest[2])
+			three_swapper(stack_a, stack_b, largest);
+		else 
+			rb(stack_b);
+		b_head = stack_b;
+		free(largest);
+	}
 	// printer(stack_a, stack_b);
 	// last_push(stack_a, stack_b);
 	// // sorting_checker(stack_a);
@@ -75,41 +79,36 @@ void    pushing_back_to_a(t_stack **stack_a, t_stack **stack_b)
 void	n_smallest_extractor(t_stack **stack_a, t_stack **stack_b, int n)
 {
 	t_stack	*b_head;
-	int		*lowest_values;
+	int		*largest;
 	int 	i;
 
 	i = 0;
 	b_head = *stack_b;
-	lowest_values = n_largest_finder((*stack_a), n);
-	while(lowest_values[i])
-		printf("lowest = %d\n", lowest_values[i++]);
-	extractor_utils(stack_a, stack_b, n, lowest_values);
-	free(lowest_values);
+	largest = n_smallest_finder((*stack_a), n);
+	while(largest[i])
+		printf("lowest = %d\n", largest[i++]);
+	extractor_utils(stack_a, stack_b, n, largest);
+	free(largest);
 }
 
 void    push_swap(t_stack **stack_a, t_stack **stack_b)
 {
-	t_stack	**a_tail;
 	int	n;
 
-	printf("\n\n");
+	printf("\n");
 	if (ruler(stack_a, stack_b, 'A') <= 3)
 		three_sorter_stack_a(stack_a);
 	else if (ruler(stack_a, stack_b, 'A') <= 5)
 		five_sorter_stack_a(stack_a, stack_b);
 	else
 	{
-		a_tail = return_tail(stack_a);
-		printf("a_tail = %d\n", (*a_tail)->value);
 		n = n_selector(*stack_a);
-		printf("n = %d\n", n);
 		while (ruler(stack_a, stack_b, 'A') >= n)
 			n_smallest_extractor(stack_a, stack_b, n);
 		n = n_selector(*stack_a);
-		printf("n = %d\n", n);
 		while (ruler(stack_a, stack_b, 'A') > 5)
 			n_smallest_extractor(stack_a, stack_b, n);
-		// printer(*stack_a, *stack_b, 2);
+		printer(*stack_a, *stack_b, 2);
 		pushing_back_to_a(stack_a, stack_b);
 	}
 }

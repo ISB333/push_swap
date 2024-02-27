@@ -6,7 +6,7 @@
 /*   By: adesille <adesille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/17 15:28:12 by isb3              #+#    #+#             */
-/*   Updated: 2024/02/27 12:53:36 by adesille         ###   ########.fr       */
+/*   Updated: 2024/02/27 15:11:55 by adesille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,9 +68,9 @@ void	push_swap(t_stack **stack_a, t_stack **stack_b);
 void    five_sorter_stack_a(t_stack **stack_a, t_stack **stack_b);
 void    five_sorter_stack_b(t_stack **stack_a, t_stack **stack_b);
 void    a_four_sorter(t_stack **stack_a, t_stack **stack_b);
-int		*smallest_finder(t_stack *stack_b);
-void	two_low_swapper(t_stack **stack_a, t_stack **stack_b, int value);
-void	third_low_swapper(t_stack **stack_a, t_stack **stack_b, int *lowest);
+int		*largest_finder(t_stack *stack_b);
+void	two_swapper(t_stack **stack_a, t_stack **stack_b, int value);
+void	three_swapper(t_stack **stack_a, t_stack **stack_b, int *lowest);
 void	last_push(t_stack **stack_a, t_stack **stack_b);
 void	sorting_checker(t_stack *stack_a);
 void	checker(t_stack **stack_a);
@@ -83,7 +83,7 @@ int		b_pos_finder(int stack_a_value, t_stack *stack_b);
 t_stack	**return_tail(t_stack **stack);
 
 int	    *ft_calloc(size_t size, int value);
-int     *n_largest_finder(t_stack *stack_a, int n);
+int     *n_smallest_finder(t_stack *stack_a, int n);
 
 void    extractor_utils(t_stack **stack_a, t_stack **stack_b, int n, int *lowest_values);
 int     n_selector(t_stack *stack_a);

@@ -6,7 +6,7 @@
 /*   By: adesille <adesille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/14 10:29:19 by adesille          #+#    #+#             */
-/*   Updated: 2024/02/27 12:41:26 by adesille         ###   ########.fr       */
+/*   Updated: 2024/02/27 14:55:09 by adesille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@ int	n_selector(t_stack *stack_a)
 {
 	int	a_size;
 
+	if (!stack_a || !stack_a->next)
+		return 0;
 	a_size = stack_a->position;
 	if (a_size <= 20)
 		return (4);
