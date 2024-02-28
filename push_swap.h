@@ -6,7 +6,7 @@
 /*   By: adesille <adesille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/17 15:28:12 by isb3              #+#    #+#             */
-/*   Updated: 2024/02/28 09:45:43 by adesille         ###   ########.fr       */
+/*   Updated: 2024/02/28 12:13:41 by adesille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,8 +79,10 @@ void	checker(t_stack **stack_a);
 void    n_smallest_extractor(t_stack **stack_a, t_stack **stack_b, int n);
 
 ////// scrapper //////
-int		*n_largest_scrapper(t_stack *stack_a, int n);
 int     *n_smallest_scrapper(t_stack *stack_a, int n);
+int		*n_2nd_scrapper(t_stack *stack_a, int *lowest, int n);
+int     *largest_scrapper(t_stack *stack_a, int n);
+int		*larg_scrapper_n2(t_stack *stack_a, int *largest, int n);
 
 
 // ////// algo_utils //////
@@ -92,9 +94,8 @@ t_stack	**return_tail(t_stack **stack);
 
 int	    *ft_calloc(size_t size, int value);
 
-void    extractor_utils(t_stack **stack_a, t_stack **stack_b, int n, int *lowest_values);
 int     n_selector(t_stack *stack_a);
-char    side_chooser(int *lowest_values, t_stack *stack_a, int mid, int up, int low);
+char    side_chooser(int *largest, int *lowest, t_stack *stack_a, int up, int low);
 
 void	three_sorter_stack_a(t_stack **stack_a);
 void	three_sorter_stack_b(t_stack **stack_a);
