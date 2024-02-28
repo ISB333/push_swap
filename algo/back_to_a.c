@@ -6,43 +6,12 @@
 /*   By: adesille <adesille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/15 13:21:37 by adesille          #+#    #+#             */
-/*   Updated: 2024/02/27 15:38:22 by adesille         ###   ########.fr       */
+/*   Updated: 2024/02/28 08:43:56 by adesille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-int	*largest_finder(t_stack *stack_b)
-{
-	t_stack	*b_head;
-	int 	*lowest;
-	// int 	i;
-
-	// i = 0;
-	lowest = ft_calloc(2, 1);
-	b_head = stack_b;
-	while (b_head)
-	{
-		if (b_head->value > lowest[0])
-			lowest[0] = b_head->value;
-		b_head = b_head->next;
-	}
-	b_head = stack_b;
-	while (b_head)
-	{
-		if (b_head->value < lowest[0] && b_head->value > lowest[1])
-			lowest[1] = b_head->value;
-		b_head = b_head->next;
-	}
-	b_head = stack_b;
-	// while (b_head)
-	// {
-	// 	if (b_head->value < lowest[0] && b_head->value > lowest[1])
-	// 		lowest[1] = b_head->value;
-	// 	b_head = b_head->next;
-	// }
-	return (lowest);
-}
 
 void	three_swapper(t_stack **stack_a, t_stack **stack_b, int *lowest)
 {
@@ -137,29 +106,6 @@ void	last_push(t_stack **stack_a, t_stack **stack_b)
 			pa(stack_a, stack_b);
 			pa(stack_a, stack_b);
 		}
-	}
-}
-
-void	checker(t_stack **stack_a)
-{
-	t_stack	**a_tail;
-
-	a_tail = return_tail(stack_a);
-	static int i = 1;
-	if (i > 0)
-	{
-		// printf("a_tail = %d\na_tail_prev = %d\n", stack_a->tail->value, stack_a->tail->prev->value);
-		i--;
-	}
-	if ((*a_tail)->value < (*a_tail)->prev->value)
-	{
-		sa(stack_a);
-	}
-	else if((*a_tail)->prev->value < (*a_tail)->prev->prev->value)
-	{
-		rra(stack_a);
-		sa(stack_a);
-		ra(stack_a);
 	}
 }
 

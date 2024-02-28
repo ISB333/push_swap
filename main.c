@@ -6,11 +6,39 @@
 /*   By: adesille <adesille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/08 17:29:02 by adesille          #+#    #+#             */
-/*   Updated: 2024/02/27 15:32:27 by adesille         ###   ########.fr       */
+/*   Updated: 2024/02/28 08:42:10 by adesille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+void	printer_b(t_stack *stack_b)
+{
+	printf("------------------------------------- STACK b -------------------------------------\n");
+	while (stack_b)
+	{
+		printf("Val:    %d\n", stack_b->value);
+		printf("\033[0;32m");
+		printf("Pos: %d\n", stack_b->position);
+		printf("\033[0;37m");
+		stack_b = stack_b->next;
+	}
+	printf("===================================================================================\n");
+}
+
+void	printer_a(t_stack *stack_a)
+{
+	printf("------------------------------------- STACK A -------------------------------------\n");
+	while (stack_a)
+	{
+		printf("Val:    %d\n", stack_a->value);
+		printf("\033[0;32m");
+		printf("Pos: %d\n", stack_a->position);
+		printf("\033[0;37m");
+		stack_a = stack_a->next;
+	}
+	printf("===================================================================================\n");
+}
 
 void	printer(t_stack *stack_a, t_stack *stack_b, int c)
 {

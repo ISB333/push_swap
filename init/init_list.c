@@ -6,7 +6,7 @@
 /*   By: adesille <adesille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/09 11:40:28 by adesille          #+#    #+#             */
-/*   Updated: 2024/02/24 16:57:31 by adesille         ###   ########.fr       */
+/*   Updated: 2024/02/28 08:36:10 by adesille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,4 +40,43 @@ void	add_node(t_stack **stack, int value)
 	else
 		new_node->position = 1;
 	*stack = new_node;
+}
+
+int	security_check(char *argv[])
+{
+	int	i;
+	int	k;
+
+	k = 1;
+	while (argv[k])
+	{
+		i = 0;
+		while (argv[k][i])
+		{
+			if ((argv[k][i] >= '0' && argv[k][i] <= '9')
+				|| argv[k][i] == ' ' || argv[k][i] == '-')
+			{
+				if (argv[k][i] == '-' && argv[k][i + 1] == '-')
+					return (-1);
+			}
+			else if ((argv[k][i] >= 'a' && argv[k][i] <= 'z')
+					|| (argv[k][i] >= 'A' && argv[k][i] <= 'Z'))
+				return (-1);
+			i++;
+		}
+		k++;
+	}
+	return (0);
+}
+
+int	ft_strlen(char *str)
+{
+	int	len;
+
+	len = 0;
+	if (!str)
+		return (0);
+	while (str[len])
+		len++;
+	return (len);
 }

@@ -6,11 +6,45 @@
 /*   By: adesille <adesille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/17 11:54:15 by adesille          #+#    #+#             */
-/*   Updated: 2024/02/24 14:18:18 by adesille         ###   ########.fr       */
+/*   Updated: 2024/02/28 08:39:11 by adesille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
+
+void	freememory(char **array)
+{
+	int	i;
+
+	i = 0;
+	while (array[i])
+		free(array[i++]);
+	free(array);
+}
+
+void	lst_freememory(t_stack *stack_a, t_stack *stack_b)
+{
+	t_stack	*current;
+	t_stack	*next;
+
+	current = stack_a;
+	while (current)
+	{
+		next = current->next;
+		free(current);
+		current = next;
+	}
+	if (stack_b)
+	{
+		current = stack_b;
+		while (current)
+		{
+			next = current->next;
+			free(current);
+			current = next;
+		}
+	}
+}
 
 int	overflow_checker(char **after_itoa, char **initial_array)
 {

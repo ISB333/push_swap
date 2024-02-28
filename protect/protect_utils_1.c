@@ -6,11 +6,24 @@
 /*   By: adesille <adesille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/25 16:08:46 by adesille          #+#    #+#             */
-/*   Updated: 2024/02/20 13:22:51 by adesille         ###   ########.fr       */
+/*   Updated: 2024/02/28 08:38:12 by adesille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
+
+char	*ft_strdup(char *s)
+{
+	char	*str;
+	int		size;
+
+	size = ft_strlen(s) + 1;
+	str = malloc(size);
+	if (str == NULL)
+		return (free(s), NULL);
+	ft_strlcpy(str, s, size);
+	return (str);
+}
 
 static size_t	digitcount(int n)
 {

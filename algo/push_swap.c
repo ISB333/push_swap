@@ -76,20 +76,6 @@ void    pushing_back_to_a(t_stack **stack_a, t_stack **stack_b)
 	// sorting_checker(*stack_a);
 }
 
-void	n_smallest_extractor(t_stack **stack_a, t_stack **stack_b, int n)
-{
-	t_stack	*b_head;
-	int		*largest;
-	int 	i;
-
-	i = 0;
-	b_head = *stack_b;
-	largest = n_smallest_finder((*stack_a), n);
-	// while(largest[i])
-	// 	printf("lowest = %d\n", largest[i++]);
-	extractor_utils(stack_a, stack_b, n, largest);
-	free(largest);
-}
 
 void    push_swap(t_stack **stack_a, t_stack **stack_b)
 {
@@ -103,12 +89,12 @@ void    push_swap(t_stack **stack_a, t_stack **stack_b)
 	else
 	{
 		n = n_selector(*stack_a);
-		while (ruler(stack_a, stack_b, 'A') >= n)
+		// while (ruler(stack_a, stack_b, 'A') >= n)
 			n_smallest_extractor(stack_a, stack_b, n);
-		n = n_selector(*stack_a);
-		while (ruler(stack_a, stack_b, 'A') > 5)
-			n_smallest_extractor(stack_a, stack_b, n);
+		// n = n_selector(*stack_a);
+		// while (ruler(stack_a, stack_b, 'A') > 5)
+		// 	n_smallest_extractor(stack_a, stack_b, n);
 		// printer(*stack_a, *stack_b, 2);
-		pushing_back_to_a(stack_a, stack_b);
+		// pushing_back_to_a(stack_a, stack_b);
 	}
 }

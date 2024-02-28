@@ -6,7 +6,7 @@
 /*   By: adesille <adesille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/26 13:10:58 by adesille          #+#    #+#             */
-/*   Updated: 2024/02/27 14:54:06 by adesille         ###   ########.fr       */
+/*   Updated: 2024/02/28 08:46:10 by adesille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,27 +25,58 @@ int ruler(t_stack **stack_a, t_stack **stack_b, int stack)
     return (0);
 }
 
-int	abs_diff(int a, int b)
+int	*ft_memset(int *s, int c, size_t n)
 {
-	if (a > b)
-		return (a);
-	else if (b >= a)
-		return (b);
-	return (0);
+	int	i;
+
+	i = 0;
+	while (n-- > 0)
+		s[i++] = c;
+	s[i] = 0;
+	return (s);
 }
 
-int	b_pos_finder(int stack_a_value, t_stack *stack_b)
+int	*ft_calloc(size_t size, int value)
 {
-	t_stack	*stack_b_head;
+	int		*arr;
 
-	stack_b_head = stack_b;
-	while (stack_b_head && stack_a_value < stack_b_head->value)
-		stack_b_head = stack_b_head->next;	
-    if(stack_b_head)
-        return(stack_b_head->position);
-	else
-		return (0);
+	if (!size)
+		return (malloc(0));
+	arr = malloc((size + 1) * sizeof(int));
+	if (!arr)
+		return (NULL);
+	ft_memset(arr, value, size);
+	return (arr);
 }
+
+t_stack *stack_mover(t_stack *stack, int pos)
+{
+	while (pos-- > 0 && stack)
+		stack = stack->next;
+	return (stack); 
+}
+
+// int	abs_diff(int a, int b)
+// {
+// 	if (a > b)
+// 		return (a);
+// 	else if (b >= a)
+// 		return (b);
+// 	return (0);
+// }
+
+// int	b_pos_finder(int stack_a_value, t_stack *stack_b)
+// {
+// 	t_stack	*stack_b_head;
+
+// 	stack_b_head = stack_b;
+// 	while (stack_b_head && stack_a_value < stack_b_head->value)
+// 		stack_b_head = stack_b_head->next;	
+//     if(stack_b_head)
+//         return(stack_b_head->position);
+// 	else
+// 		return (0);
+// }
 
 
 // void	cost_initializer(t_stack *stack_a, t_stack *stack_b)

@@ -6,24 +6,13 @@
 /*   By: adesille <adesille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/27 13:36:48 by adesille          #+#    #+#             */
-/*   Updated: 2024/02/27 13:25:56 by adesille         ###   ########.fr       */
+/*   Updated: 2024/02/28 08:41:09 by adesille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-void	printer_a(t_stack *stack_a)
-{
-	printf("------------------------------------- STACK A -------------------------------------\n");
-	while (stack_a)
-	{
-		printf("Val:    %d\n", stack_a->value);
-		printf("\033[0;32m");
-		printf("Pos: %d\n", stack_a->position);
-		printf("\033[0;37m");
-		stack_a = stack_a->next;
-	}
-}
+
 
 int	scenario_finder(t_stack *stack)
 {

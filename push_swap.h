@@ -6,7 +6,7 @@
 /*   By: adesille <adesille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/17 15:28:12 by isb3              #+#    #+#             */
-/*   Updated: 2024/02/27 15:11:55 by adesille         ###   ########.fr       */
+/*   Updated: 2024/02/28 09:45:43 by adesille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,6 +75,14 @@ void	last_push(t_stack **stack_a, t_stack **stack_b);
 void	sorting_checker(t_stack *stack_a);
 void	checker(t_stack **stack_a);
 
+////// extractor //////
+void    n_smallest_extractor(t_stack **stack_a, t_stack **stack_b, int n);
+
+////// scrapper //////
+int		*n_largest_scrapper(t_stack *stack_a, int n);
+int     *n_smallest_scrapper(t_stack *stack_a, int n);
+
+
 // ////// algo_utils //////
 int 	ruler(t_stack **stack_a, t_stack **stack_b, int stack);
 int		abs_diff(int a, int b);
@@ -83,7 +91,6 @@ int		b_pos_finder(int stack_a_value, t_stack *stack_b);
 t_stack	**return_tail(t_stack **stack);
 
 int	    *ft_calloc(size_t size, int value);
-int     *n_smallest_finder(t_stack *stack_a, int n);
 
 void    extractor_utils(t_stack **stack_a, t_stack **stack_b, int n, int *lowest_values);
 int     n_selector(t_stack *stack_a);
