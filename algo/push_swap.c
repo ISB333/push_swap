@@ -16,11 +16,10 @@ void	pre_sorting_a(t_stack **stack_a, t_stack **stack_b)
 {
 	t_stack	*a_head;
 	t_stack	**a_tail;
+	int a_size;
 
 	a_head = *stack_a;
 	a_tail = return_tail(stack_a);
-	int a_size;
-
 	a_size = ruler(stack_a, stack_b, 'A');
 	if (a_size == 5)
 	{
@@ -43,6 +42,45 @@ void	pre_sorting_a(t_stack **stack_a, t_stack **stack_b)
 		printf("size 2\n");
 		if (a_head->value > (*a_tail)->value)
 			sa(stack_a);
+	}
+
+}
+
+void    sorting_extractor(t_stack **stack_a, t_stack **stack_b, int n, int *lowest, int *largest)
+{
+	t_stack	*a_head;
+	int 	mid;
+	int 	i;
+	int 	side;
+
+	side = 'U';
+	mid = (*stack_a)->position / 2;
+	while (n > 0)
+	{
+		side = side_chooser(lowest, largest, (*stack_a), (*stack_a)->position, 0);
+		a_head = (*stack_a); 
+		i = -1;
+		while (largest[++i])
+			if (a_head && a_head->value == largest[i])
+            {
+				// pusher(stack_a, stack_b, mid_calculator(largest_values));
+				pb(stack_a, stack_b);
+				a_head = (*stack_a); 
+				// largest_update();
+				n--;
+            }
+			else if (a_head && a_head->value == lowest[i])
+            {
+				// pusher(stack_a, stack_b, mid_calculator(largest_values));
+				pb(stack_a, stack_b);
+				rb(stack_b);
+				a_head = (*stack_a); 
+				// largest_update();
+            }
+		if (side == 'U')
+			ra(stack_a);
+		else if (side == 'L')
+			rra(stack_a);
 	}
 }
 
