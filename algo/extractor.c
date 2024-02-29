@@ -6,7 +6,7 @@
 /*   By: adesille <adesille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/28 08:48:19 by adesille          #+#    #+#             */
-/*   Updated: 2024/02/29 09:33:16 by adesille         ###   ########.fr       */
+/*   Updated: 2024/02/29 11:15:10 by adesille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,11 +18,11 @@ char    side_chooser(int *lowest, int *largest, t_stack *stack_a, int up, int lo
 	int     i;
 	int		mid;
 
-	if ((!stack_a || !stack_a->next))
+	if (!stack_a || !stack_a->next || !stack_a->next->next)
 		return (0);
 	a_head = stack_a;
 	mid = stack_a->position / 2;
-	while (a_head->position > mid)
+	while (a_head || a_head->position > mid)
 	{
 		i = 0;
 		while (largest[i] && lowest[i])
@@ -60,7 +60,7 @@ void    extractor(t_stack **stack_a, t_stack **stack_b, int n, int *lowest, int 
 	mid = (*stack_a)->position / 2;
 	while (n > 0 && (*stack_a))
 	{
-		side = side_chooser(lowest, largest, (*stack_a), (*stack_a)->position, 0);
+		// side = side_chooser(lowest, largest, (*stack_a), (*stack_a)->position, 0);
 		a_head = (*stack_a); 
 		i = -1;
 		while (largest[++i])

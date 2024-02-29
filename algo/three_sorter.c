@@ -6,7 +6,7 @@
 /*   By: adesille <adesille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/27 13:36:48 by adesille          #+#    #+#             */
-/*   Updated: 2024/02/29 09:36:21 by adesille         ###   ########.fr       */
+/*   Updated: 2024/02/29 09:41:23 by adesille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,24 +84,24 @@ void	three_sorter_utils_stack_b(t_stack **stack_b, int scenario)
 {
 	if (scenario == 3)
 	{
-		printf("scen3\n");
+		// printf("scen3\n");
 		// rrb(stack_b);
 	}
 	else if (scenario == 4)
 	{
-		printf("scen4\n");
+		// printf("scen4\n");
 		// rrb(stack_b);
 		sb(stack_b);
 	}
 	else if (scenario == 5)
 	{
-		printf("scen5\n");
+		// printf("scen5\n");
 		sb(stack_b);
 		rb(stack_b);
 	}
 	else if (scenario == 6)
 	{
-		printf("scen6\n");
+		// printf("scen6\n");
 		rb(stack_b);
 		return ;
 	}
@@ -119,13 +119,13 @@ void	three_sorter_stack_b(t_stack **stack_b)
 	scenario = scenario_finder(stack);
 	if (scenario == 1)
 	{
-		printf("scen1\n");
+		// printf("scen1\n");
 		rb(stack_b);
 		sb(stack_b);
 	}
 	else if (scenario == 2)
 	{
-		printf("scen2\n");
+		// printf("scen2\n");
 		rrb(stack_b);
 	}
 	else if (scenario >= 3)

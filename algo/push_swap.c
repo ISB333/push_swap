@@ -145,7 +145,7 @@ void    pushing_back_to_a(t_stack **stack_a, t_stack **stack_b)
 		free(largest);
 	}
 	last_push(stack_a, stack_b);
-	sorting_checker(*stack_a);
+	// sorting_checker(*stack_a);
 }
 
 void    push_swap(t_stack **stack_a, t_stack **stack_b)

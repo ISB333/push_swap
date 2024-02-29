@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sorter_stack_a_five.c                              :+:      :+:    :+:   */
+/*   five_sorter_a.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: adesille <adesille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/07 10:09:49 by adesille          #+#    #+#             */
-/*   Updated: 2024/02/27 14:10:06 by adesille         ###   ########.fr       */
+/*   Updated: 2024/02/29 11:19:01 by adesille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,10 @@ void    a_four_sorter(t_stack **stack_a, t_stack **stack_b)
 	t_stack  **a_tail;
 	t_stack  *b_head;
 
+	if (!*stack_a || !(*stack_a)->next || !stack_a)
+		return ;
+	else if (!*stack_b || !(*stack_b)->next || !stack_b)
+		return ;
 	a_head = *stack_a;
 	a_tail = return_tail(stack_a);
 	b_head = *stack_b;
@@ -51,6 +55,10 @@ void	a_last_sorter(t_stack **stack_a, t_stack **stack_b)
 	t_stack	**a_tail;
 	t_stack	*b_head;
 
+	if (!*stack_a || !(*stack_a)->next || !stack_a)
+		return ;
+	else if (!*stack_b || !(*stack_b)->next || !stack_b)
+		return ;
 	a_head = *stack_a;
 	a_tail = return_tail(stack_a);
 	b_head = *stack_b;

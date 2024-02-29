@@ -6,7 +6,7 @@
 /*   By: adesille <adesille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/15 13:21:37 by adesille          #+#    #+#             */
-/*   Updated: 2024/02/29 09:26:08 by adesille         ###   ########.fr       */
+/*   Updated: 2024/02/29 11:19:37 by adesille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,6 +70,10 @@ void	last_push(t_stack **stack_a, t_stack **stack_b)
 	t_stack	**a_tail;
 	int		i;
 
+	if (!*stack_a || !(*stack_a)->next || !stack_a)
+		return ;
+	else if (!*stack_b || !(*stack_b)->next || !stack_b)
+		return ;
 	b_head = *stack_b;
 	a_tail = return_tail(stack_a);
 	// if (ruler(stack_a, stack_b, 'B') == 5)
@@ -81,7 +85,7 @@ void	last_push(t_stack **stack_a, t_stack **stack_b)
 	// }
 	if (ruler(stack_a, stack_b, 'B') == 4)
 	{
-		printf("scen1, size == 4\n");
+		// printf("scen1, size == 4\n");
 		i = 3;
 		pa(stack_a, stack_b);
 		three_sorter_stack_b(stack_b);
@@ -90,7 +94,7 @@ void	last_push(t_stack **stack_a, t_stack **stack_b)
 	}
 	else if (ruler(stack_a, stack_b, 'B') == 3)
 	{
-		printf("scen2, size == 3\n");
+		// printf("scen2, size == 3\n");
 		i = 3;
 		three_sorter_stack_b(stack_b);
 		while (i-- > 0)
@@ -98,7 +102,7 @@ void	last_push(t_stack **stack_a, t_stack **stack_b)
 	}
 	else
 	{
-		printf("scen3, size == 2\n");
+		// printf("scen3, size == 2\n");
 		if (b_head->value < b_head->next->value)
 		{
 			sb(stack_b);
