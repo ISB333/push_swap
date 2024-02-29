@@ -6,7 +6,7 @@
 /*   By: adesille <adesille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/15 13:21:37 by adesille          #+#    #+#             */
-/*   Updated: 2024/02/28 08:43:56 by adesille         ###   ########.fr       */
+/*   Updated: 2024/02/29 09:26:08 by adesille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,20 +15,20 @@
 
 void	three_swapper(t_stack **stack_a, t_stack **stack_b, int *lowest)
 {
-	t_stack	**b_tail;
-	int		count;
+	t_stack	*b_head;
+	// int		count;
 
-	count = 0;
+	// count = 0;
 	pa(stack_a, stack_b);
 	ra(stack_a);
-	b_tail = return_tail(stack_b);
-	while ((*b_tail)->value != lowest[0] || (*b_tail)->value != lowest[1])
+	b_head = *stack_b;
+	while (b_head->value != lowest[0] || b_head->value != lowest[1])
 	{
 		rb(stack_b);
-		count++;
-		b_tail = return_tail(stack_b);
+		// count++;
+		b_head = *stack_b;
 	}
-	if ((*b_tail)->value == lowest[1])
+	if (b_head->value == lowest[1])
 	{
 		pa(stack_a, stack_b);
 		pa(stack_a, stack_b);
@@ -41,8 +41,8 @@ void	three_swapper(t_stack **stack_a, t_stack **stack_b, int *lowest)
 		sa(stack_a);
 		rra(stack_a);
 	}
-	while (count-- > 0)
-		rb(stack_b);
+	// while (count-- > 0)
+	// 	rb(stack_b);
 }
 
 void	two_swapper(t_stack **stack_a, t_stack **stack_b, int value)
@@ -61,6 +61,7 @@ void	two_swapper(t_stack **stack_a, t_stack **stack_b, int value)
 		pa(stack_a, stack_b);
 		sa(stack_a);
 	}
+	sorting_correct(stack_a);
 }
 
 void	last_push(t_stack **stack_a, t_stack **stack_b)
@@ -71,15 +72,16 @@ void	last_push(t_stack **stack_a, t_stack **stack_b)
 
 	b_head = *stack_b;
 	a_tail = return_tail(stack_a);
-	if (ruler(stack_a, stack_b, 'B') == 5)
+	// if (ruler(stack_a, stack_b, 'B') == 5)
+	// {
+	// 	i = 5;
+	// 	five_sorter_stack_b(stack_a, stack_b);
+	// 	while (i-- > 0)
+	// 		pa(stack_a, stack_b);
+	// }
+	if (ruler(stack_a, stack_b, 'B') == 4)
 	{
-		i = 5;
-		five_sorter_stack_b(stack_a, stack_b);
-		while (i-- > 0)
-			pa(stack_a, stack_b);
-	}
-	else if (ruler(stack_a, stack_b, 'B') == 4)
-	{
+		printf("scen1, size == 4\n");
 		i = 3;
 		pa(stack_a, stack_b);
 		three_sorter_stack_b(stack_b);
@@ -88,6 +90,7 @@ void	last_push(t_stack **stack_a, t_stack **stack_b)
 	}
 	else if (ruler(stack_a, stack_b, 'B') == 3)
 	{
+		printf("scen2, size == 3\n");
 		i = 3;
 		three_sorter_stack_b(stack_b);
 		while (i-- > 0)
@@ -95,6 +98,7 @@ void	last_push(t_stack **stack_a, t_stack **stack_b)
 	}
 	else
 	{
+		printf("scen3, size == 2\n");
 		if (b_head->value < b_head->next->value)
 		{
 			sb(stack_b);

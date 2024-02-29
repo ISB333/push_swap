@@ -12,6 +12,42 @@
 
 #include "../push_swap.h"
 
+void	sorting_correct(t_stack	**stack_a)
+{
+	int	count;
+
+	count = 0;
+	if (!(*stack_a) || !(*stack_a)->next || !(*stack_a)->next->next)
+		return ;
+	else if ((*stack_a)->value > (*stack_a)->next->value)
+	{
+		// printer_a(*stack_a);
+		while ((*stack_a)->value > (*stack_a)->next->value)
+		{
+			sa(stack_a);
+			ra(stack_a);
+			count++;
+		}
+		while (count-- > 0)
+			rra(stack_a);
+	}
+	else if ((*stack_a)->next->value > (*stack_a)->next->next->value)
+	{
+		// printer_a(*stack_a);
+		ra(stack_a);
+		count++;
+		while ((*stack_a)->value > (*stack_a)->next->value)
+		{
+			sa(stack_a);
+			ra(stack_a);
+			count++;
+		}
+		while (count-- > 0)
+			rra(stack_a);
+		sa(stack_a);
+	}
+}
+
 void	pre_sorting_a(t_stack **stack_a, t_stack **stack_b)
 {
 	t_stack	*a_head;
@@ -46,70 +82,70 @@ void	pre_sorting_a(t_stack **stack_a, t_stack **stack_b)
 
 }
 
-void    sorting_extractor(t_stack **stack_a, t_stack **stack_b, int n, int *lowest, int *largest)
+char    b_to_a_side_chooser(int *largest, t_stack *stack_b, int up, int low)
 {
-	t_stack	*a_head;
-	int 	mid;
-	int 	i;
-	int 	side;
+	t_stack  *b_head;
+	int     i;
+	int		mid;
 
-	side = 'U';
-	mid = (*stack_a)->position / 2;
-	while (n > 0)
+	if ((!stack_b || !stack_b->next))
+		return (0);
+	b_head = stack_b;
+	mid = stack_b->position / 2;
+	while (b_head->position > mid)
 	{
-		side = side_chooser(lowest, largest, (*stack_a), (*stack_a)->position, 0);
-		a_head = (*stack_a); 
-		i = -1;
-		while (largest[++i])
-			if (a_head && a_head->value == largest[i])
-            {
-				// pusher(stack_a, stack_b, mid_calculator(largest_values));
-				pb(stack_a, stack_b);
-				a_head = (*stack_a); 
-				// largest_update();
-				n--;
-            }
-			else if (a_head && a_head->value == lowest[i])
-            {
-				// pusher(stack_a, stack_b, mid_calculator(largest_values));
-				pb(stack_a, stack_b);
-				rb(stack_b);
-				a_head = (*stack_a); 
-				// largest_update();
-            }
-		if (side == 'U')
-			ra(stack_a);
-		else if (side == 'L')
-			rra(stack_a);
+		i = 0;
+		while (largest[i])
+		{
+			if (b_head->value == largest[i])
+				up++;
+			i++;
+		}
+		b_head = b_head->next;
 	}
+	while (b_head)
+	{
+		i = 0;
+		while (largest[i])
+		{
+			if (b_head->value == largest[i])
+				low++;
+			i++;
+		}
+		b_head = b_head->next;
+	}
+	if (up >= low)
+		return ('L');
+	return ('U');
 }
 
 void    pushing_back_to_a(t_stack **stack_a, t_stack **stack_b)
 {
 	t_stack	**b_head;
 	int		*largest;
-	int		*lowest;
+	char	side;
 
 	pre_sorting_a(stack_a, stack_b);
 	b_head = stack_b;
-	// while (ruler(stack_a, stack_b, 'B') > 35)
-	// {
-		///////////////// NEED TO ADD AN OPTION TO SEND THE LOWEST FIND ON THE ROAD AND PUT HEM AT THE LOW OF THE STACK //////////////////////////////
+	while (ruler(stack_a, stack_b, 'B') > 3)
+	{
 		largest = largest_scrapper(*stack_b, 3);
-		lowest = larg_scrapper_n2(*stack_b, largest, 3);
-		int i = 0;
-		while(largest[i])
-			printf("largest = %d\n", largest[i++]);
-		i = 0;
-		while(lowest[i])
-			printf("lowest = %d\n", lowest[i++]);
-		// b_head = stack_b;
+		side = b_to_a_side_chooser(largest, (*stack_b), (*stack_b)->position, 0);
+		sorting_correct(stack_a);
+		if ((*b_head)->value == largest[0])
+			pa(stack_a, stack_b);
+		else if ((*b_head)->value == largest[1])
+			two_swapper(stack_a, stack_b, largest[0]);
+		else 
+			if (side == 'U')
+				rb(stack_b);
+			else if (side == 'L')
+				rrb(stack_b);
+		b_head = stack_b;
 		free(largest);
-		free(lowest);
-	// }
-	// printer(stack_a, stack_b);
-	// last_push(stack_a, stack_b);
-	// sorting_checker(*stack_a);
+	}
+	last_push(stack_a, stack_b);
+	sorting_checker(*stack_a);
 }
 
 void    push_swap(t_stack **stack_a, t_stack **stack_b)

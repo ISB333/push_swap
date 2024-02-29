@@ -6,7 +6,7 @@
 /*   By: adesille <adesille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/28 08:48:19 by adesille          #+#    #+#             */
-/*   Updated: 2024/02/28 12:11:21 by adesille         ###   ########.fr       */
+/*   Updated: 2024/02/29 09:33:16 by adesille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ void    extractor(t_stack **stack_a, t_stack **stack_b, int n, int *lowest, int 
 
 	side = 'U';
 	mid = (*stack_a)->position / 2;
-	while (n > 0)
+	while (n > 0 && (*stack_a))
 	{
 		side = side_chooser(lowest, largest, (*stack_a), (*stack_a)->position, 0);
 		a_head = (*stack_a); 
@@ -66,14 +66,12 @@ void    extractor(t_stack **stack_a, t_stack **stack_b, int n, int *lowest, int 
 		while (largest[++i])
 			if (a_head && a_head->value == largest[i])
             {
-				// pusher(stack_a, stack_b, mid_calculator(largest_values));
 				pb(stack_a, stack_b);
 				a_head = (*stack_a); 
 				n--;
             }
 			else if (a_head && a_head->value == lowest[i])
             {
-				// pusher(stack_a, stack_b, mid_calculator(largest_values));
 				pb(stack_a, stack_b);
 				rb(stack_b);
 				a_head = (*stack_a); 
