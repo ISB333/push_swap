@@ -6,7 +6,7 @@
 /*   By: adesille <adesille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/17 15:28:12 by isb3              #+#    #+#             */
-/*   Updated: 2024/03/01 10:23:19 by adesille         ###   ########.fr       */
+/*   Updated: 2024/03/01 12:38:29 by adesille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 # include <stdlib.h>
 # include <stdio.h>
 # include <limits.h>
-
+# define RA ft_nom_super_long(stack_a, param1, param2)
 typedef struct s_stack
 {
 	int				value;
