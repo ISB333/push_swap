@@ -6,7 +6,7 @@
 /*   By: adesille <adesille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/28 08:48:19 by adesille          #+#    #+#             */
-/*   Updated: 2024/03/01 10:47:54 by adesille         ###   ########.fr       */
+/*   Updated: 2024/03/01 10:48:29 by adesille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,8 @@ void    extractor(t_stack **stack_a, t_stack **stack_b, int n, int *lowest, int 
 	int 	side;
 	int 	i;
 
+	if (ruler(*stack_a) < 5)
+		return ;
 	while (n > 0)
 	{
 		side = side_chooser(lowest, largest, (*stack_a), 0, 0);
