@@ -6,7 +6,7 @@
 #    By: adesille <adesille@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/02/08 13:22:58 by adesille          #+#    #+#              #
-#    Updated: 2024/02/28 08:51:59 by adesille         ###   ########.fr        #
+#    Updated: 2024/03/01 10:16:16 by adesille         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,9 +17,9 @@ CC = cc
 ######################## SOURCES ########################
 
 SRCS = main.c
-ALGO = ./algo/push_swap.c ./algo/algo_utils.c ./algo/algo_utils_2.c \
-       ./algo/back_to_a.c ./algo/three_sorter.c ./algo/scrapper.c \
-       ./algo/five_sorter_a.c ./algo/five_sorter_b.c ./algo/extractor.c
+ALGO = ./algo/push_swap.c ./algo/algo_utils.c ./algo/algo_utils2.c \
+		./algo/extractor.c ./algo/three_sorter.c ./algo/scrapper.c \
+		./algo/five_sorter_a.c ./algo/five_sorter_b.c
 
 OPE = ./algo/ope/push.c ./algo/ope/swap.c ./algo/ope/rotate.c \
        ./algo/ope/reverse_rotate.c

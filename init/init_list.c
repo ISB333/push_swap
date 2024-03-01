@@ -6,7 +6,7 @@
 /*   By: adesille <adesille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/09 11:40:28 by adesille          #+#    #+#             */
-/*   Updated: 2024/02/28 08:36:10 by adesille         ###   ########.fr       */
+/*   Updated: 2024/03/01 10:03:58 by adesille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,22 +24,29 @@ void	initialize_stacks(int *array, t_stack **stack_a)
 
 void	add_node(t_stack **stack, int value)
 {
-	t_stack *new_node;
+	t_stack	*new_node;
+	t_stack	*last_node;
 
+	if (!stack)
+		return ;
 	new_node = malloc(sizeof(t_stack));
 	if (!new_node)
-		return;
+		return ;
+	new_node->next = NULL;
 	new_node->value = value;
-	new_node->prev = NULL;
-	new_node->next = *stack;
-	if (*stack)
+	if (!(*stack))
 	{
-		(*stack)->prev = new_node;
-		new_node->position = (*stack)->position + 1;
+		*stack = new_node;
+		new_node->position = 1;
+		new_node->prev = NULL;
 	}
 	else
-		new_node->position = 1;
-	*stack = new_node;
+	{
+		last_node = return_tail(*stack);
+		last_node->next = new_node;
+		new_node->prev = last_node;
+		new_node->position = last_node->position + 1;
+	}
 }
 
 int	security_check(char *argv[])

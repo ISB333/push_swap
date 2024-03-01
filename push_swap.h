@@ -6,7 +6,7 @@
 /*   By: adesille <adesille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/17 15:28:12 by isb3              #+#    #+#             */
-/*   Updated: 2024/02/29 09:25:26 by adesille         ###   ########.fr       */
+/*   Updated: 2024/03/01 10:23:19 by adesille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,11 +88,12 @@ int		*larg_scrapper_n2(t_stack *stack_a, int *largest, int n);
 
 
 // ////// algo_utils //////
-int 	ruler(t_stack **stack_a, t_stack **stack_b, int stack);
+int 	ruler(t_stack *stack);
 int		abs_diff(int a, int b);
 void	cost_initializer(t_stack *stack_a, t_stack *stack_b);
 int		b_pos_finder(int stack_a_value, t_stack *stack_b);
-t_stack	**return_tail(t_stack **stack);
+t_stack	*return_tail(t_stack *stack);
+void	pos_update(t_stack *stack);
 
 int	    *ft_calloc(size_t size, int value);
 
