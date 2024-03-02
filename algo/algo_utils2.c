@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   algo_utils2.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: adesille <adesille@student.42.fr>          +#+  +:+       +#+        */
+/*   By: isb3 <isb3@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/14 10:29:19 by adesille          #+#    #+#             */
-/*   Updated: 2024/03/01 14:03:42 by adesille         ###   ########.fr       */
+/*   Updated: 2024/03/02 10:44:38 by isb3             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,17 +18,13 @@ int	n_selector(t_stack *stack_a)
 
 	if (!stack_a || !stack_a->next)
 		return 0;
-	a_size = stack_a->position;
-	if (a_size <= 30)
-		return (3);
-	else if (a_size <= 50)
-		return (5);
-	else if (a_size <= 100)
+	a_size = ruler(stack_a);
+	if (a_size <= 100)
 		return (10);
 	else if (a_size <= 250)
-		return (12);
+		return (20);
 	else if (a_size <= 500)
-		return (25);
+		return (40);
 	return (0);
 }
 
@@ -41,7 +37,36 @@ t_stack	*return_tail(t_stack *stack)
 	return (stack);
 }
 
+void	free_int(int *int_arr1, int *int_arr2)
+{
+	free(int_arr1);
+	free(int_arr2);
+}
 
+void	sorting_checker(t_stack *stack_a)
+{
+	t_stack	*a_tmp;
+
+	a_tmp = stack_a;
+	while (a_tmp->next)
+	{
+		if (a_tmp->value > a_tmp->next->value)
+		{
+			printf("\033[0;31m");
+			printf("==============================================================================\n");
+			printf("NOT SORTED MUDAFUKA SHGIEHBKGHBADGKHBEGLKJ!@!##$#@$^$@$^@#!^^$@$TYWQHYNG$VTTRH\n");
+			printf("==============================================================================\n");
+			printf("\033[0;37m");
+			return ;
+		}
+		a_tmp = a_tmp->next;
+	}
+	printf("\033[0;34m");
+	printf("----------------------------------------------------------------------------------\n");
+	printf("                         SORTING OK BROoOoOooOOoOOoO!\n");
+	printf("----------------------------------------------------------------------------------\n");
+	printf("\033[0;37m");
+}
 // void    extractor_utils(t_stack **stack_a, t_stack **stack_b, int n, int *largest)
 // {
 // 	t_stack	*a_head;

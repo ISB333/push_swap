@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   algo_utils.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: adesille <adesille@student.42.fr>          +#+  +:+       +#+        */
+/*   By: isb3 <isb3@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/26 13:10:58 by adesille          #+#    #+#             */
-/*   Updated: 2024/03/01 10:28:27 by adesille         ###   ########.fr       */
+/*   Updated: 2024/03/02 10:18:46 by isb3             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,12 +61,12 @@ int	*ft_calloc(size_t size, int value)
 	return (arr);
 }
 
-t_stack *stack_mover(t_stack *stack, int pos)
-{
-	while (pos-- > 0 && stack)
-		stack = stack->next;
-	return (stack); 
-}
+// t_stack *stack_mover(t_stack *stack, int pos)
+// {
+// 	while (pos-- > 0 && stack)
+// 		stack = stack->next;
+// 	return (stack); 
+// }
 
 // int	abs_diff(int a, int b)
 // {

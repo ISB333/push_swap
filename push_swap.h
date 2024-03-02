@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: adesille <adesille@student.42.fr>          +#+  +:+       +#+        */
+/*   By: isb3 <isb3@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/17 15:28:12 by isb3              #+#    #+#             */
-/*   Updated: 2024/03/01 12:38:29 by adesille         ###   ########.fr       */
+/*   Updated: 2024/03/02 10:29:00 by isb3             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,7 +78,8 @@ void	checker(t_stack **stack_a);
 void	sorting_correct(t_stack	**stack_a);
 
 ////// extractor //////
-void    n_smallest_extractor(t_stack **stack_a, t_stack **stack_b, int n);
+// void    n_smallest_extractor(t_stack **stack_a, t_stack **stack_b, int n);
+void    extractor(t_stack **stack_a, t_stack **stack_b, int n);
 
 ////// scrapper //////
 int     *n_smallest_scrapper(t_stack *stack_a, int n);
@@ -96,6 +97,7 @@ t_stack	*return_tail(t_stack *stack);
 void	pos_update(t_stack *stack);
 
 int	    *ft_calloc(size_t size, int value);
+void	free_int(int *int_arr1, int *int_arr2);
 
 int     n_selector(t_stack *stack_a);
 char    side_chooser(int *largest, int *lowest, t_stack *stack_a, int up, int low);
