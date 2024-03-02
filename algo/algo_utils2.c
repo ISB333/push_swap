@@ -6,7 +6,7 @@
 /*   By: isb3 <isb3@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/14 10:29:19 by adesille          #+#    #+#             */
-/*   Updated: 2024/03/02 14:21:35 by isb3             ###   ########.fr       */
+/*   Updated: 2024/03/02 14:49:09 by isb3             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,17 +20,29 @@ size_t	n_selector(t_stack *stack_a)
 		return 0;
 	a_size = ruler(stack_a);
 	if (a_size <= 15)
-		return (2);
+		return (4);
 	else if (a_size <= 30)
-		return (3);
+		return (6);
 	else if (a_size <= 60)
-		return (5);
+		return (10);
 	else if (a_size <= 100)
-		return (7);
+		return (14);
 	else if (a_size <= 250)
 		return (10);
 	else if (a_size <= 500)
 		return (15);
+	// if (a_size <= 15)
+	// 	return (2);
+	// else if (a_size <= 30)
+	// 	return (3);
+	// else if (a_size <= 60)
+	// 	return (5);
+	// else if (a_size <= 100)
+	// 	return (7);
+	// else if (a_size <= 250)
+	// 	return (10);
+	// else if (a_size <= 500)
+	// 	return (15);
 	return (0);
 }
 

@@ -6,7 +6,7 @@
 /*   By: isb3 <isb3@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/17 15:28:12 by isb3              #+#    #+#             */
-/*   Updated: 2024/03/02 14:18:08 by isb3             ###   ########.fr       */
+/*   Updated: 2024/03/02 14:47:50 by isb3             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,7 +95,7 @@ void	cost_initializer(t_stack *stack_a, t_stack *stack_b);
 int		b_pos_finder(int stack_a_value, t_stack *stack_b);
 t_stack	*return_tail(t_stack *stack);
 void	pos_update(t_stack *stack);
-
+int	not_in(int *lowest, int value);
 int	    *ft_calloc(size_t size, int value);
 void	free_int(int *int_arr1, int *int_arr2);
 

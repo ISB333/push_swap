@@ -53,6 +53,65 @@ char    extract_side_chooser(int *lowest, int *largest, t_stack *stack_a, int up
 	return ('U');
 }
 
+// int	*largest_scrapper_test(int *lowest, int *largest, int n)
+// {
+// 	int i;
+// 	int k;
+// 	int j;
+
+// 	i = 0;
+// 	j = 0;
+// 	largest = ft_calloc(n / 2, 1);
+// 	while (lowest[i])
+// 	{
+// 		k = -1;
+// 		while (++k < n)
+// 			if (lowest[i] > largest[i])
+// 			{
+// 				j = n;
+// 				while(--j > i)
+// 					largest[j] = largest[j - 1];
+// 				largest[j] = lowest[i];
+// 			}
+// 		i++;
+// 	}
+// 	return(largest);
+	
+// }
+
+int	*largest_scrapper_test(int *lowest, int n)
+{
+	int *largest;
+	int i, k;
+
+	// Allocate memory for the largest array
+	largest = ft_calloc(n / 2, sizeof(int));
+
+	i = 0;
+	while (lowest[i])
+	{
+		k = 0;
+		while (k < n / 2)
+		{
+			if (lowest[i] > largest[k])
+			{
+				// Shift elements to the right to make space for the new largest value
+				for (int l = n / 2 - 1; l > k; l--)
+				{
+					largest[l] = largest[l - 1];
+				}
+				largest[k] = lowest[i];
+				break;
+			}
+			k++;
+		}
+		i++;
+	}
+
+	return largest;
+}
+
+
 void    extractor(t_stack **stack_a, t_stack **stack_b, int n)
 {
 	int		*largest;
@@ -66,22 +125,29 @@ void    extractor(t_stack **stack_a, t_stack **stack_b, int n)
 	{
 		n = n_selector(*stack_a);
 		lowest = n_smallest_scrapper((*stack_a), n);
-		largest = n_2nd_scrapper((*stack_a), lowest, n);
+		///// Try to replace 2nd n Lowest AKA Largest by Largest of Lowest /////
+		// largest = n_2nd_scrapper((*stack_a), lowest, n);
+		largest = largest_scrapper_test(lowest, n);
 		a_head = (*stack_a); 
 		i = 0;
 		while (lowest[i])
 		{
-			if (largest && a_head->value == largest[i])
+			// if (largest && a_head->value == largest[i])
+			// {
+			// 	pb(stack_a, stack_b);
+			// 	if (ruler(*stack_b) >= 3 && (*stack_b)->value < (*stack_b)->next->value)
+			// 		sb(stack_b);
+			// 	a_head = (*stack_a); 
+			// }
+			if (a_head && a_head->value == lowest[i])
 			{
-				pb(stack_a, stack_b);
-				if (ruler(*stack_b) >= 3 && (*stack_b)->value < (*stack_b)->next->value)
-					sb(stack_b);
-				a_head = (*stack_a); 
-			}
-			else if (a_head && a_head->value == lowest[i])
-			{
-				pb(stack_a, stack_b);
-				rb(stack_b);
+				if (not_in(largest, a_head->value) == 0)
+					pb(stack_a, stack_b);
+				else
+				{
+					pb(stack_a, stack_b);
+					rb(stack_b);
+				}
 				a_head = (*stack_a); 
 			}
 			i++;
