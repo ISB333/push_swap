@@ -6,25 +6,31 @@
 /*   By: isb3 <isb3@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/14 10:29:19 by adesille          #+#    #+#             */
-/*   Updated: 2024/03/02 11:25:10 by isb3             ###   ########.fr       */
+/*   Updated: 2024/03/02 14:21:35 by isb3             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-int	n_selector(t_stack *stack_a)
+size_t	n_selector(t_stack *stack_a)
 {
-	int	a_size;
+	size_t	a_size;
 
 	if (!stack_a || !stack_a->next)
 		return 0;
 	a_size = ruler(stack_a);
-	if (a_size <= 100)
+	if (a_size <= 15)
+		return (2);
+	else if (a_size <= 30)
+		return (3);
+	else if (a_size <= 60)
+		return (5);
+	else if (a_size <= 100)
 		return (7);
 	else if (a_size <= 250)
 		return (10);
 	else if (a_size <= 500)
-		return (20);
+		return (15);
 	return (0);
 }
 

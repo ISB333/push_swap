@@ -82,7 +82,7 @@ char	side_chooser(t_stack *stack_b, int value)
 {
 	t_stack	*b_head;
 	t_stack	*b_tail;
-	int		mid;
+	size_t		mid;
 
 	b_head = stack_b;
 	b_tail = return_tail(stack_b);
@@ -143,7 +143,7 @@ void    sorter(t_stack **stack_a, t_stack **stack_b)
 	while (ruler(*stack_b) > 5)
 	{
 		b_head = *stack_b;
-		largest = largest_scrapper(b_head, 2);
+		largest = largest_scrapper(b_head, 3);
 		// printf("largest[0] = %d\nlargest[1] = %d\n", largest[0], largest[1]);
 		side = side_chooser(*stack_b, largest[0]);
 		token = 0;
@@ -163,6 +163,7 @@ void    sorter(t_stack **stack_a, t_stack **stack_b)
 			pa(stack_a, stack_b);
 			if (token == 1)
 				sa(stack_a);
+
 		}
 		else if (side == 'L')
 		{

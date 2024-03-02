@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: adesille <adesille@student.42.fr>          +#+  +:+       +#+        */
+/*   By: isb3 <isb3@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/08 17:29:02 by adesille          #+#    #+#             */
-/*   Updated: 2024/03/01 10:12:17 by adesille         ###   ########.fr       */
+/*   Updated: 2024/03/02 14:17:26 by isb3             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	printer_b(t_stack *stack_b)
 	{
 		printf("Val:    %d\n", stack_b->value);
 		printf("\033[0;32m");
-		printf("Pos: %d\n", stack_b->position);
+		printf("Pos: %ld\n", stack_b->position);
 		printf("\033[0;37m");
 		stack_b = stack_b->next;
 	}
@@ -33,7 +33,7 @@ void	printer_a(t_stack *stack_a)
 	{
 		printf("Val:    %d\n", stack_a->value);
 		printf("\033[0;32m");
-		printf("Pos: %d\n", stack_a->position);
+		printf("Pos: %ld\n", stack_a->position);
 		printf("\033[0;37m");
 		stack_a = stack_a->next;
 	}
@@ -49,7 +49,7 @@ void	printer(t_stack *stack_a, t_stack *stack_b, int c)
 		{
 			printf("Val:    %d\n", stack_a->value);
 			printf("\033[0;32m");
-			printf("Pos: %d\n", stack_a->position);
+			printf("Pos: %ld\n", stack_a->position);
 			printf("\033[0;37m");
 			stack_a = stack_a->next;
 		}
@@ -61,7 +61,7 @@ void	printer(t_stack *stack_a, t_stack *stack_b, int c)
 		{
 			printf("Val:    %d\n", stack_b->value);
 			printf("\033[0;32m");
-			printf("Pos: %d\n", stack_b->position);
+			printf("Pos: %ld\n", stack_b->position);
 			stack_b = stack_b->next;
 			printf("\033[0;37m");
 		}

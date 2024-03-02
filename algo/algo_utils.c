@@ -6,13 +6,13 @@
 /*   By: isb3 <isb3@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/26 13:10:58 by adesille          #+#    #+#             */
-/*   Updated: 2024/03/02 10:18:46 by isb3             ###   ########.fr       */
+/*   Updated: 2024/03/02 14:16:54 by isb3             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-int ruler(t_stack *stack)
+size_t ruler(t_stack *stack)
 {
 	t_stack *last;
 

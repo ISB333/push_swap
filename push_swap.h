@@ -6,7 +6,7 @@
 /*   By: isb3 <isb3@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/17 15:28:12 by isb3              #+#    #+#             */
-/*   Updated: 2024/03/02 12:12:05 by isb3             ###   ########.fr       */
+/*   Updated: 2024/03/02 14:18:08 by isb3             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@
 typedef struct s_stack
 {
 	int				value;
-	int				position;
+	size_t				position;
 	struct s_stack	*prev;
 	struct s_stack	*next;
 }				t_stack;
@@ -89,7 +89,7 @@ int		*larg_scrapper_n2(t_stack *stack_a, int *largest, int n);
 
 
 // ////// algo_utils //////
-int 	ruler(t_stack *stack);
+size_t 	ruler(t_stack *stack);
 int		abs_diff(int a, int b);
 void	cost_initializer(t_stack *stack_a, t_stack *stack_b);
 int		b_pos_finder(int stack_a_value, t_stack *stack_b);
@@ -99,7 +99,7 @@ void	pos_update(t_stack *stack);
 int	    *ft_calloc(size_t size, int value);
 void	free_int(int *int_arr1, int *int_arr2);
 
-int     n_selector(t_stack *stack_a);
+size_t     n_selector(t_stack *stack_a);
 char    side_chooser(t_stack *stack_b, int largest);
 
 void	three_sorter_stack_a(t_stack **stack_a);

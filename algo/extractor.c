@@ -12,26 +12,63 @@
 
 #include "../push_swap.h"
 
+char    extract_side_chooser(int *lowest, int *largest, t_stack *stack_a, int up, int low)
+{
+	t_stack  *a_head;
+	int     i;
+	size_t		mid;
+
+	if ((!stack_a || !stack_a->next))
+		return (0);
+	a_head = stack_a;
+	mid = ruler(stack_a) / 2;
+	while (a_head->position < mid)
+	{
+		i = 0;
+		while (lowest[i])
+		{
+			if (largest && a_head->value == largest[i])
+				up++;
+			if (a_head->value == lowest[i])
+				up++;
+			i++;
+		}
+		a_head = a_head->next;
+	}
+	while (a_head)
+	{
+		i = 0;
+		while (lowest[i])
+		{
+			if (largest && a_head->value == largest[i])
+				up++;
+			if (a_head->value == lowest[i])
+				up++;
+			i++;
+		}
+		a_head = a_head->next;
+	}
+	if (up >= low)
+		return ('L');
+	return ('U');
+}
+
 void    extractor(t_stack **stack_a, t_stack **stack_b, int n)
 {
 	int		*largest;
 	int		*lowest;
 	t_stack	*a_head;
+	// t_stack	*b_tail = return_tail(*stack_b);
+	// char	side;
 	int 	i;
 
-	while (ruler(*stack_a) > 3)
+	while (ruler(*stack_a) > 5)
 	{
+		n = n_selector(*stack_a);
 		lowest = n_smallest_scrapper((*stack_a), n);
 		largest = n_2nd_scrapper((*stack_a), lowest, n);
 		a_head = (*stack_a); 
 		i = 0;
-		// int k = -1;
-		// while (lowest[++k])
-		// 	printf("lowest[%d] = %d\n", k, lowest[k]);
-		// k = -1;
-		// while (largest[++k])
-		// 	printf("largest[%d] = %d\n", k, largest[k]);
-		// printf("\n");
 		while (lowest[i])
 		{
 			if (largest && a_head->value == largest[i])
