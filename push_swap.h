@@ -6,7 +6,7 @@
 /*   By: isb3 <isb3@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/17 15:28:12 by isb3              #+#    #+#             */
-/*   Updated: 2024/03/02 10:29:00 by isb3             ###   ########.fr       */
+/*   Updated: 2024/03/02 12:12:05 by isb3             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,7 +100,7 @@ int	    *ft_calloc(size_t size, int value);
 void	free_int(int *int_arr1, int *int_arr2);
 
 int     n_selector(t_stack *stack_a);
-char    side_chooser(int *largest, int *lowest, t_stack *stack_a, int up, int low);
+char    side_chooser(t_stack *stack_b, int largest);
 
 void	three_sorter_stack_a(t_stack **stack_a);
 void	three_sorter_stack_b(t_stack **stack_a);

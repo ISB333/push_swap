@@ -14,6 +14,44 @@
 
 // void	sorter()
 
+void	two_swapper(t_stack **stack_a, t_stack **stack_b, int value)
+{
+	t_stack *b_head;
+
+	pa(stack_a, stack_b);
+	b_head = *stack_b;
+	while (b_head->value != value)
+	{
+		rb(stack_b);
+		b_head = *stack_b;
+	}
+	if (b_head->value == value)
+	{
+		pa(stack_a, stack_b);
+		sa(stack_a);
+	}
+}
+
+char	side_chooser(t_stack *stack_b, int value)
+{
+	t_stack	*b_head;
+	t_stack	*b_tail;
+	int		mid;
+
+	b_head = stack_b;
+	b_tail = return_tail(stack_b);
+	mid = ruler(stack_b) / 2;
+	while (b_head && b_head->value != value && b_head->position < mid)	
+		b_head = b_head->next;
+	if (b_head->value == value)
+		return ('U');
+	while (b_tail && b_tail->value != value && b_tail->position > mid)	
+		b_tail = b_tail->prev;
+	if (b_tail->value == value)
+		return ('L');
+	return (0);
+}
+
 void	pre_sorting_a(t_stack **stack_a, t_stack **stack_b)
 {
 	t_stack	*a_head;
@@ -50,28 +88,52 @@ void	pre_sorting_a(t_stack **stack_a, t_stack **stack_b)
 
 void    sorter(t_stack **stack_a, t_stack **stack_b)
 {
-	// t_stack	*b_head;
-	// int		*largest;
-	// char	side;
+	t_stack	*b_head;
+	int		*largest;
+	char	side;
 
 	pre_sorting_a(stack_a, stack_b);
-	// b_head = *stack_b;
-	// while (ruler(*stack_b) > 3)
-	// {
-	// 	largest = largest_scrapper(*stack_b, 3);
-	// 	side = b_to_a_side_chooser(largest, (*stack_b), (*stack_b)->position, 0);
-	// 	if (b_head->value == largest[0])
-	// 		pa(stack_a, stack_b);
-	// 	else if (b_head->value == largest[1])
-	// 		two_swapper(stack_a, stack_b, largest[0]);
-	// 	else 
-	// 		if (side == 'U')
-	// 			rb(stack_b);
-	// 		else if (side == 'L')
-	// 			rrb(stack_b);
-	// 	b_head = *stack_b;
-	// 	free(largest);
-	// }
+	while (ruler(*stack_b) > 50)
+	{
+		b_head = *stack_b;
+		largest = largest_scrapper(b_head, 2);
+		// printf("largest[0] = %d\nlargest[1] = %d\n", largest[0], largest[1]);
+		side = side_chooser(*stack_b, largest[0]);
+		if (side == 'U')
+		{
+			while(b_head->value != largest[0])
+			{
+				rb(stack_b);
+				b_head = *stack_b;
+			}
+			pa(stack_a, stack_b);
+		}
+		else if (side == 'L')
+		{
+			while(b_head->value != largest[0])	
+			{
+				rrb(stack_b);
+				b_head = *stack_b;
+			}
+			pa(stack_a, stack_b);
+		}
+		// b_head = *stack_b;
+		// if (b_head->value == largest[0])
+		// {
+		// 	// printf("largest[0] = %d\nlargest[1] = %d\n", largest[0], largest[1]);
+		// 	pa(stack_a, stack_b);
+		// 	// printer(*stack_a, *stack_b, 1);
+		// 	b_head = *stack_b;
+		// }
+		// else if (b_head->value == largest[1])
+		// {
+		// 	// printf("largest[0] = %d\nlargest[1] = %d\n", largest[0], largest[1]);
+		// 	two_swapper(stack_a, stack_b, largest[0]);
+		// 	// printer(*stack_a, *stack_b, 1);
+		// 	b_head = *stack_b;
+		// }
+		free(largest);
+	}
 	// last_push(stack_a, stack_b);
 	sorting_checker(*stack_a);
 }
@@ -87,8 +149,7 @@ void    push_swap(t_stack **stack_a, t_stack **stack_b)
 	else
 	{
 		extractor(stack_a, stack_b, n_selector(*stack_a));
-		// sorter(stack_a, stack_b);
 		sorter(stack_a, stack_b);
-		printer(*stack_a, *stack_b, 0);
+		// printer(*stack_a, *stack_b, 0);
 	}
 }
