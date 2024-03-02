@@ -19,7 +19,7 @@ void    extractor(t_stack **stack_a, t_stack **stack_b, int n)
 	t_stack	*a_head;
 	int 	i;
 
-	while (ruler(*stack_a) > 5)
+	while (ruler(*stack_a) > 3)
 	{
 		lowest = n_smallest_scrapper((*stack_a), n);
 		largest = n_2nd_scrapper((*stack_a), lowest, n);
@@ -41,7 +41,7 @@ void    extractor(t_stack **stack_a, t_stack **stack_b, int n)
 					sb(stack_b);
 				a_head = (*stack_a); 
 			}
-			else if (a_head->value == lowest[i])
+			else if (a_head && a_head->value == lowest[i])
 			{
 				pb(stack_a, stack_b);
 				rb(stack_b);
@@ -52,4 +52,6 @@ void    extractor(t_stack **stack_a, t_stack **stack_b, int n)
 		ra(stack_a);
 		free_int(lowest, largest);
 	}
+	while(*stack_a)
+		pb(stack_a, stack_b);
 }
