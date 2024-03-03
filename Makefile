@@ -6,7 +6,7 @@
 #    By: isb3 <isb3@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/02/08 13:22:58 by adesille          #+#    #+#              #
-#    Updated: 2024/03/02 10:43:00 by isb3             ###   ########.fr        #
+#    Updated: 2024/03/03 09:37:50 by isb3             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,7 +19,7 @@ CC = cc
 SRCS = main.c
 ALGO = ./algo/push_swap.c ./algo/algo_utils.c ./algo/algo_utils2.c \
 		./algo/extractor.c ./algo/three_sorter.c ./algo/scrapper.c \
-		./algo/five_sorter_a.c ./algo/five_sorter_b.c
+		./algo/last_push.c ./algo/five_sorter_a.c ./algo/five_sorter_b.c
 
 OPE = ./algo/ope/push.c ./algo/ope/swap.c ./algo/ope/rotate.c \
        ./algo/ope/reverse_rotate.c

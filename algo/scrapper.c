@@ -6,7 +6,7 @@
 /*   By: isb3 <isb3@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/28 08:43:59 by adesille          #+#    #+#             */
-/*   Updated: 2024/03/02 14:28:41 by isb3             ###   ########.fr       */
+/*   Updated: 2024/03/03 09:55:11 by isb3             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,15 +54,13 @@ int	*larg_scrapper_n2(t_stack *stack_a, int *largest, int n)
 	return (lowest);
 }
 
-int	*largest_scrapper(t_stack *stack_b, int n)
+int	*largest_scrapper(t_stack *stack_b, int n, int i, int j)
 {
 	t_stack	*b_head;
 	int 	*largest;
-	int 	i;
-	int 	j;
 
-	i = 0;
-	j = 0;
+	if (!stack_b)
+		return ((int *)0);
 	largest = ft_calloc(n, 1);
 	b_head = stack_b;
 	while (b_head)

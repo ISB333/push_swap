@@ -12,133 +12,85 @@
 
 #include "../push_swap.h"
 
-char    extract_side_chooser(int *lowest, int *largest, t_stack *stack_a, int up, int low)
-{
-	t_stack  *a_head;
-	int     i;
-	size_t		mid;
-
-	if ((!stack_a || !stack_a->next))
-		return (0);
-	a_head = stack_a;
-	mid = ruler(stack_a) / 2;
-	while (a_head->position < mid)
-	{
-		i = 0;
-		while (lowest[i])
-		{
-			if (largest && a_head->value == largest[i])
-				up++;
-			if (a_head->value == lowest[i])
-				up++;
-			i++;
-		}
-		a_head = a_head->next;
-	}
-	while (a_head)
-	{
-		i = 0;
-		while (lowest[i])
-		{
-			if (largest && a_head->value == largest[i])
-				up++;
-			if (a_head->value == lowest[i])
-				up++;
-			i++;
-		}
-		a_head = a_head->next;
-	}
-	if (up >= low)
-		return ('L');
-	return ('U');
-}
-
-// int	*largest_scrapper_test(int *lowest, int *largest, int n)
-// {
-// 	int i;
-// 	int k;
-// 	int j;
-
-// 	i = 0;
-// 	j = 0;
-// 	largest = ft_calloc(n / 2, 1);
-// 	while (lowest[i])
-// 	{
-// 		k = -1;
-// 		while (++k < n)
-// 			if (lowest[i] > largest[i])
-// 			{
-// 				j = n;
-// 				while(--j > i)
-// 					largest[j] = largest[j - 1];
-// 				largest[j] = lowest[i];
-// 			}
-// 		i++;
-// 	}
-// 	return(largest);
-	
-// }
 
 int	*largest_scrapper_test(int *lowest, int n)
 {
 	int *largest;
-	int i, k;
+	int i;
+	int	k;
+	int	j;
 
-	// Allocate memory for the largest array
 	largest = ft_calloc(n / 2, sizeof(int));
-
-	i = 0;
-	while (lowest[i])
+	i = -1;
+	while (lowest[++i])
 	{
-		k = 0;
-		while (k < n / 2)
+		k = -1;
+		while (++k < n / 2)
 		{
 			if (lowest[i] > largest[k])
 			{
-				// Shift elements to the right to make space for the new largest value
-				for (int l = n / 2 - 1; l > k; l--)
-				{
-					largest[l] = largest[l - 1];
-				}
+				j = n / 2;
+				while (--j > k)
+					largest[j] = largest[j - 1];
 				largest[k] = lowest[i];
 				break;
 			}
-			k++;
 		}
-		i++;
 	}
-
-	return largest;
+	return (largest);
 }
 
+char	extract_side_chooser(int *lowest, int *largest, t_stack *stack_a, int up, int low)
+{
+	t_stack	*a_head;
+	t_stack	*a_tail;
+	size_t		mid;
+	int			i;
+
+	a_head = stack_a;
+	a_tail = return_tail(stack_a);
+	mid = ruler(stack_a) / 2;
+	while (a_head && a_head->position < mid)	
+	{
+		i = -1;
+		while (lowest[++i])
+			if (a_head->value == lowest[i] && not_in(largest, lowest[i]) == 0)
+				up++;
+		a_head = a_head->next;
+	}
+	while (a_tail && a_tail->position > mid)	
+	{
+		i = -1;
+		while (lowest[++i])
+			if (a_tail->value == lowest[i] && not_in(largest, lowest[i]) == 0)
+				low++;
+		a_tail = a_tail->prev;
+	}
+	if (up > low)
+		return ('U');
+	return ('L');
+}
 
 void    extractor(t_stack **stack_a, t_stack **stack_b, int n)
 {
 	int		*largest;
 	int		*lowest;
 	t_stack	*a_head;
-	// t_stack	*b_tail = return_tail(*stack_b);
-	// char	side;
+	// t_stack	*a_tail = return_tail(*stack_b);
+	char	side;
 	int 	i;
 
+	side = 'U';
 	while (ruler(*stack_a) > 5)
 	{
 		n = n_selector(*stack_a);
 		lowest = n_smallest_scrapper((*stack_a), n);
-		///// Try to replace 2nd n Lowest AKA Largest by Largest of Lowest /////
-		// largest = n_2nd_scrapper((*stack_a), lowest, n);
 		largest = largest_scrapper_test(lowest, n);
+		side = extract_side_chooser(lowest, largest, *stack_a, 0, 0);
 		a_head = (*stack_a); 
 		i = 0;
 		while (lowest[i])
 		{
-			// if (largest && a_head->value == largest[i])
-			// {
-			// 	pb(stack_a, stack_b);
-			// 	if (ruler(*stack_b) >= 3 && (*stack_b)->value < (*stack_b)->next->value)
-			// 		sb(stack_b);
-			// 	a_head = (*stack_a); 
-			// }
 			if (a_head && a_head->value == lowest[i])
 			{
 				if (not_in(largest, a_head->value) == 0)
@@ -152,7 +104,10 @@ void    extractor(t_stack **stack_a, t_stack **stack_b, int n)
 			}
 			i++;
 		}
-		ra(stack_a);
+		if (side == 'U')
+			ra(stack_a);
+		else if (side ==  'L')
+			rra(stack_a);
 		free_int(lowest, largest);
 	}
 	while(*stack_a)

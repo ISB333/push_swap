@@ -6,7 +6,7 @@
 /*   By: isb3 <isb3@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/17 15:28:12 by isb3              #+#    #+#             */
-/*   Updated: 2024/03/02 14:47:50 by isb3             ###   ########.fr       */
+/*   Updated: 2024/03/03 09:55:29 by isb3             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,7 +84,7 @@ void    extractor(t_stack **stack_a, t_stack **stack_b, int n);
 ////// scrapper //////
 int     *n_smallest_scrapper(t_stack *stack_a, int n);
 int		*n_2nd_scrapper(t_stack *stack_a, int *lowest, int n);
-int     *largest_scrapper(t_stack *stack_a, int n);
+int     *largest_scrapper(t_stack *stack_a, int n, int i, int j);
 int		*larg_scrapper_n2(t_stack *stack_a, int *largest, int n);
 
 

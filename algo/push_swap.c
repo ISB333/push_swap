@@ -13,52 +13,7 @@
 #include "../push_swap.h"
 
 // void	sorter()
-void	last_push(t_stack **stack_a, t_stack **stack_b)
-{
-	t_stack	*b_head;
-	int		i;
 
-	b_head = *stack_b;
-	// if (ruler(stack_a, stack_b, 'B') == 5)
-	// {
-	// 	i = 5;
-	// 	five_sorter_stack_b(stack_a, stack_b);
-	// 	while (i-- > 0)
-	// 		pa(stack_a, stack_b);
-	// }
-	if (ruler(*stack_b) == 4)
-	{
-		// printf("scen1, size == 4\n");
-		i = 3;
-		pa(stack_a, stack_b);
-		three_sorter_stack_b(stack_b);
-		while (i-- > 0)
-			pa(stack_a, stack_b);
-	}
-	else if (ruler(*stack_b) == 3)
-	{
-		// printf("scen2, size == 3\n");
-		i = 3;
-		three_sorter_stack_b(stack_b);
-		while (i-- > 0)
-			pa(stack_a, stack_b);
-	}
-	else
-	{
-		// printf("scen3, size == 2\n");
-		if (b_head->value < b_head->next->value)
-		{
-			sb(stack_b);
-			pa(stack_a, stack_b);
-			pa(stack_a, stack_b);
-		}
-		else
-		{
-			pa(stack_a, stack_b);
-			pa(stack_a, stack_b);
-		}
-	}
-}
 
 void	two_swapper(t_stack **stack_a, t_stack **stack_b, int value)
 {
@@ -140,10 +95,10 @@ void    sorter(t_stack **stack_a, t_stack **stack_b)
 	char	side;
 
 	pre_sorting_a(stack_a, stack_b);
-	while (ruler(*stack_b) > 5)
+	while (ruler(*stack_b) > 0)
 	{
 		b_head = *stack_b;
-		largest = largest_scrapper(b_head, 3);
+		largest = largest_scrapper(b_head, 3, 0, 0);
 		// printf("largest[0] = %d\nlargest[1] = %d\n", largest[0], largest[1]);
 		side = side_chooser(*stack_b, largest[0]);
 		token = 0;
@@ -184,8 +139,7 @@ void    sorter(t_stack **stack_a, t_stack **stack_b)
 		}
 		free(largest);
 	}
-	// last_push(stack_a, stack_b);
-	sorting_checker(*stack_a);
+	pa(stack_a, stack_b);
 }
 
 void    push_swap(t_stack **stack_a, t_stack **stack_b)
@@ -200,6 +154,7 @@ void    push_swap(t_stack **stack_a, t_stack **stack_b)
 	{
 		extractor(stack_a, stack_b, n_selector(*stack_a));
 		sorter(stack_a, stack_b);
-		// printer(*stack_a, *stack_b, 0);
+		// printer(*stack_a, *stack_b, 2);
+		sorting_checker(*stack_a);
 	}
 }

@@ -15,7 +15,7 @@ generate_random_series() {
 }
 
 # Execute the executable with different series
-for ((i = 1; i <= 1; i++)); do
+for ((i = 1; i <= 15; i++)); do
   SERIES=$(generate_random_series)
   echo "Executing run $i with series: $SERIES"
   echo "-------------------------------------"
