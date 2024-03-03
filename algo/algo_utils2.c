@@ -6,7 +6,7 @@
 /*   By: isb3 <isb3@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/14 10:29:19 by adesille          #+#    #+#             */
-/*   Updated: 2024/03/03 09:06:26 by isb3             ###   ########.fr       */
+/*   Updated: 2024/03/03 10:11:25 by isb3             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,27 +22,21 @@ size_t	n_selector(t_stack *stack_a)
 	if (a_size <= 15)
 		return (4);
 	else if (a_size <= 30)
-		return (6);
+		return (8);
 	else if (a_size <= 60)
-		return (10);
+		return (16);
 	else if (a_size <= 100)
-		return (14);
-	else if (a_size <= 250)
-		return (10);
-	else if (a_size <= 500)
-		return (15);
-	// if (a_size <= 15)
-	// 	return (2);
-	// else if (a_size <= 30)
-	// 	return (3);
-	// else if (a_size <= 60)
-	// 	return (5);
-	// else if (a_size <= 100)
-	// 	return (7);
+		return (20);
+	// else if (a_size <= 200)
+	// 	return (18);
+	else if (a_size <= 300)
+		return (25);
+	// else if (a_size <= 400)
+	// 	return (26);
 	// else if (a_size <= 250)
-	// 	return (10);
-	// else if (a_size <= 500)
-	// 	return (15);
+	// 	return (23);
+	else if (a_size <= 500)
+		return (30);
 	return (0);
 }
 

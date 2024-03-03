@@ -98,7 +98,7 @@ void    sorter(t_stack **stack_a, t_stack **stack_b)
 	while (ruler(*stack_b) > 0)
 	{
 		b_head = *stack_b;
-		largest = largest_scrapper(b_head, 3, 0, 0);
+		largest = largest_scrapper(b_head, 2, 0, 0);
 		// printf("largest[0] = %d\nlargest[1] = %d\n", largest[0], largest[1]);
 		side = side_chooser(*stack_b, largest[0]);
 		token = 0;
@@ -155,6 +155,6 @@ void    push_swap(t_stack **stack_a, t_stack **stack_b)
 		extractor(stack_a, stack_b, n_selector(*stack_a));
 		sorter(stack_a, stack_b);
 		// printer(*stack_a, *stack_b, 2);
-		sorting_checker(*stack_a);
+		// sorting_checker(*stack_a);
 	}
 }
