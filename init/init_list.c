@@ -1,26 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   init_list.c                                        :+:      :+:    :+:   */
+/*   init_array.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: adesille <adesille@student.42.fr>          +#+  +:+       +#+        */
+/*   By: isb3 <isb3@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/09 11:40:28 by adesille          #+#    #+#             */
-/*   Updated: 2024/03/01 10:03:58 by adesille         ###   ########.fr       */
+/*   Created: 2024/02/09 11:36:46 by adesille          #+#    #+#             */
+/*   Updated: 2024/03/03 11:45:25 by isb3             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
-
-void	initialize_stacks(int *array, t_stack **stack_a)
-{
-	int	i;	
-
-	i = 0;
-	while (array[i])
-		add_node (&*stack_a, array[i++]);
-	free(array);
-}
 
 void	add_node(t_stack **stack, int value)
 {
@@ -49,41 +39,76 @@ void	add_node(t_stack **stack, int value)
 	}
 }
 
-int	security_check(char *argv[])
+void	initialize_stacks(int *array, t_stack **stack_a)
 {
-	int	i;
-	int	k;
+	int	i;	
 
-	k = 1;
-	while (argv[k])
-	{
-		i = 0;
-		while (argv[k][i])
-		{
-			if ((argv[k][i] >= '0' && argv[k][i] <= '9')
-				|| argv[k][i] == ' ' || argv[k][i] == '-')
-			{
-				if (argv[k][i] == '-' && argv[k][i + 1] == '-')
-					return (-1);
-			}
-			else if ((argv[k][i] >= 'a' && argv[k][i] <= 'z')
-					|| (argv[k][i] >= 'A' && argv[k][i] <= 'Z'))
-				return (-1);
-			i++;
-		}
-		k++;
-	}
-	return (0);
+	i = 0;
+	while (array[i])
+		add_node (&*stack_a, array[i++]);
+	free(array);
 }
 
-int	ft_strlen(char *str)
+int	*int_array_init(char *str)
 {
-	int	len;
+	int	*array;
+	int	rows;
 
-	len = 0;
+	rows = ft_count_words(str, ' ');
+	array = (int *)malloc((rows + 1) * sizeof(int));
+	if (!array)
+		return (NULL);
+	return (ft_atoi_n_split(array, str));
+}
+
+char	*argv_join(char *str1, char *str2)
+{
+	char	*str;
+	int		i;
+	int		k;
+
+	i = 0;
+	k = 0;
+	str = malloc(ft_strlen(str1) + ft_strlen(str2) + 2);
 	if (!str)
+		return (NULL);
+	if (str1 != NULL)
+	{
+		while (str1[i])
+		{
+			str[i] = str1[i];
+			i++;
+		}
+	}
+	while (str2[k])
+		str[i++] = str2[k++];
+	str[i] = ' ';
+	str[++i] = '\0';
+	return (free(str1), str);
+}
+
+int	*initializer(char *argv[])
+{
+	char	*str;
+	int		*array;
+	int		sec;
+	int		i;
+
+	sec = security_check(argv);
+	if (sec == -1)
 		return (0);
-	while (str[len])
-		len++;
-	return (len);
+	str = NULL;
+	i = 1;
+	while (argv[i])
+		str = argv_join(str, argv[i++]);
+	array = int_array_init(str);
+	i = 0;
+	while (array[i])
+		i++;
+	sec = overflow_protector(array, argv, i);
+	free(str);
+	if (sec != 0)
+		return ((int *)0);
+	else
+		return (array);
 }

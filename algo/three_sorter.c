@@ -3,16 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   three_sorter.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: adesille <adesille@student.42.fr>          +#+  +:+       +#+        */
+/*   By: isb3 <isb3@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/27 13:36:48 by adesille          #+#    #+#             */
-/*   Updated: 2024/02/29 09:41:23 by adesille         ###   ########.fr       */
+/*   Updated: 2024/03/03 12:12:28 by isb3             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
-
-
 
 int	scenario_finder(t_stack *stack)
 {
@@ -28,9 +26,11 @@ int	scenario_finder(t_stack *stack)
 		return (3);
 	else if (stack->value > first_value && first_value > stack->next->value)
 		return (4);
-	else if (stack->value < stack->next->value && stack->next->value < first_value)
+	else if (stack->value < stack->next->value
+		&& stack->next->value < first_value)
 		return (5);
-	else if (stack->value > stack->next->value && stack->next->value > first_value)
+	else if (stack->value > stack->next->value
+		&& stack->next->value > first_value)
 		return (6);
 	return (0);
 }
@@ -39,23 +39,15 @@ void	three_sorter_utils_stack_a(t_stack	**stack_a, int scenario)
 {
 	if (scenario == 3)
 	{
-		// printf("scen3\n");
 		ra(stack_a);
 		sa(stack_a);
 	}
 	else if (scenario == 4)
-	{
-		// printf("scen4\n");
 		rra(stack_a);
-	}
 	else if (scenario == 5)
-	{
-		// printf("scen5\n");
 		ra(stack_a);
-	}
 	else if (scenario == 6)
 	{
-		// printf("scen6\n");
 		rra(stack_a);
 		sa(stack_a);
 	}
@@ -64,12 +56,9 @@ void	three_sorter_utils_stack_a(t_stack	**stack_a, int scenario)
 void	three_sorter_stack_a(t_stack **stack_a)
 {
 	t_stack	*stack;
-	int 	scenario;
-    
-	// printf("----------------------------------------------\n");
-	// stack_printer_a(stack_a);
-	// printf("----------------------------------------------\n");
-    stack = *stack_a;
+	int		scenario;
+
+	stack = *stack_a;
 	scenario = scenario_finder(stack);
 	if (scenario == 1)
 		return ;
@@ -77,58 +66,4 @@ void	three_sorter_stack_a(t_stack **stack_a)
 		sa(stack_a);
 	else if (scenario >= 3)
 		three_sorter_utils_stack_a(stack_a, scenario);
-}
-
-
-void	three_sorter_utils_stack_b(t_stack **stack_b, int scenario)
-{
-	if (scenario == 3)
-	{
-		// printf("scen3\n");
-		// rrb(stack_b);
-	}
-	else if (scenario == 4)
-	{
-		// printf("scen4\n");
-		// rrb(stack_b);
-		sb(stack_b);
-	}
-	else if (scenario == 5)
-	{
-		// printf("scen5\n");
-		sb(stack_b);
-		rb(stack_b);
-	}
-	else if (scenario == 6)
-	{
-		// printf("scen6\n");
-		rb(stack_b);
-		return ;
-	}
-	// stack_printer_b(stack_b);
-}
-
-void	three_sorter_stack_b(t_stack **stack_b)
-{
-	t_stack	*stack;
-	int 	scenario;
-    
-	// printer_b(*stack_b);
-	// printf("-----------------LAAAAAAAAAAAAST-----------------------------\n");
-    stack = *stack_b;
-	scenario = scenario_finder(stack);
-	if (scenario == 1)
-	{
-		// printf("scen1\n");
-		rb(stack_b);
-		sb(stack_b);
-	}
-	else if (scenario == 2)
-	{
-		// printf("scen2\n");
-		rrb(stack_b);
-	}
-	else if (scenario >= 3)
-		three_sorter_utils_stack_b(stack_b, scenario);
-	// stack_printer_b(stack_b);
 }

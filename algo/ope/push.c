@@ -6,7 +6,7 @@
 /*   By: isb3 <isb3@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/17 15:30:24 by isb3              #+#    #+#             */
-/*   Updated: 2024/03/02 12:55:24 by isb3             ###   ########.fr       */
+/*   Updated: 2024/03/03 10:24:25 by isb3             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ void	push(t_stack **dst, t_stack **src)
 
 void	pa(t_stack **stack_a, t_stack **stack_b)
 {
-	push(stack_a, stack_b); 
+	push(stack_a, stack_b);
 	pos_update(*stack_a);
 	pos_update(*stack_b);
 	printf("pa\n");

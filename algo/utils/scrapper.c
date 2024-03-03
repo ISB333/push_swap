@@ -6,7 +6,7 @@
 /*   By: isb3 <isb3@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/28 08:43:59 by adesille          #+#    #+#             */
-/*   Updated: 2024/03/03 09:55:11 by isb3             ###   ########.fr       */
+/*   Updated: 2024/03/03 12:14:45 by isb3             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,38 +26,10 @@ int	not_in(int *lowest, int value)
 	return (0);
 }
 
-int	*larg_scrapper_n2(t_stack *stack_a, int *largest, int n)
-{
-	t_stack	*a_head;
-	int 	*lowest;
-	int 	i;
-	int 	j;
-
-	i = 0;
-	j = 0;
-	lowest = ft_calloc(n, 1);
-	a_head = stack_a;
-	while (a_head)
-	{
-		i = -1;
-		while (++i < n)
-			if (a_head->value > lowest[i] && not_in(largest, a_head->value) == 0)
-			{
-				j = n;
-				while(--j > i)
-					lowest[j] = lowest[j - 1];
-				lowest[i] = a_head->value;
-				break;
-			}
-		a_head = a_head->next;
-	}
-	return (lowest);
-}
-
 int	*largest_scrapper(t_stack *stack_b, int n, int i, int j)
 {
 	t_stack	*b_head;
-	int 	*largest;
+	int		*largest;
 
 	if (!stack_b)
 		return ((int *)0);
@@ -67,45 +39,44 @@ int	*largest_scrapper(t_stack *stack_b, int n, int i, int j)
 	{
 		i = -1;
 		while (++i < n)
+		{
 			if (b_head->value > largest[i])
 			{
 				j = n;
-				while(--j > i)
+				while (--j > i)
 					largest[j] = largest[j - 1];
 				largest[i] = b_head->value;
-				break;
+				break ;
 			}
+		}
 		b_head = b_head->next;
 	}
 	return (largest);
 }
 
-int	*n_2nd_scrapper(t_stack *stack_a, int *lowest, int n)
+int	*half_n_scrapper(int *lowest, int n)
 {
-	t_stack	*a_head;
-	int		*largest;
-	int 	i;
-	int 	j;
+	int	*largest;
+	int	i;
+	int	k;
+	int	j;
 
-	i = 0;
-	j = 0;
-	if (ruler(stack_a) < 10)
-		return ((int *)0);
-	largest = ft_calloc(n, 2147483647);
-	a_head = stack_a;
-	while (a_head)
+	largest = ft_calloc(n / 2, sizeof(int));
+	i = -1;
+	while (lowest[++i])
 	{
-		i = -1;
-		while (++i < n)
-			if (a_head->value < largest[i] && not_in(lowest, a_head->value) == 0)
+		k = -1;
+		while (++k < n / 2)
+		{
+			if (lowest[i] > largest[k])
 			{
-				j = n;
-				while(--j > i)
+				j = n / 2;
+				while (--j > k)
 					largest[j] = largest[j - 1];
-				largest[i] = a_head->value;
-				break;
+				largest[k] = lowest[i];
+				break ;
 			}
-		a_head = a_head->next;
+		}
 	}
 	return (largest);
 }
@@ -113,26 +84,26 @@ int	*n_2nd_scrapper(t_stack *stack_a, int *lowest, int n)
 int	*n_smallest_scrapper(t_stack *stack_a, int n)
 {
 	t_stack	*a_head;
-	int 	*smallest;
-	int 	i;
-	int 	j;
+	int		*smallest;
+	int		i;
+	int		j;
 
-	i = 0;
-	j = 0;
 	smallest = ft_calloc(n, 2147483647);
 	a_head = stack_a;
 	while (a_head)
 	{
 		i = -1;
 		while (++i < n)
+		{
 			if (a_head->value < smallest[i])
 			{
 				j = n;
-				while(--j > i)
+				while (--j > i)
 					smallest[j] = smallest[j - 1];
 				smallest[i] = a_head->value;
-				break;
+				break ;
 			}
+		}
 		a_head = a_head->next;
 	}
 	return (smallest);

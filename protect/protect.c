@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   protect.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: adesille <adesille@student.42.fr>          +#+  +:+       +#+        */
+/*   By: isb3 <isb3@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/17 11:54:15 by adesille          #+#    #+#             */
-/*   Updated: 2024/03/01 09:30:30 by adesille         ###   ########.fr       */
+/*   Updated: 2024/03/03 10:23:51 by isb3             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,72 +96,3 @@ int	overflow_protector(int *int_array, char *argv[], int len)
 		return (-1);
 	return (0);
 }
-
-// void	ptr_check(t_stack_a *stack_a, t_stack_b *stack_b)
-// {
-// 	t_data	*stack_a_head;
-// 	t_data	*stack_b_head;
-
-//     printf("\n================================= PTR_CHECK =================================\n");
-//     stack_a_head = stack_a->head;
-// 	if (stack_a_head->position == 1)
-// 		printf("\nStack_a Head OK!");
-// 	else
-// 		printf("\nStack_b Head ERROR!!!");
-// 	while (stack_a_head->next)
-//     {
-// 		stack_a_head = stack_a_head->next;
-//     }
-// 	if (stack_a->tail->value == stack_a_head->value)
-// 		printf("\nStack_a Tail OK\n");
-// 	else
-// 		printf("\nTail ERROR!!!");
-//     if(stack_b->head)
-//     {
-//         stack_b_head = stack_b->head;
-//         if (stack_b_head->position == 1)
-//             printf("\nStack_b Head OK!");
-//         else
-//             printf("\nStack_b Head ERROR!!!\n");
-//         while (stack_b_head->next)
-//             stack_b_head = stack_b_head->next;
-//         if (stack_b->tail->value == stack_b_head->value)
-//             printf("\nStack_b Tail OK");
-//         else
-//             printf("\nStack_b Tail ERROR!!!");
-//     }
-//     printf("\n================================= PTR_CHECK =================================\n");
-// }
-
-// void    ope_check(t_stack_a *stack_a, t_stack_b *stack_b)
-// {
-// 	int i = 6;
-// 	while (i-- > 0)
-// 		pb(stack_a, stack_b);
-// 	printf("================ pb ================\n");
-// 	// ptr_check(stack_a, stack_b);
-// 	printer(stack_a, stack_b);
-
-// 	///////////////	ROTATE DOWN ///////////////	
-// 	i = 3;
-// 	while (i-- > 0)
-// 		rr(stack_a, stack_b);
-// 	printf("================ rr ================\n");
-// 	// ptr_check(stack_a, stack_b);
-// 	printer(stack_a, stack_b);
-
-// 	///////////////	ROTATE UP ///////////////	
-// 	i = 3;
-// 	while (i-- > 0)
-// 		rrr(stack_a, stack_b);
-// 	printf("================ rrr ================\n");
-// 	// ptr_check(stack_a, stack_b);
-// 	printer(stack_a, stack_b);
-// 	///////////////	SWAP ///////////////	
-// 	i = 3;
-// 	ss(stack_a, stack_b);
-// 	printf("================ ss ================\n");
-// 	printer(stack_a, stack_b);
-// 	ptr_check(stack_a, stack_b);
-
-// }

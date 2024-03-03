@@ -6,7 +6,7 @@
 /*   By: isb3 <isb3@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/17 15:30:34 by isb3              #+#    #+#             */
-/*   Updated: 2024/03/02 12:55:35 by isb3             ###   ########.fr       */
+/*   Updated: 2024/03/03 10:25:08 by isb3             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,13 +18,13 @@ static void	rotate(t_stack **stack)
 
 	if (!*stack || !(*stack)->next)
 		return ;
-	last_node = return_tail(*stack); 
+	last_node = return_tail(*stack);
 	last_node->next = *stack;
 	*stack = (*stack)->next;
 	(*stack)->prev = NULL;
 	last_node->next->prev = last_node;
 	last_node->next->next = NULL;
-}		
+}
 
 void	ra(t_stack **stack_a)
 {

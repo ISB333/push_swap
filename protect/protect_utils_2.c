@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   protect_utils_3.c                                  :+:      :+:    :+:   */
+/*   protect_utils_2.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: adesille <adesille@student.42.fr>          +#+  +:+       +#+        */
+/*   By: isb3 <isb3@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/25 16:13:15 by adesille          #+#    #+#             */
-/*   Updated: 2024/02/28 08:38:55 by adesille         ###   ########.fr       */
+/*   Updated: 2024/03/03 11:49:59 by isb3             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,29 @@ int	ft_strcmp(char *str1, char *str2)
 		i++;
 	}
 	return (0);
+}
+
+char	*ft_substr(char *s, unsigned int start, size_t len)
+{
+	char	*str;
+	int		size;
+
+	if (s == NULL)
+		return (NULL);
+	size = (ft_strlen(s));
+	if (start >= ((unsigned int)size))
+		return (ft_strdup(""));
+	if (len > size - start)
+		len = size - start;
+	str = (char *)malloc((len + 1) * sizeof(char));
+	if (str == NULL)
+	{
+		free(s);
+		return (NULL);
+	}
+	ft_strlcpy(str, &s[start], len + 1);
+	str[len] = '\0';
+	return (str);
 }
 
 char	**ft_cut(char **array, char *s, char c, size_t i)
@@ -82,27 +105,4 @@ char	**ft_split(char *s, char c)
 		return (NULL);
 	array = ft_cut(array, s, c, i);
 	return (free(s), array);
-}
-
-char	*ft_substr(char *s, unsigned int start, size_t len)
-{
-	char	*str;
-	int		size;
-
-	if (s == NULL)
-		return (NULL);
-	size = (ft_strlen(s));
-	if (start >= ((unsigned int)size))
-		return (ft_strdup(""));
-	if (len > size - start)
-		len = size - start;
-	str = (char *)malloc((len + 1) * sizeof(char));
-	if (str == NULL)
-	{
-		free(s);
-		return (NULL);
-	}
-	ft_strlcpy(str, &s[start], len + 1);
-	str[len] = '\0';
-	return (str);
 }

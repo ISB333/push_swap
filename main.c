@@ -6,7 +6,7 @@
 /*   By: isb3 <isb3@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/08 17:29:02 by adesille          #+#    #+#             */
-/*   Updated: 2024/03/02 14:17:26 by isb3             ###   ########.fr       */
+/*   Updated: 2024/03/03 11:14:37 by isb3             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,28 +71,21 @@ void	printer(t_stack *stack_a, t_stack *stack_b, int c)
 
 int	main(int argc, char *argv[])
 {
-	t_stack		*stack_a;
-	t_stack		*stack_b;
-	int			*array;
-	// int         i;
-	
+	t_stack	*stack_a;
+	t_stack	*stack_b;
+	int		*array;
+
 	stack_a = NULL;
 	stack_b = NULL;
-	// i = 0;
 	if (argc <= 1)
 		return (printf("u're dumb or what !? I need arguments, blyat !"));
 	else
 	{
-		// printf("======================================================================================================================================================================\n");
 		array = initializer(argv);
 		if (array == 0)
 			return (printf("error"), 0);
-		initialize_stacks(array, &stack_a); 
-		// printer(stack_a, stack_b, 2);
-		// t_stack *last = return_tail(stack_a);
-		// printf("a_head = %d\na_tail = %d\n", stack_a->value, last->value);
-		push_swap(&stack_a, &stack_b);	
-		// printer(stack_a, stack_b, 2);
+		initialize_stacks(array, &stack_a);
+		push_swap(&stack_a, &stack_b);
 		lst_freememory(stack_a, stack_b);
 	}
 }
