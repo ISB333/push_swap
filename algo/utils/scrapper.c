@@ -6,7 +6,7 @@
 /*   By: adesille <adesille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/28 08:43:59 by adesille          #+#    #+#             */
-/*   Updated: 2024/03/04 12:38:59 by adesille         ###   ########.fr       */
+/*   Updated: 2024/03/04 13:45:35 by adesille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,16 +61,16 @@ int	*half_n_scrapper(int *lowest, int n)
 	int	k;
 	int	j;
 
-	largest = ft_calloc(n / 2, sizeof(int));
+	largest = ft_calloc((n / 2), sizeof(int));
 	i = -1;
 	while (lowest[++i])
 	{
 		k = -1;
-		while (++k < n / 2)
+		while (++k < (n / 2))
 		{
 			if (lowest[i] > largest[k])
 			{
-				j = n / 2;
+				j = (n / 2);
 				while (--j > k)
 					largest[j] = largest[j - 1];
 				largest[k] = lowest[i];
