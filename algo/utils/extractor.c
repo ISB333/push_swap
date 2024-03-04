@@ -103,7 +103,7 @@ void	extractor(t_stack **stack_a, t_stack **stack_b, int n, int i)
 		n = n_selector(*stack_a);
 		lowest = n_smallest_scrapper((*stack_a), n);
 		largest = half_n_scrapper(lowest, n);
-		if (ruler(*stack_a) < 100)
+		if (ruler(*stack_a) < 50)
 			side = side_selector(lowest, largest, *stack_a);
 		i = -1;
 		while (lowest[++i])
