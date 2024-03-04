@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: isb3 <isb3@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: adesille <adesille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/03 10:59:46 by isb3              #+#    #+#             */
-/*   Updated: 2024/03/03 12:23:38 by isb3             ###   ########.fr       */
+/*   Updated: 2024/03/04 12:48:44 by adesille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,9 @@ void	push_swap(t_stack **stack_a, t_stack **stack_b)
 		five_sorter_stack_a(stack_a, stack_b);
 	else
 	{
-		extractor(stack_a, stack_b, n_selector(*stack_a));
+		extractor(stack_a, stack_b, n_selector(*stack_a), 0);
+		while (*stack_a)
+			pb(stack_a, stack_b);
 		sorter(stack_a, stack_b);
 	}
 	// printer(*stack_a, *stack_b, 2);

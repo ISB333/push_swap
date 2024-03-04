@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: isb3 <isb3@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: adesille <adesille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/17 15:28:12 by isb3              #+#    #+#             */
-/*   Updated: 2024/03/03 12:14:36 by isb3             ###   ########.fr       */
+/*   Updated: 2024/03/04 12:47:37 by adesille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,7 @@ size_t	n_selector(t_stack *stack_a);
 t_stack	*return_tail(t_stack *stack);
 void	free_int(int *int_arr1, int *int_arr2);
 
-void    extractor(t_stack **stack_a, t_stack **stack_b, int n);
+void    extractor(t_stack **stack_a, t_stack **stack_b, int n, int i);
 
 int		not_in(int *lowest, int value);
 int     *largest_scrapper(t_stack *stack_a, int n, int i, int j);
