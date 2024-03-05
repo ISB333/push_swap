@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: adesille <adesille@student.42.fr>          +#+  +:+       +#+        */
+/*   By: isb3 <isb3@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/17 15:28:12 by isb3              #+#    #+#             */
-/*   Updated: 2024/03/05 12:48:56 by adesille         ###   ########.fr       */
+/*   Updated: 2024/03/05 14:52:25 by isb3             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@
 typedef struct s_stack
 {
 	int				value;
-	size_t				position;
+	size_t			position;
 	struct s_stack	*prev;
 	struct s_stack	*next;
 }				t_stack;
@@ -29,7 +29,7 @@ typedef struct s_stack
 void	printer(t_stack *stack_a, t_stack *stack_b, int c);
 void	printer_a(t_stack *stack_a);
 void	printer_b(t_stack *stack_b);
-void	ft_putstr(char *s);
+void	sorting_checker(t_stack *stack_a);
 
 /// initialization ///
 void	initialize_stacks(int *array, t_stack **stack_a);
@@ -43,7 +43,7 @@ int		ft_strlen(char *str);
 
 /// protections ///
 void	freememory(char **array);
-void    lst_freememory(t_stack *stack_a, t_stack *stack_b);
+void	lst_freememory(t_stack *stack_a, t_stack *stack_b);
 char	**argv_init(char *argv[]);
 int		overflow_protector(int *int_array, char *argv[], int len);
 
@@ -59,23 +59,24 @@ char	**ft_split(char *s, char c);
 ////// algo //////
 void	push_swap(t_stack **stack_a, t_stack **stack_b);
 void	three_sorter_stack_a(t_stack **stack_a);
-void    five_sorter_stack_a(t_stack **stack_a, t_stack **stack_b);
+void	five_sorter_stack_a(t_stack **stack_a, t_stack **stack_b);
 
 ////// algo_utils //////
-size_t 	ruler(t_stack *stack);
+size_t	ruler(t_stack *stack);
 void	pos_update(t_stack *stack);
-int	    *ft_calloc(size_t size, int value);
+int		*ft_calloc(size_t size, int value);
+void	ft_putstr(char *s);
 
 size_t	n_selector(t_stack *stack_a);
 t_stack	*return_tail(t_stack *stack);
 void	free_int(int *int_arr1, int *int_arr2);
 
-void    extractor(t_stack **stack_a, t_stack **stack_b, int n, int i);
+void	extractor(t_stack **stack_a, t_stack **stack_b, int n, int i);
 
 int		not_in(int *lowest, int value);
-int     *largest_scrapper(t_stack *stack_a, int n, int i, int j);
+int		*largest_scrapper(t_stack *stack_a, int n, int i, int j);
 int		*half_n_scrapper(int *lowest, int n);
-int     *n_smallest_scrapper(t_stack *stack_a, int n);
+int		*n_smallest_scrapper(t_stack *stack_a, int n);
 
 char	side_chooser(t_stack *stack_b, int value);
 void	pre_sorting_a(t_stack **stack_a, t_stack **stack_b);

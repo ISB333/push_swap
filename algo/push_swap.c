@@ -3,39 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: adesille <adesille@student.42.fr>          +#+  +:+       +#+        */
+/*   By: isb3 <isb3@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/03 10:59:46 by isb3              #+#    #+#             */
-/*   Updated: 2024/03/05 10:33:12 by adesille         ###   ########.fr       */
+/*   Updated: 2024/03/05 14:48:25 by isb3             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
-
-void	sorting_checker(t_stack *stack_a)
-{
-	t_stack	*a_tmp;
-
-	a_tmp = stack_a;
-	while (a_tmp->next)
-	{
-		if (a_tmp->value > a_tmp->next->value)
-		{
-			printf("\033[0;31m");
-			printf("==============================================================================\n");
-			printf("NOT SORTED MUDAFUKA SHGIEHBKGHBADGKHBEGLKJ!@!##$#@$^$@$^@#!^^$@$TYWQHYNG$VTTRH\n");
-			printf("==============================================================================\n");
-			printf("\033[0;37m");
-			return ;
-		}
-		a_tmp = a_tmp->next;
-	}
-	printf("\033[0;34m");
-	printf("----------------------------------------------------------------------------------\n");
-	printf("                         SORTING OK BROoOoOooOOoOOoO!\n");
-	printf("----------------------------------------------------------------------------------\n");
-	printf("\033[0;37m");
-}
 
 void	sorter(t_stack **stack_a, t_stack **stack_b)
 {
