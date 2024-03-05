@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   five_sorter_a.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: isb3 <isb3@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: adesille <adesille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/07 10:09:49 by adesille          #+#    #+#             */
-/*   Updated: 2024/03/03 12:24:13 by isb3             ###   ########.fr       */
+/*   Updated: 2024/03/05 09:55:56 by adesille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -115,8 +115,8 @@ void	a_last_sorter(t_stack **stack_a, t_stack **stack_b)
 
 void	five_sorter_stack_a(t_stack **stack_a, t_stack **stack_b)
 {
-	pb(stack_a, stack_b);
-	pb(stack_a, stack_b);
+	while (ruler(*stack_a) > 3)
+		pb(stack_a, stack_b);
 	three_sorter_stack_a(stack_a);
 	a_four_sorter(stack_a, stack_b);
 	a_last_sorter(stack_a, stack_b);

@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   init_list.c                                        :+:      :+:    :+:   */
+/*   init_utils.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: isb3 <isb3@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: adesille <adesille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/09 11:40:28 by adesille          #+#    #+#             */
-/*   Updated: 2024/03/03 11:45:02 by isb3             ###   ########.fr       */
+/*   Updated: 2024/03/05 11:38:00 by adesille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,6 +82,22 @@ int	security_check(char *argv[])
 			i++;
 		}
 		k++;
+	}
+	return (0);
+}
+
+int	duplicate_sec(int *int_array)
+{
+	int	i;
+	int	k;
+
+	i = -1;
+	while (int_array[++i])
+	{
+		k = -1;
+		while (int_array[++k])
+			if (int_array[k] == int_array[i] && k != i)
+				return (-1);
 	}
 	return (0);
 }

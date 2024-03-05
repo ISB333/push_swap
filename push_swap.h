@@ -6,13 +6,14 @@
 /*   By: adesille <adesille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/17 15:28:12 by isb3              #+#    #+#             */
-/*   Updated: 2024/03/04 12:47:37 by adesille         ###   ########.fr       */
+/*   Updated: 2024/03/05 12:48:56 by adesille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
+# include <unistd.h>
 # include <stdlib.h>
 # include <stdio.h>
 # include <limits.h>
@@ -28,6 +29,7 @@ typedef struct s_stack
 void	printer(t_stack *stack_a, t_stack *stack_b, int c);
 void	printer_a(t_stack *stack_a);
 void	printer_b(t_stack *stack_b);
+void	ft_putstr(char *s);
 
 /// initialization ///
 void	initialize_stacks(int *array, t_stack **stack_a);
@@ -47,6 +49,7 @@ int		overflow_protector(int *int_array, char *argv[], int len);
 
 char	*ft_strdup(char *s);
 char	*ft_itoa(int n);
+int		duplicate_sec(int *int_array);
 
 size_t	ft_strlcpy(char *dst, char *src, size_t size);
 int		ft_strcmp(char *str1, char *str2);

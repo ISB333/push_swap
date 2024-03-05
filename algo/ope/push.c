@@ -6,7 +6,7 @@
 /*   By: adesille <adesille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/17 15:30:24 by isb3              #+#    #+#             */
-/*   Updated: 2024/03/04 10:24:42 by adesille         ###   ########.fr       */
+/*   Updated: 2024/03/05 10:31:24 by adesille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ void	pa(t_stack **stack_a, t_stack **stack_b)
 	push(stack_a, stack_b);
 	pos_update(*stack_a);
 	pos_update(*stack_b);
-	printf("pa\n");
+	ft_putstr("pa\n");
 }
 
 void	pb(t_stack **stack_a, t_stack **stack_b)
@@ -49,5 +49,5 @@ void	pb(t_stack **stack_a, t_stack **stack_b)
 	push(stack_b, stack_a);
 	pos_update(*stack_a);
 	pos_update(*stack_b);
-	printf("pb\n");
+	ft_putstr("pb\n");
 }

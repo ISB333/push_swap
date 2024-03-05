@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   protect.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: isb3 <isb3@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: adesille <adesille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/17 11:54:15 by adesille          #+#    #+#             */
-/*   Updated: 2024/03/03 10:23:51 by isb3             ###   ########.fr       */
+/*   Updated: 2024/03/05 11:38:54 by adesille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,6 +90,7 @@ int	overflow_protector(int *int_array, char *argv[], int len)
 	after_itoa[k] = NULL;
 	initial_array = argv_init(argv);
 	secu = overflow_checker(after_itoa, initial_array);
+	secu = duplicate_sec(int_array);
 	freememory(after_itoa);
 	freememory(initial_array);
 	if (secu != 0)

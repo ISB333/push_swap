@@ -6,7 +6,7 @@
 /*   By: adesille <adesille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/17 15:30:34 by isb3              #+#    #+#             */
-/*   Updated: 2024/03/04 10:24:59 by adesille         ###   ########.fr       */
+/*   Updated: 2024/03/05 10:31:35 by adesille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,19 +30,19 @@ void	ra(t_stack **stack_a)
 {
 	rotate(stack_a);
 	pos_update(*stack_a);
-	printf("ra\n");
+	ft_putstr("ra\n");
 }
 
 void	rb(t_stack **stack_b)
 {
 	rotate(stack_b);
 	pos_update(*stack_b);
-	printf("rb\n");
+	ft_putstr("rb\n");
 }
 
 void	rr(t_stack **stack_a, t_stack **stack_b)
 {
 	rotate(stack_a);
 	rotate(stack_b);
-	printf("rr\n");
+	ft_putstr("rr\n");
 }

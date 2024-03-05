@@ -6,7 +6,7 @@
 /*   By: adesille <adesille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/03 10:59:46 by isb3              #+#    #+#             */
-/*   Updated: 2024/03/04 13:16:58 by adesille         ###   ########.fr       */
+/*   Updated: 2024/03/05 10:33:12 by adesille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,6 +71,5 @@ void	push_swap(t_stack **stack_a, t_stack **stack_b)
 			pb(stack_a, stack_b);
 		sorter(stack_a, stack_b);
 	}
-	// printer(*stack_a, *stack_b, 2);
 	sorting_checker(*stack_a);
 }

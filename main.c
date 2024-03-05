@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: isb3 <isb3@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: adesille <adesille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/08 17:29:02 by adesille          #+#    #+#             */
-/*   Updated: 2024/03/03 11:14:37 by isb3             ###   ########.fr       */
+/*   Updated: 2024/03/05 12:00:44 by adesille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,12 +78,12 @@ int	main(int argc, char *argv[])
 	stack_a = NULL;
 	stack_b = NULL;
 	if (argc <= 1)
-		return (printf("u're dumb or what !? I need arguments, blyat !"));
+		return (0);
 	else
 	{
 		array = initializer(argv);
 		if (array == 0)
-			return (printf("error"), 0);
+			return (printf("Error\n"), 0);
 		initialize_stacks(array, &stack_a);
 		push_swap(&stack_a, &stack_b);
 		lst_freememory(stack_a, stack_b);

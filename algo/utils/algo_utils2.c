@@ -6,7 +6,7 @@
 /*   By: adesille <adesille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/14 10:29:19 by adesille          #+#    #+#             */
-/*   Updated: 2024/03/04 12:46:29 by adesille         ###   ########.fr       */
+/*   Updated: 2024/03/05 11:45:13 by adesille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,4 +49,11 @@ void	free_int(int *int_arr1, int *int_arr2)
 		free(int_arr1);
 	if (int_arr2)
 		free(int_arr2);
+}
+
+void	ft_putstr(char *s)
+{
+	if (s == NULL)
+		return ;
+	write(1, s, ft_strlen(s));
 }

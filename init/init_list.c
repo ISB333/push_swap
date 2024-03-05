@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   init_array.c                                       :+:      :+:    :+:   */
+/*   init_list.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: isb3 <isb3@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: adesille <adesille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/09 11:36:46 by adesille          #+#    #+#             */
-/*   Updated: 2024/03/03 11:45:25 by isb3             ###   ########.fr       */
+/*   Updated: 2024/03/05 11:57:01 by adesille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -108,7 +108,7 @@ int	*initializer(char *argv[])
 	sec = overflow_protector(array, argv, i);
 	free(str);
 	if (sec != 0)
-		return ((int *)0);
+		return (free(array), (int *)0);
 	else
 		return (array);
 }
