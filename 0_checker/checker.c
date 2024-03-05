@@ -8,6 +8,8 @@
 
 int	checker(char *argv[])
 {
+	t_stack *stack_a;
+	t_stack	*stack_b;
 	int	*array;
 	int argc = 2;
 
@@ -18,14 +20,19 @@ int	checker(char *argv[])
 		array = initializer(argv);
 		if (array == 0)
 			return (printf("Error\n"), 0);
-		int i = 0;
-		while (array[i])
-			printf("%d\n", array[i++]);
+		stack_a = NULL;
+		stack_b = NULL;
+		initialize_stacks(array, &stack_a);
+		// int i = -1;
+		// while (array[++i])
+		// 	printf("%d\n", array[i]);
+		push_swap(&stack_a, &stack_b);
+		lst_freememory(stack_a, stack_b);
 	}
 	return (0);
 }
 int main()
 {
-	char *argv[] = {"1", "2", "3", "55", "1", "4"};
+	char	*argv[] = {"a.out", "1", "2", "3", NULL};
 	checker(argv);
 }
