@@ -25,11 +25,38 @@ int main() {
         },
         {
             "                                                                               \n",
+            "||       |      |     PPPP   U   U  SSSSS  H   H  SSSSS  W   W  AAAAA  PPPP            ||\n",
+            "||       |  4   |     P   P  U   U  S      H   H  S      W W W  A   A  P   P           ||\n",
+            "||       |  2   |     PPPP   U   U   SSSS  HHHHH   SSSS  W W W  AAAAA  PPPPP           ||\n",
+            "||       |  3   |     P      U   U      S  H   H      S  W W W  A   A  P               ||\n",
+            "||       |  1   |     P       UUU   SSSSS  H   H  SSSSS   W W   A   A  P               ||\n",
+            "||       +------+                                                                      ||",
+        },
+        {
+            "                                                                               \n",
             "||       |      |      PPPP   U   U  SSSSS  H   H  sssss  W   W  AAAAA  PPPP           ||\n",
             "||       |  2   |      P   P  U   U  S      H   H  s      W W W  A   A  P   P          ||\n",
             "||       |  4   |      PPPP   U   U   SSSS  HHHHH   ssss  W W W  AAAAA  PPPPP          ||\n",
             "||       |  3   |      P      U   U      S  H   H      s  W W W  A   A  P              ||\n",
             "||       |  1   |      P       UUU   SSSSS  H   H  sssss   W W   A   A  P              ||\n",
+            "||       +------+                                                                      ||",
+        },
+        {
+            "                                                                               \n",
+            "||       |      |      PPPP   U   U  SSSSS  H   H  sssss  W   W  AAAAA  PPPP           ||\n",
+            "||       |  2   |      P   P  U   U  S      H   H  s      W W W  A   A  P   P          ||\n",
+            "||       |  4   |      PPPP   U   U   SSSS  HHHHH   ssss  W W W  AAAAA  PPPPP          ||\n",
+            "||       |  3   |      P      U   U      S  H   H      s  W W W  A   A  P              ||\n",
+            "||       |  1   |      P       UUU   SSSSS  H   H  sssss   W W   A   A  P              ||\n",
+            "||       +------+                                                                      ||",
+        },
+        {
+            "                                                                               \n",
+            "||       |      |       PPPP   U   U  SSSSS  H   H  sssss  W   W  AAAAA  PPPP          ||\n",
+            "||       |  1   |       P   P  U   U  S      H   H  s      W W W  A   A  P   P         ||\n",
+            "||       |  2   |       PPPP   U   U   SSSS  HHHHH   ssss  W W W  AAAAA  PPPPP         ||\n",
+            "||       |  4   |       P      U   U      S  H   H      s  W W W  A   A  P             ||\n",
+            "||       |  3   |       P       UUU   SSSSS  H   H  sssss   W W   A   A  P             ||\n",
             "||       +------+                                                                      ||",
         },
         {
@@ -52,6 +79,24 @@ int main() {
         },
         {
             "                                                                               \n",
+            "||       |      |        PPPP   U   U  SSSSS  H   H  sssss  W   W  AAAAA  PPPP         ||\n",
+            "||       |  3   |        P   P  U   U  S      H   H  s      W W W  A   A  P   P        ||\n",
+            "||       |  1   |        PPPP   U   U   SSSS  HHHHH   ssss  W W W  AAAAA  PPPPP        ||\n",
+            "||       |  2   |        P      U   U      S  H   H      s  W W W  A   A  P            ||\n",
+            "||       |  4   |        P       UUU   SSSSS  H   H  sssss   W W   A   A  P            ||\n",
+            "||       +------+                                                                      ||",
+        },
+        {
+            "                                                                               \n",
+            "||       |      |       PPPP   U   U  SSSSS  H   H  sssss  W   W  AAAAA  PPPP          ||\n",
+            "||       |  4   |       P   P  U   U  S      H   H  s      W W W  A   A  P   P         ||\n",
+            "||       |  3   |       PPPP   U   U   SSSS  HHHHH   ssss  W W W  AAAAA  PPPPP         ||\n",
+            "||       |  1   |       P      U   U      S  H   H      s  W W W  A   A  P             ||\n",
+            "||       |  2   |       P       UUU   SSSSS  H   H  sssss   W W   A   A  P             ||\n",
+            "||       +------+                                                                      ||",
+        },
+        {
+            "                                                                               \n",
             "||       |      |       PPPP   U   U  SSSSS  H   H  sssss  W   W  AAAAA  PPPP          ||\n",
             "||       |  4   |       P   P  U   U  S      H   H  s      W W W  A   A  P   P         ||\n",
             "||       |  3   |       PPPP   U   U   SSSS  HHHHH   ssss  W W W  AAAAA  PPPPP         ||\n",
@@ -66,6 +111,24 @@ int main() {
             "||       |  4   |      PPPP   U   U   SSSS  HHHHH   ssss  W W W  AAAAA  PPPPP          ||\n",
             "||       |  1   |      P      U   U      S  H   H      s  W W W  A   A  P              ||\n",
             "||       |  2   |      P       UUU   SSSSS  H   H  sssss   W W   A   A  P              ||\n",
+            "||       +------+                                                                      ||",
+        },
+        {
+            "                                                                               \n",
+            "||       |      |      PPPP   U   U  SSSSS  H   H  sssss  W   W  AAAAA  PPPP           ||\n",
+            "||       |  3   |      P   P  U   U  S      H   H  s      W W W  A   A  P   P          ||\n",
+            "||       |  4   |      PPPP   U   U   SSSS  HHHHH   ssss  W W W  AAAAA  PPPPP          ||\n",
+            "||       |  1   |      P      U   U      S  H   H      s  W W W  A   A  P              ||\n",
+            "||       |  2   |      P       UUU   SSSSS  H   H  sssss   W W   A   A  P              ||\n",
+            "||       +------+                                                                      ||",
+        },
+        {
+            "                                                                               \n",
+            "||       |      |     PPPP   U   U  SSSSS  H   H  sssss  W   W  AAAAA  PPPP            ||\n",
+            "||       |  4   |     P   P  U   U  S      H   H  s      W W W  A   A  P   P           ||\n",
+            "||       |  1   |     PPPP   U   U   SSSS  HHHHH   ssss  W W W  AAAAA  PPPPP           ||\n",
+            "||       |  2   |     P      U   U      S  H   H      s  W W W  A   A  P               ||\n",
+            "||       |  3   |     P       UUU   SSSSS  H   H  sssss   W W   A   A  P               ||\n",
             "||       +------+                                                                      ||",
         },
         {
@@ -244,7 +307,7 @@ int main() {
     int nbr;
 	int series;
 	int goal;
-	printf("\n");
+	printf("\n\n");
 	printf("\033[0;33m");
     printf("Choose how many numbers you want to test: ");
     scanf("%d", &nbr);        // printf("You entered: %d\n", nbr);
