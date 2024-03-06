@@ -233,7 +233,6 @@ int main() {
         // Print the current frame
         for (size_t j = 0; j < FRAME_HEIGHT; j++) {
             write(STDOUT_FILENO, frames[i][j], strlen(frames[i][j]));
-            write(STDOUT_FILENO, "\n", 1); // Move to next line
         }
 
         // Wait for a short delay before displaying the next frame
@@ -245,6 +244,7 @@ int main() {
     int nbr;
 	int series;
 	int goal;
+	printf("\n");
 	printf("\033[0;33m");
     printf("Choose how many numbers you want to test: ");
     scanf("%d", &nbr);        // printf("You entered: %d\n", nbr);
