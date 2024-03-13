@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   three_sorter.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: isb3 <isb3@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: adesille <adesille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/27 13:36:48 by adesille          #+#    #+#             */
-/*   Updated: 2024/03/03 12:12:28 by isb3             ###   ########.fr       */
+/*   Updated: 2024/03/13 14:06:23 by adesille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,6 +59,14 @@ void	three_sorter_stack_a(t_stack **stack_a)
 	int		scenario;
 
 	stack = *stack_a;
+	if (ruler(*stack_a) == 2)
+	{
+		if((*stack_a)->value > (*stack_a)->next->value)
+		{
+			sa(stack_a);
+			return ;
+		}
+	}
 	scenario = scenario_finder(stack);
 	if (scenario == 1)
 		return ;

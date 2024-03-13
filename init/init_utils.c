@@ -6,7 +6,7 @@
 /*   By: adesille <adesille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/09 11:40:28 by adesille          #+#    #+#             */
-/*   Updated: 2024/03/05 11:38:00 by adesille         ###   ########.fr       */
+/*   Updated: 2024/03/13 15:20:17 by adesille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,6 +98,7 @@ int	duplicate_sec(int *int_array)
 		while (int_array[++k])
 			if (int_array[k] == int_array[i] && k != i)
 				return (-1);
+				// return (printf("Duplicates found"), -1);
 	}
 	return (0);
 }

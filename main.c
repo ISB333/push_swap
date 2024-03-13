@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: isb3 <isb3@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: adesille <adesille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/08 17:29:02 by adesille          #+#    #+#             */
-/*   Updated: 2024/03/09 09:46:12 by isb3             ###   ########.fr       */
+/*   Updated: 2024/03/13 14:07:22 by adesille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	sorting_checker(t_stack *stack_a)
+int	sorting_checker(t_stack *stack_a)
 {
 	t_stack	*a_tmp;
 
@@ -22,19 +22,16 @@ void	sorting_checker(t_stack *stack_a)
 		if (a_tmp->value > a_tmp->next->value)
 		{
 			printf("\033[0;31m");
-			printf("==============================================================================\n");
 			printf("NOT SORTED MUDAFUKA SHGIEHBKGHBADGKHBEGLKJ!@!##$#@$^$@$^@#!^^$@$TYWQHYNG$VTTRH\n");
-			printf("==============================================================================\n");
 			printf("\033[0;37m");
-			return ;
+			return (-1);
 		}
 		a_tmp = a_tmp->next;
 	}
 	printf("\033[0;34m");
-	printf("----------------------------------------------------------------------------------\n");
-	printf("                         SORTING OK BROoOoOooOOoOOoO!\n");
-	printf("----------------------------------------------------------------------------------\n");
+	printf("-------------------------SORTING OK BROoOoOooOOoOOoO!-----------------------------\n");
 	printf("\033[0;37m");
+	return (0);
 }
 
 void	printer_b(t_stack *stack_b)
@@ -112,7 +109,10 @@ int	main(int argc, char *argv[])
 		if (array == 0)
 			return (ft_putstr("Error\n"), 0);
 		initialize_stacks(array, &stack_a);
-		push_swap(&stack_a, &stack_b);
+		if (!sorting_checker(stack_a))
+			return (lst_freememory(stack_a, stack_b), 0);
+		else
+			push_swap(&stack_a, &stack_b);
 		lst_freememory(stack_a, stack_b);
 	}
 }

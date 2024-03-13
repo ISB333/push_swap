@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: isb3 <isb3@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: adesille <adesille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/17 15:28:12 by isb3              #+#    #+#             */
-/*   Updated: 2024/03/05 14:52:25 by isb3             ###   ########.fr       */
+/*   Updated: 2024/03/13 14:04:28 by adesille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ typedef struct s_stack
 void	printer(t_stack *stack_a, t_stack *stack_b, int c);
 void	printer_a(t_stack *stack_a);
 void	printer_b(t_stack *stack_b);
-void	sorting_checker(t_stack *stack_a);
+int		sorting_checker(t_stack *stack_a);
 
 /// initialization ///
 void	initialize_stacks(int *array, t_stack **stack_a);
