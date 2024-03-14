@@ -6,7 +6,7 @@
 /*   By: adesille <adesille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/09 11:36:46 by adesille          #+#    #+#             */
-/*   Updated: 2024/03/05 11:57:01 by adesille         ###   ########.fr       */
+/*   Updated: 2024/03/ by adesille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ int	*int_array_init(char *str)
 	array = (int *)malloc((rows + 1) * sizeof(int));
 	if (!array)
 		return (NULL);
-	return (ft_atoi_n_split(array, str));
+	return (ft_atoi_n_split(array, str, 0, -1));
 }
 
 char	*argv_join(char *str1, char *str2)
@@ -102,10 +102,12 @@ int	*initializer(char *argv[])
 	while (argv[i])
 		str = argv_join(str, argv[i++]);
 	array = int_array_init(str);
+	if (array[0] == 0)
+		return (free(array), free(str), (int *)0);
 	i = 0;
 	while (array[i])
 		i++;
-	sec = overflow_protector(array, argv, i);
+	sec = el_protector(array, argv, i);
 	free(str);
 	if (sec != 0)
 		return (free(array), (int *)0);

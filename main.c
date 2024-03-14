@@ -6,13 +6,13 @@
 /*   By: adesille <adesille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/08 17:29:02 by adesille          #+#    #+#             */
-/*   Updated: 2024/03/13 14:07:22 by adesille         ###   ########.fr       */
+/*   Updated: 2024/03/14 11:54:07 by adesille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	sorting_checker(t_stack *stack_a)
+int	true_sorting_check(t_stack *stack_a)
 {
 	t_stack	*a_tmp;
 
@@ -31,6 +31,20 @@ int	sorting_checker(t_stack *stack_a)
 	printf("\033[0;34m");
 	printf("-------------------------SORTING OK BROoOoOooOOoOOoO!-----------------------------\n");
 	printf("\033[0;37m");
+	return (0);
+}
+
+int	sorting_checker(t_stack *stack_a)
+{
+	t_stack	*a_tmp;
+
+	a_tmp = stack_a;
+	while (a_tmp->next)
+	{
+		if (a_tmp->value > a_tmp->next->value)
+			return (-1);
+		a_tmp = a_tmp->next;
+	}
 	return (0);
 }
 
@@ -113,6 +127,8 @@ int	main(int argc, char *argv[])
 			return (lst_freememory(stack_a, stack_b), 0);
 		else
 			push_swap(&stack_a, &stack_b);
+		// printer(stack_a, stack_b, 2);
+		true_sorting_check(stack_a);
 		lst_freememory(stack_a, stack_b);
 	}
 }

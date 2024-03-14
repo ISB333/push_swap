@@ -6,7 +6,7 @@
 /*   By: adesille <adesille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/09 11:40:28 by adesille          #+#    #+#             */
-/*   Updated: 2024/03/13 15:20:17 by adesille         ###   ########.fr       */
+/*   Updated: 2024/03/14 11:06:19 by adesille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,15 +31,11 @@ int	ft_count_words(char	*str, char c)
 	return (rows);
 }
 
-int	*ft_atoi_n_split(int *array, char *str)
+int	*ft_atoi_n_split(int *array, char *str, int i, int rows)
 {
-	int	rows;
 	int	sign;
 	int	n;
-	int	i;
 
-	rows = -1;
-	i = 0;
 	while (str[i])
 	{
 		sign = 1;
@@ -47,10 +43,14 @@ int	*ft_atoi_n_split(int *array, char *str)
 		while (((str[i] >= '0' && str[i] <= '9')
 				|| str[i] == '-') && str[i] != ' ')
 		{
-			if (str[i] == '-' && i++ > 0)
+			if (str[i] == '-' && i++ >= 0)
 				sign = -1;
+			while (str[i] == '0')
+				i++;
 			while (str[i] >= '0' && str[i] <= '9')
 				n = (n * 10) + (str[i++] - '0');
+			if (n == 0)
+				return (array[0] = 0, array);
 			array[++rows] = n * sign;
 		}
 		i++;
@@ -96,9 +96,10 @@ int	duplicate_sec(int *int_array)
 	{
 		k = -1;
 		while (int_array[++k])
-			if (int_array[k] == int_array[i] && k != i)
-				return (-1);
-				// return (printf("Duplicates found"), -1);
+		{
+			if (k != i && int_array[k] == int_array[i])
+				return (ft_putstr("Duplicates found\n"), -1);
+		}
 	}
 	return (0);
 }

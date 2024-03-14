@@ -6,7 +6,7 @@
 /*   By: adesille <adesille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/17 11:54:15 by adesille          #+#    #+#             */
-/*   Updated: 2024/03/05 11:38:54 by adesille         ###   ########.fr       */
+/*   Updated: 2024/03/14 10:36:58 by adesille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,7 @@ char	**argv_init(char *argv[])
 	return (ft_split(str, ' '));
 }
 
-int	overflow_protector(int *int_array, char *argv[], int len)
+int	el_protector(int *int_array, char *argv[], int len)
 {
 	char	**after_itoa;
 	char	**initial_array;

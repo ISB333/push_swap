@@ -6,7 +6,7 @@
 /*   By: adesille <adesille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/28 08:43:59 by adesille          #+#    #+#             */
-/*   Updated: 2024/03/04 13:45:35 by adesille         ###   ########.fr       */
+/*   Updated: 2024/03/14 11:35:05 by adesille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ int	*largest_scrapper(t_stack *stack_b, int n, int i, int j)
 
 	if (!stack_b)
 		return ((int *)0);
-	largest = ft_calloc(n, 1);
+	largest = ft_calloc(n, -2147483648);
 	b_head = stack_b;
 	while (b_head)
 	{

@@ -6,7 +6,7 @@
 /*   By: adesille <adesille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/17 15:28:12 by isb3              #+#    #+#             */
-/*   Updated: 2024/03/13 14:04:28 by adesille         ###   ########.fr       */
+/*   Updated: 2024/03/14 10:37:27 by adesille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,8 +36,9 @@ void	initialize_stacks(int *array, t_stack **stack_a);
 char	*argv_join(char *str1, char *str2);
 int		*initializer(char *argv[]);
 
+
 int		ft_count_words(char	*str, char c);
-int		*ft_atoi_n_split(int *array, char *str);
+int		*ft_atoi_n_split(int *array, char *str, int i, int rows);
 int		security_check(char *argv[]);
 int		ft_strlen(char *str);
 
@@ -45,7 +46,7 @@ int		ft_strlen(char *str);
 void	freememory(char **array);
 void	lst_freememory(t_stack *stack_a, t_stack *stack_b);
 char	**argv_init(char *argv[]);
-int		overflow_protector(int *int_array, char *argv[], int len);
+int		el_protector(int *int_array, char *argv[], int len);
 
 char	*ft_strdup(char *s);
 char	*ft_itoa(int n);
