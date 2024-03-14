@@ -6,11 +6,21 @@
 /*   By: adesille <adesille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/28 08:43:59 by adesille          #+#    #+#             */
-/*   Updated: 2024/03/14 11:35:05 by adesille         ###   ########.fr       */
+/*   Updated: 2024/03/14 14:35:37 by adesille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
+
+int	not_in_extract(int *lowest, int value, int n)
+{
+	while (n-- > 0)
+	{
+		if (lowest[n] == value)
+			return (-1);
+	}
+	return (0);
+}
 
 int	not_in(int *lowest, int value)
 {

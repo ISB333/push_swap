@@ -6,7 +6,7 @@
 /*   By: adesille <adesille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/03 10:25:36 by isb3              #+#    #+#             */
-/*   Updated: 2024/03/14 12:55:48 by adesille         ###   ########.fr       */
+/*   Updated: 2024/03/14 14:37:03 by adesille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,9 +56,9 @@ char	side_selector(int *lowest, int *largest, t_stack *stack_a)
 	return ('L');
 }
 
-int	pusher(t_stack **stack_a, t_stack **stack_b, int *largest)
+int	pusher(t_stack **stack_a, t_stack **stack_b, int *largest, int n)
 {
-	if (!not_in(largest, (*stack_a)->value))
+	if (!not_in_extract(largest, (*stack_a)->value, n/2))
 	{
 		pb(stack_a, stack_b);
 		if ((*stack_b)->next && (*stack_b)->value < (*stack_b)->next->value)
@@ -103,12 +103,19 @@ void	extractor(t_stack **stack_a, t_stack **stack_b, int n, int i)
 		n = n_selector(*stack_a);
 		lowest = n_smallest_scrapper((*stack_a), n);
 		largest = half_n_scrapper(lowest, n);
+		i = n;
+		while (i > 0)
+			printf("lowest = %d\n", lowest[i--]);
+		i = n / 2;
+		while (i > 0)
+			printf("largest = %d\n", largest[i--]);
+		printf("\n\n");
 		if (ruler(*stack_a) < 50)
 			side = side_selector(lowest, largest, *stack_a);
-		i = -1;
-		while (n-- > 0)
-			if ((*stack_a) && (*stack_a)->value == lowest[n])
-				pusher(stack_a, stack_b, largest);
+		i = n;
+		while (i-- > 0)
+			if ((*stack_a) && (*stack_a)->value == lowest[i])
+				pusher(stack_a, stack_b, largest, n);
 		stack_mover(stack_a, side);
 		free_int(lowest, largest);
 	}

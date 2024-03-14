@@ -6,7 +6,7 @@
 /*   By: adesille <adesille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/08 17:29:02 by adesille          #+#    #+#             */
-/*   Updated: 2024/03/14 13:15:28 by adesille         ###   ########.fr       */
+/*   Updated: 2024/03/14 13:34:15 by adesille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -129,8 +129,8 @@ int	main(int argc, char *argv[])
 			return (lst_freememory(stack_a, stack_b), 0);
 		else
 			push_swap(&stack_a, &stack_b);
-		true_sorting_check(stack_a);
-		printer(stack_a, stack_b, 2);
+		// true_sorting_check(stack_a);
+		// printer(stack_a, stack_b, 2);
 		return(free(str), lst_freememory(stack_a, stack_b), 0);
 	}
 }

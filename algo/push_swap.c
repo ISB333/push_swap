@@ -6,7 +6,7 @@
 /*   By: adesille <adesille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/03 10:59:46 by isb3              #+#    #+#             */
-/*   Updated: 2024/03/14 11:35:19 by adesille         ###   ########.fr       */
+/*   Updated: 2024/03/14 14:27:32 by adesille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void	sorter(t_stack **stack_a, t_stack **stack_b)
 	while (ruler(*stack_b) > 0)
 	{
 		b_head = *stack_b;
-		largest = largest_scrapper(b_head, 3, 0, 0);
+		largest = largest_scrapper(b_head, 2, 0, 0);
 		side = side_chooser(*stack_b, largest[0]);
 		if (side == 'U')
 			up_sorter(stack_a, stack_b, largest);
@@ -46,5 +46,4 @@ void	push_swap(t_stack **stack_a, t_stack **stack_b)
 			pb(stack_a, stack_b);
 		sorter(stack_a, stack_b);
 	}
-	sorting_checker(*stack_a);
 }
