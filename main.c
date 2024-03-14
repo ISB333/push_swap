@@ -6,7 +6,7 @@
 /*   By: adesille <adesille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/08 17:29:02 by adesille          #+#    #+#             */
-/*   Updated: 2024/03/14 11:54:07 by adesille         ###   ########.fr       */
+/*   Updated: 2024/03/14 13:13:22 by adesille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -112,6 +112,7 @@ int	main(int argc, char *argv[])
 	t_stack	*stack_a;
 	t_stack	*stack_b;
 	int		*array;
+	char	*str;
 
 	stack_a = NULL;
 	stack_b = NULL;
@@ -122,13 +123,14 @@ int	main(int argc, char *argv[])
 		array = initializer(argv);
 		if (array == 0)
 			return (ft_putstr("Error\n"), 0);
-		initialize_stacks(array, &stack_a);
+		str = argv_join_all(argv);
+		initialize_stacks(array, &stack_a, ft_count_words(str, ' '));
 		if (!sorting_checker(stack_a))
 			return (lst_freememory(stack_a, stack_b), 0);
 		else
 			push_swap(&stack_a, &stack_b);
-		// printer(stack_a, stack_b, 2);
 		true_sorting_check(stack_a);
-		lst_freememory(stack_a, stack_b);
+		// printer(stack_a, stack_b, 2);
+		return(free(str), lst_freememory(stack_a, stack_b), 0);
 	}
 }

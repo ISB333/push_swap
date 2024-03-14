@@ -6,7 +6,7 @@
 /*   By: adesille <adesille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/17 11:54:15 by adesille          #+#    #+#             */
-/*   Updated: 2024/03/14 10:36:58 by adesille         ###   ########.fr       */
+/*   Updated: 2024/03/14 13:07:34 by adesille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,18 +79,20 @@ int	el_protector(int *int_array, char *argv[], int len)
 	char	**initial_array;
 	size_t	k;
 	int		secu;
+	int		len_tmp;
 
 	secu = 0;
 	k = -1;
+	len_tmp = len;
 	after_itoa = (char **)malloc((len + 1) * sizeof(char *));
 	if (!after_itoa)
 		return (0);
-	while (int_array[++k])
-		after_itoa[k] = ft_itoa(int_array[k]);
-	after_itoa[k] = NULL;
+	after_itoa[len] = NULL;
+	while (len-- > 0)
+		after_itoa[len] = ft_itoa(int_array[len]);
 	initial_array = argv_init(argv);
 	secu = overflow_checker(after_itoa, initial_array);
-	secu = duplicate_sec(int_array);
+	secu = duplicate_sec(int_array, len);
 	freememory(after_itoa);
 	freememory(initial_array);
 	if (secu != 0)

@@ -6,7 +6,7 @@
 /*   By: adesille <adesille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/17 15:28:12 by isb3              #+#    #+#             */
-/*   Updated: 2024/03/14 10:37:27 by adesille         ###   ########.fr       */
+/*   Updated: 2024/03/14 13:04:55 by adesille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,10 +32,11 @@ void	printer_b(t_stack *stack_b);
 int		sorting_checker(t_stack *stack_a);
 
 /// initialization ///
-void	initialize_stacks(int *array, t_stack **stack_a);
+void	initialize_stacks(int *array, t_stack **stack_a, int len);
 char	*argv_join(char *str1, char *str2);
 int		*initializer(char *argv[]);
-
+size_t	ft_strlcat(char *dst, char *src, size_t size);
+char	*argv_join_all(char *argv[]);
 
 int		ft_count_words(char	*str, char c);
 int		*ft_atoi_n_split(int *array, char *str, int i, int rows);
@@ -50,7 +51,7 @@ int		el_protector(int *int_array, char *argv[], int len);
 
 char	*ft_strdup(char *s);
 char	*ft_itoa(int n);
-int		duplicate_sec(int *int_array);
+int		duplicate_sec(int *int_array, int len);
 
 size_t	ft_strlcpy(char *dst, char *src, size_t size);
 int		ft_strcmp(char *str1, char *str2);

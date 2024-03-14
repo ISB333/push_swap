@@ -39,12 +39,12 @@ void	add_node(t_stack **stack, int value)
 	}
 }
 
-void	initialize_stacks(int *array, t_stack **stack_a)
+void	initialize_stacks(int *array, t_stack **stack_a, int len)
 {
 	int	i;	
 
 	i = 0;
-	while (array[i])
+	while (len-- > 0)
 		add_node (&*stack_a, array[i++]);
 	free(array);
 }
@@ -61,30 +61,16 @@ int	*int_array_init(char *str)
 	return (ft_atoi_n_split(array, str, 0, -1));
 }
 
-char	*argv_join(char *str1, char *str2)
+char	*argv_join_all(char *argv[])
 {
 	char	*str;
 	int		i;
-	int		k;
 
-	i = 0;
-	k = 0;
-	str = malloc(ft_strlen(str1) + ft_strlen(str2) + 2);
-	if (!str)
-		return (NULL);
-	if (str1 != NULL)
-	{
-		while (str1[i])
-		{
-			str[i] = str1[i];
-			i++;
-		}
-	}
-	while (str2[k])
-		str[i++] = str2[k++];
-	str[i] = ' ';
-	str[++i] = '\0';
-	return (free(str1), str);
+	i = 1;
+	str = NULL;
+	while (argv[i])
+		str = argv_join(str, argv[i++]);
+	return (str);
 }
 
 int	*initializer(char *argv[])
@@ -92,22 +78,19 @@ int	*initializer(char *argv[])
 	char	*str;
 	int		*array;
 	int		sec;
-	int		i;
 
 	sec = security_check(argv);
 	if (sec == -1)
 		return (0);
-	str = NULL;
-	i = 1;
-	while (argv[i])
-		str = argv_join(str, argv[i++]);
+	str = argv_join_all(argv);
 	array = int_array_init(str);
 	if (array[0] == 0)
 		return (free(array), free(str), (int *)0);
-	i = 0;
-	while (array[i])
-		i++;
-	sec = el_protector(array, argv, i);
+	// i = 0;
+	// while (array[i])
+	// 	i++;
+	// printf("count_words = %d\ni = %d\n", ft_count_words(str, ' '), i);
+	sec = el_protector(array, argv, ft_count_words(str, ' '));
 	free(str);
 	if (sec != 0)
 		return (free(array), (int *)0);

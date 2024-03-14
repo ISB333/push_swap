@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: isb3 <isb3@student.42.fr>                  +#+  +:+       +#+         #
+#    By: adesille <adesille@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/02/08 13:22:58 by adesille          #+#    #+#              #
-#    Updated: 2024/03/05 14:42:22 by isb3             ###   ########.fr        #
+#    Updated: 2024/03/14 13:09:52 by adesille         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,7 +30,7 @@ UTILS = ./algo/utils/algo_utils.c ./algo/utils/algo_utils2.c \
 OPE = ./algo/ope/push.c ./algo/ope/swap.c ./algo/ope/rotate.c \
        ./algo/ope/reverse_rotate.c
 
-INIT = ./init/init_list.c ./init/init_utils.c 
+INIT = ./init/init_list.c ./init/init_utils.c ./init/init_utils2.c
 		
 PROT = ./protect/protect.c ./protect/protect_utils_1.c \
        ./protect/protect_utils_2.c 
