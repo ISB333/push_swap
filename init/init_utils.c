@@ -6,7 +6,7 @@
 /*   By: adesille <adesille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/09 11:40:28 by adesille          #+#    #+#             */
-/*   Updated: 2024/03/14 12:27:27 by adesille         ###   ########.fr       */
+/*   Updated: 2024/03/14 13:24:29 by adesille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,13 +49,10 @@ int	*ft_atoi_n_split(int *array, char *str, int i, int rows)
 				i++;
 			while (str[i] >= '0' && str[i] <= '9')
 				n = (n * 10) + (str[i++] - '0');
-			// if (n == 0)
-			// 	return (array[0] = 0, array);
 			array[++rows] = n * sign;
 		}
 		i++;
 	}
-	// array[++rows] = 0;
 	return (array);
 }
 
@@ -101,15 +98,6 @@ int	duplicate_sec(int *int_array, int len)
 				return (ft_putstr("Duplicates found\n"), -1);
 		}
 	}
-	// while (int_array[++i])
-	// {
-	// 	k = -1;
-	// 	while (int_array[++k])
-	// 	{
-	// 		if (k != i && int_array[k] == int_array[i])
-	// 			return (ft_putstr("Duplicates found\n"), -1);
-	// 	}
-	// }
 	return (0);
 }
 

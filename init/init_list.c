@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: adesille <adesille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/09 11:36:46 by adesille          #+#    #+#             */
-/*   Updated: 2024/03/ by adesille         ###   ########.fr       */
+/*   Created: 2024/03/14 13:13:55 by adesille          #+#    #+#             */
+/*   Updated: 2024/03/14 13:14:14 by adesille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,10 +86,6 @@ int	*initializer(char *argv[])
 	array = int_array_init(str);
 	if (array[0] == 0)
 		return (free(array), free(str), (int *)0);
-	// i = 0;
-	// while (array[i])
-	// 	i++;
-	// printf("count_words = %d\ni = %d\n", ft_count_words(str, ' '), i);
 	sec = el_protector(array, argv, ft_count_words(str, ' '));
 	free(str);
 	if (sec != 0)

@@ -6,7 +6,7 @@
 /*   By: adesille <adesille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/27 13:36:48 by adesille          #+#    #+#             */
-/*   Updated: 2024/03/13 14:06:23 by adesille         ###   ########.fr       */
+/*   Updated: 2024/03/14 13:15:07 by adesille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,7 @@ void	three_sorter_stack_a(t_stack **stack_a)
 	stack = *stack_a;
 	if (ruler(*stack_a) == 2)
 	{
-		if((*stack_a)->value > (*stack_a)->next->value)
+		if ((*stack_a)->value > (*stack_a)->next->value)
 		{
 			sa(stack_a);
 			return ;
