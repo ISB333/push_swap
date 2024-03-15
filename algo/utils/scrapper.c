@@ -6,7 +6,7 @@
 /*   By: adesille <adesille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/28 08:43:59 by adesille          #+#    #+#             */
-/*   Updated: 2024/03/14 14:35:37 by adesille         ###   ########.fr       */
+/*   Updated: 2024/03/15 10:23:10 by adesille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,16 +22,16 @@ int	not_in_extract(int *lowest, int value, int n)
 	return (0);
 }
 
-int	not_in(int *lowest, int value)
+int	not_in(int *lowest, int value, int n)
 {
 	int	i;
 
-	i = 0;
-	while (lowest[i])
+	i = n;
+	while (i-- > 0)
 	{
 		if (lowest[i] == value)
 			return (-1);
-		i++;
+		// i++;
 	}
 	return (0);
 }
@@ -73,7 +73,7 @@ int	*half_n_scrapper(int *lowest, int n)
 
 	largest = ft_calloc((n / 2), sizeof(int));
 	i = -1;
-	while (lowest[++i])
+	while (++i < n)
 	{
 		k = -1;
 		while (++k < (n / 2))

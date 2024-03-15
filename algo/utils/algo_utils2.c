@@ -6,7 +6,7 @@
 /*   By: adesille <adesille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/14 13:15:12 by adesille          #+#    #+#             */
-/*   Updated: 2024/03/14 13:15:17 by adesille         ###   ########.fr       */
+/*   Updated: 2024/03/15 10:51:29 by adesille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ size_t	n_selector(t_stack *stack_a)
 	a_size = ruler(stack_a);
 	if (a_size <= 15)
 		return (4);
-	else if (a_size <= 30)
+	else if (a_size <= 40)
 		return (8);
 	else if (a_size <= 60)
 		return (16);

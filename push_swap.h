@@ -6,7 +6,7 @@
 /*   By: adesille <adesille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/17 15:28:12 by isb3              #+#    #+#             */
-/*   Updated: 2024/03/14 14:33:36 by adesille         ###   ########.fr       */
+/*   Updated: 2024/03/15 10:23:17 by adesille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,7 +75,7 @@ void	free_int(int *int_arr1, int *int_arr2);
 
 void	extractor(t_stack **stack_a, t_stack **stack_b, int n, int i);
 
-int		not_in(int *lowest, int value);
+int		not_in(int *lowest, int value, int n);
 int		not_in_extract(int *lowest, int value, int n);
 int		*largest_scrapper(t_stack *stack_a, int n, int i, int j);
 int		*half_n_scrapper(int *lowest, int n);
