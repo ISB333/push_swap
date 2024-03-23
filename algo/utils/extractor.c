@@ -6,7 +6,7 @@
 /*   By: adesille <adesille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/03 10:25:36 by isb3              #+#    #+#             */
-/*   Updated: 2024/03/15 10:45:09 by adesille         ###   ########.fr       */
+/*   Updated: 2024/03/23 16:09:56 by adesille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ char	side_selector(int *lowest, int *largest, t_stack *stack_a, int n)
 
 int	pusher(t_stack **stack_a, t_stack **stack_b, int *largest, int n)
 {
-	if (!not_in_extract(largest, (*stack_a)->value, n/2))
+	if (!not_in_extract(largest, (*stack_a)->value, n / 2))
 	{
 		pb(stack_a, stack_b);
 		if ((*stack_b)->next && (*stack_b)->value < (*stack_b)->next->value)
@@ -74,6 +74,8 @@ int	pusher(t_stack **stack_a, t_stack **stack_b, int *largest, int n)
 		rb(stack_b);
 		if ((*stack_b)->next && (*stack_b)->value < (*stack_b)->next->value)
 			sb(stack_b);
+		if ((*stack_a) && (*stack_a)->value < (*stack_b)->value)
+			pb(stack_a, stack_b);
 	}
 	return (1);
 }
@@ -89,7 +91,7 @@ void	extractor(t_stack **stack_a, t_stack **stack_b, int n, int i)
 		lowest = n_smallest_scrapper((*stack_a), n);
 		largest = half_n_scrapper(lowest, n);
 		i = n + 1;
-		while (--i >= 0)
+		while(i-- > 0)
 			if ((*stack_a) && (*stack_a)->value == lowest[i])
 				pusher(stack_a, stack_b, largest, n);
 		ra(stack_a);

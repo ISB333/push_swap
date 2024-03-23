@@ -6,7 +6,7 @@
 /*   By: adesille <adesille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/08 17:29:02 by adesille          #+#    #+#             */
-/*   Updated: 2024/03/14 13:34:15 by adesille         ###   ########.fr       */
+/*   Updated: 2024/03/23 15:20:29 by adesille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,7 +105,6 @@ void	printer(t_stack *stack_a, t_stack *stack_b, int c)
 	printf("===================================================================================\n");
 }
 
-/// NEED TO MANAGE SHIT LIKE THIS :  +000000 -000 000000  INT_MAX
 
 int	main(int argc, char *argv[])
 {
