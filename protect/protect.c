@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   protect.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: adesille <adesille@student.42.fr>          +#+  +:+       +#+        */
+/*   By: isb3 <isb3@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/17 11:54:15 by adesille          #+#    #+#             */
-/*   Updated: 2024/03/14 13:22:45 by adesille         ###   ########.fr       */
+/*   Updated: 2024/03/25 11:20:01 by isb3             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,9 @@ void	freememory(char **array)
 
 	i = 0;
 	while (array[i])
-		free(array[i++]);
+		i++;
+	while (i-- > 0)
+		free(array[i]);
 	free(array);
 }
 
@@ -77,12 +79,10 @@ int	el_protector(int *int_array, char *argv[], int len)
 {
 	char	**after_itoa;
 	char	**initial_array;
-	size_t	k;
 	int		secu;
 	int		len_tmp;
 
 	secu = 0;
-	k = -1;
 	len_tmp = len;
 	after_itoa = (char **)malloc((len + 1) * sizeof(char *));
 	if (!after_itoa)

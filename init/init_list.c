@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init_list.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: adesille <adesille@student.42.fr>          +#+  +:+       +#+        */
+/*   By: isb3 <isb3@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/14 13:13:55 by adesille          #+#    #+#             */
-/*   Updated: 2024/03/14 13:14:14 by adesille         ###   ########.fr       */
+/*   Updated: 2024/03/25 12:44:55 by isb3             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ int	*int_array_init(char *str)
 	array = (int *)malloc((rows + 1) * sizeof(int));
 	if (!array)
 		return (NULL);
-	return (ft_atoi_n_split(array, str, 0, -1));
+	return (ft_atoi_n_split(array, str, -1, -1, 0));
 }
 
 char	*argv_join_all(char *argv[])
@@ -81,15 +81,15 @@ int	*initializer(char *argv[])
 
 	sec = security_check(argv);
 	if (sec == -1)
-		return (0);
+		return ((int *)-1);
 	str = argv_join_all(argv);
 	array = int_array_init(str);
-	if (array[0] == 0)
-		return (free(array), free(str), (int *)0);
+	if (array[0] == 0 && !array[1])
+		return (free(array), free(str), (int *)-1);
 	sec = el_protector(array, argv, ft_count_words(str, ' '));
 	free(str);
 	if (sec != 0)
-		return (free(array), (int *)0);
+		return (free(array), (int *)-1);
 	else
 		return (array);
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: adesille <adesille@student.42.fr>          +#+  +:+       +#+        */
+/*   By: isb3 <isb3@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/08 17:29:02 by adesille          #+#    #+#             */
-/*   Updated: 2024/03/23 15:20:29 by adesille         ###   ########.fr       */
+/*   Updated: 2024/03/25 12:46:19 by isb3             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -120,7 +120,7 @@ int	main(int argc, char *argv[])
 	else
 	{
 		array = initializer(argv);
-		if (array == 0)
+		if (array == (int *)-1)
 			return (ft_putstr("Error\n"), 0);
 		str = argv_join_all(argv);
 		initialize_stacks(array, &stack_a, ft_count_words(str, ' '));

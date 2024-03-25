@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init_utils.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: adesille <adesille@student.42.fr>          +#+  +:+       +#+        */
+/*   By: isb3 <isb3@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/09 11:40:28 by adesille          #+#    #+#             */
-/*   Updated: 2024/03/14 13:24:29 by adesille         ###   ########.fr       */
+/*   Updated: 2024/03/25 12:45:34 by isb3             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,12 +31,11 @@ int	ft_count_words(char	*str, char c)
 	return (rows);
 }
 
-int	*ft_atoi_n_split(int *array, char *str, int i, int rows)
+int	*ft_atoi_n_split(int *array, char *str, int i, int rows, int n)
 {
 	int	sign;
-	int	n;
 
-	while (str[i])
+	while (str[++i])
 	{
 		sign = 1;
 		n = 0;
@@ -45,13 +44,12 @@ int	*ft_atoi_n_split(int *array, char *str, int i, int rows)
 		{
 			if (str[i] == '-' && i++ >= 0)
 				sign = -1;
-			while (str[i] == '0')
+			while (str[i] == '0' && str[i + 1 != ' '])
 				i++;
 			while (str[i] >= '0' && str[i] <= '9')
 				n = (n * 10) + (str[i++] - '0');
 			array[++rows] = n * sign;
 		}
-		i++;
 	}
 	return (array);
 }
@@ -95,7 +93,7 @@ int	duplicate_sec(int *int_array, int len)
 		while (k-- > 0)
 		{
 			if (k != i && int_array[k] == int_array[i])
-				return (ft_putstr("Duplicates found\n"), -1);
+				return (-1);
 		}
 	}
 	return (0);
