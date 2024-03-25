@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   scrapper.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: adesille <adesille@student.42.fr>          +#+  +:+       +#+        */
+/*   By: isb3 <isb3@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/28 08:43:59 by adesille          #+#    #+#             */
-/*   Updated: 2024/03/15 10:23:10 by adesille         ###   ########.fr       */
+/*   Updated: 2024/03/25 13:38:50 by isb3             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,16 +71,17 @@ int	*half_n_scrapper(int *lowest, int n)
 	int	k;
 	int	j;
 
-	largest = ft_calloc((n / 2), sizeof(int));
+	n /= 4;
+	largest = ft_calloc((n), sizeof(int));
 	i = -1;
 	while (++i < n)
 	{
 		k = -1;
-		while (++k < (n / 2))
+		while (++k < (n))
 		{
 			if (lowest[i] > largest[k])
 			{
-				j = (n / 2);
+				j = (n);
 				while (--j > k)
 					largest[j] = largest[j - 1];
 				largest[k] = lowest[i];

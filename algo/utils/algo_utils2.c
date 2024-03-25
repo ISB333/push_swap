@@ -3,14 +3,20 @@
 /*                                                        :::      ::::::::   */
 /*   algo_utils2.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: adesille <adesille@student.42.fr>          +#+  +:+       +#+        */
+/*   By: isb3 <isb3@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/14 13:15:12 by adesille          #+#    #+#             */
-/*   Updated: 2024/03/23 15:46:18 by adesille         ###   ########.fr       */
+/*   Updated: 2024/03/25 14:08:27 by isb3             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
+
+// void	cost_init(t_stack *stack_a)
+// {
+
+
+// }
 
 size_t	n_selector(t_stack *stack_a)
 {
@@ -19,16 +25,16 @@ size_t	n_selector(t_stack *stack_a)
 	if (!stack_a || !stack_a->next)
 		return (0);
 	a_size = ruler(stack_a);
-	if (a_size <= 40)
-		return (10);
+	if (a_size <= 30)
+		return (a_size / 3);
 	else if (a_size <= 60)
-		return (15);
+		return (a_size / 4);
 	else if (a_size <= 100)
-		return (20);
+		return (a_size / 5);
 	else if (a_size <= 300)
-		return (25);
+		return (a_size / 9);
 	else if (a_size <= 500)
-		return (30);
+		return (a_size / 12);
 	return (0);
 }
 

@@ -6,7 +6,7 @@
 /*   By: isb3 <isb3@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/17 15:28:12 by isb3              #+#    #+#             */
-/*   Updated: 2024/03/25 12:29:12 by isb3             ###   ########.fr       */
+/*   Updated: 2024/03/25 13:37:35 by isb3             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ typedef struct s_stack
 {
 	int				value;
 	size_t			position;
+	int				cost;
 	struct s_stack	*prev;
 	struct s_stack	*next;
 }				t_stack;

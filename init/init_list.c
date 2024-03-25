@@ -6,7 +6,7 @@
 /*   By: isb3 <isb3@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/14 13:13:55 by adesille          #+#    #+#             */
-/*   Updated: 2024/03/25 12:44:55 by isb3             ###   ########.fr       */
+/*   Updated: 2024/03/25 13:31:29 by isb3             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ void	initialize_stacks(int *array, t_stack **stack_a, int len)
 
 	i = 0;
 	while (len-- > 0)
-		add_node (&*stack_a, array[i++]);
+		add_node (stack_a, array[i++]);
 	free(array);
 }
 

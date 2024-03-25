@@ -5,8 +5,8 @@ EXECUTABLE="./push_swap"
 # Function to generate a series of 5 random integers without duplicates
 generate_random_series() {
   series=()
-  while (( ${#series[@]} < 50 )); do
-    new_num=$((RANDOM % 50 + 1))
+  while (( ${#series[@]} < 100 )); do
+    new_num=$((RANDOM % 100 + 1))
     if [[ ! " ${series[@]} " =~ " $new_num " ]]; then
       series+=( "$new_num" )
     fi
@@ -15,7 +15,7 @@ generate_random_series() {
 }
 
 # Execute the executable with different series
-for ((i = 1; i <= 1; i++)); do
+for ((i = 1; i <= 2; i++)); do
   SERIES=$(generate_random_series)
   echo "Executing run $i with series: $SERIES"
   echo "-------------------------------------"
