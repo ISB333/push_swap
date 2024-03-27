@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   protect.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: isb3 <isb3@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: adesille <adesille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/17 11:54:15 by adesille          #+#    #+#             */
-/*   Updated: 2024/03/25 11:20:01 by isb3             ###   ########.fr       */
+/*   Updated: 2024/03/27 11:30:41 by adesille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,6 +92,8 @@ int	el_protector(int *int_array, char *argv[], int len)
 		after_itoa[len] = ft_itoa(int_array[len]);
 	initial_array = argv_init(argv);
 	secu = overflow_checker(after_itoa, initial_array);
+	if (secu != 0)
+		return (-1);
 	secu = duplicate_sec(int_array, len_tmp);
 	freememory(after_itoa);
 	freememory(initial_array);

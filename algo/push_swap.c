@@ -6,7 +6,7 @@
 /*   By: adesille <adesille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/03 10:59:46 by isb3              #+#    #+#             */
-/*   Updated: 2024/03/22 14:07:05 by adesille         ###   ########.fr       */
+/*   Updated: 2024/03/27 11:20:14 by adesille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ void	push_swap(t_stack **stack_a, t_stack **stack_b)
 		five_sorter_stack_a(stack_a, stack_b);
 	else
 	{
-		extractor(stack_a, stack_b, n_selector(*stack_a), 0);
+		extractor(stack_a, stack_b, 0, 0);
 		while (*stack_a)
 			pb(stack_a, stack_b);
 		sorter(stack_a, stack_b);

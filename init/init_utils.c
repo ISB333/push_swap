@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init_utils.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: isb3 <isb3@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: adesille <adesille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/09 11:40:28 by adesille          #+#    #+#             */
-/*   Updated: 2024/03/25 12:45:34 by isb3             ###   ########.fr       */
+/*   Updated: 2024/03/27 11:27:32 by adesille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,9 +31,10 @@ int	ft_count_words(char	*str, char c)
 	return (rows);
 }
 
-int	*ft_atoi_n_split(int *array, char *str, int i, int rows, int n)
+int	*ft_atoi_n_split(int *array, char *str, int i, int rows)
 {
 	int	sign;
+	int	n;
 
 	while (str[++i])
 	{

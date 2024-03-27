@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: isb3 <isb3@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: adesille <adesille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/17 15:28:12 by isb3              #+#    #+#             */
-/*   Updated: 2024/03/25 13:37:35 by isb3             ###   ########.fr       */
+/*   Updated: 2024/03/27 11:27:54 by adesille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ size_t	ft_strlcat(char *dst, char *src, size_t size);
 char	*argv_join_all(char *argv[]);
 
 int		ft_count_words(char	*str, char c);
-int		*ft_atoi_n_split(int *array, char *str, int i, int rows, int n);
+int		*ft_atoi_n_split(int *array, char *str, int i, int rows);
 int		security_check(char *argv[]);
 int		ft_strlen(char *str);
 

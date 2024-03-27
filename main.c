@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: isb3 <isb3@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: adesille <adesille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/08 17:29:02 by adesille          #+#    #+#             */
-/*   Updated: 2024/03/25 14:13:52 by isb3             ###   ########.fr       */
+/*   Updated: 2024/03/27 11:21:25 by adesille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,6 +86,8 @@ void	printer(t_stack *stack_a, t_stack *stack_b, int c)
 			printf("Val:    %d\n", stack_a->value);
 			printf("\033[0;32m");
 			printf("Pos: %ld\n", stack_a->position);
+			printf("\033[0;31m");
+			printf("Cost: %d\n", stack_a->cost);
 			printf("\033[0;37m");
 			stack_a = stack_a->next;
 		}
@@ -109,7 +111,6 @@ void	printer(t_stack *stack_a, t_stack *stack_b, int c)
 ////////////// TEST WITH COST_INIT CONDITION /////////////////
 ///////////// +++ Overflow_protect NOT Working ///////////////
 
-
 int	main(int argc, char *argv[])
 {
 	t_stack	*stack_a;
@@ -132,8 +133,7 @@ int	main(int argc, char *argv[])
 			return (lst_freememory(stack_a, stack_b), 0);
 		else
 			push_swap(&stack_a, &stack_b);
-		true_sorting_check(stack_a);
-		// printer(stack_a, stack_b, 2);
+		// true_sorting_check(stack_a);
 		return(free(str), lst_freememory(stack_a, stack_b), 0);
 	}
 }

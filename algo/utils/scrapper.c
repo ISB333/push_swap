@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   scrapper.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: isb3 <isb3@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: adesille <adesille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/28 08:43:59 by adesille          #+#    #+#             */
-/*   Updated: 2024/03/25 13:38:50 by isb3             ###   ########.fr       */
+/*   Updated: 2024/03/27 11:25:29 by adesille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,6 @@ int	not_in(int *lowest, int value, int n)
 	{
 		if (lowest[i] == value)
 			return (-1);
-		// i++;
 	}
 	return (0);
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init_list.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: isb3 <isb3@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: adesille <adesille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/14 13:13:55 by adesille          #+#    #+#             */
-/*   Updated: 2024/03/25 13:31:29 by isb3             ###   ########.fr       */
+/*   Updated: 2024/03/27 11:27:38 by adesille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ int	*int_array_init(char *str)
 	array = (int *)malloc((rows + 1) * sizeof(int));
 	if (!array)
 		return (NULL);
-	return (ft_atoi_n_split(array, str, -1, -1, 0));
+	return (ft_atoi_n_split(array, str, -1, -1));
 }
 
 char	*argv_join_all(char *argv[])

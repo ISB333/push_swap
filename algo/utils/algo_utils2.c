@@ -3,20 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   algo_utils2.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: isb3 <isb3@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: adesille <adesille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/14 13:15:12 by adesille          #+#    #+#             */
-/*   Updated: 2024/03/25 14:08:27 by isb3             ###   ########.fr       */
+/*   Updated: 2024/03/27 11:07:29 by adesille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
-
-// void	cost_init(t_stack *stack_a)
-// {
-
-
-// }
 
 size_t	n_selector(t_stack *stack_a)
 {
